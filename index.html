@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intelligement - Tech Training & Career Launchpad (Design Prototype)</title>
     <meta name="description" content="Intelligement provides industry-focused tech training for university students in Pakistan. Fullstack Web Development & AI Automation.">
-    <link rel="icon" type="image/png" href="../IntelligementApp/wwwroot/favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,17 +34,19 @@
     <header class="main-navbar" id="navbar">
         <div class="container nav-container">
             <a href="#home" class="brand-logo-link" onclick="switchView('landing', document.querySelector('.prototype-tab-btn:first-child'))">
-                <img src="../IntelligementApp/wwwroot/logos/Intelligement.png" alt="Intelligement Logo" class="brand-logo-img">
+                <img src="logos/Intelligement.png" alt="Intelligement Logo" class="brand-logo-img">
             </a>
 
             <nav>
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#programs" class="nav-link">Training Programs</a></li>
+                    <li><a href="#curriculum" class="nav-link">Curriculum</a></li>
+                    <li><a href="#journey" class="nav-link">Journey</a></li>
                     <li><a href="#mvps" class="nav-link">MVPs</a></li>
                     <li><a href="#brands" class="nav-link">Brands</a></li>
                     <li><a href="#success" class="nav-link">Wall of Glory</a></li>
                     <li><a href="#interns" class="nav-link">Interns</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
                     <li><a href="javascript:void(0)" onclick="switchView('contact', document.querySelectorAll('.prototype-tab-btn')[2])" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
@@ -68,103 +70,446 @@
          =================================================================== -->
     <main id="view-landing" class="view-panel">
         
-        <!-- Hero Section -->
+        <!-- ===============================================================
+             P1: HERO SECTION (MODERN SPLIT-LAYOUT)
+             =============================================================== -->
         <section class="hero-section" id="home">
-            <div class="container">
-                <div class="hero-img-container">
-                    <img src="../IntelligementApp/wwwroot/logos/im-bg.png" alt="Students collaborating at Intelligement" class="hero-img">
+            <div class="container hero-container">
+                <!-- Hero Left Column: Narrative, Value Proposition & CTA -->
+                <div class="hero-content">
+                    <div class="admissions-badge">
+                        <span class="pulse-dot"></span>
+                        <span>Admissions Open: <strong>Batch 2026-B</strong> • Early-Bird Cohort</span>
+                    </div>
+
+                    <h1 class="hero-headline">
+                        From University Student to <span class="text-gradient-blue">Industry-Ready</span> Software Engineer.
+                    </h1>
+
+                    <p class="hero-sublead">
+                        A 1-year weekend-based immersive training program in <strong>Fullstack Web Development</strong> &amp; <strong>AI Automation</strong>. Build commercial MVPs, receive 1-on-1 mentorship from tech leaders, and graduate with a verified job-ready portfolio.
+                    </p>
+
+                    <div class="hero-cta-wrapper">
+                        <button class="btn btn-primary btn-lg" onclick="switchView('apply', document.querySelectorAll('.prototype-tab-btn')[1])">
+                            <i class="bi bi-rocket-takeoff-fill"></i> Apply Now (Early-Bird)
+                        </button>
+                        <a href="#curriculum" class="btn btn-outline-primary btn-lg">
+                            <i class="bi bi-journal-code"></i> Explore Curriculum
+                        </a>
+                    </div>
+
+                    <div class="hero-trust-row">
+                        <div class="trust-item">
+                            <i class="bi bi-calendar-check-fill text-success-brand"></i>
+                            <span>100% Weekend-Friendly</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="bi bi-people-fill text-primary-brand"></i>
+                            <span>500+ Mentored</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="bi bi-patch-check-fill text-warning-brand"></i>
+                            <span>Air University Partner</span>
+                        </div>
+                    </div>
                 </div>
 
-                <h1 class="hero-headline">
-                    <span class="text-primary-brand">Intelligement</span> early-bird initiative for university students providing 
-                    <span class="text-warning-brand">real-world experience</span>, 
-                    <span class="text-danger-brand">mentorship</span>, and a 
-                    <span class="text-success-brand">launchpad</span> for successful tech careers.
-                </h1>
+                <!-- Hero Right Column: Interactive Visual Frame & Floating Badges -->
+                <div class="hero-visual-wrapper">
+                    <div class="hero-card-frame">
+                        <img src="logos/im-bg.png" alt="Students collaborating at Intelligement Lab" class="hero-img">
+                        
+                        <!-- Floating Glassmorphic Achievement Badges -->
+                        <div class="floating-badge badge-top-right">
+                            <div class="badge-icon icon-rocket"><i class="bi bi-rocket-takeoff-fill"></i></div>
+                            <div class="badge-content">
+                                <span class="badge-num">8+ Live MVPs</span>
+                                <span class="badge-desc">Shipped to Market</span>
+                            </div>
+                        </div>
 
-                <div class="hero-cta-wrapper">
-                    <button class="btn btn-primary btn-lg" onclick="switchView('apply', document.querySelectorAll('.prototype-tab-btn')[1])">
-                        <i class="bi bi-send-check-fill"></i> Apply Now (Early-Bird)
-                    </button>
-                    <a href="#programs" class="btn btn-outline-primary btn-lg">
-                        <i class="bi bi-compass-fill"></i> Explore Training Programs
-                    </a>
+                        <div class="floating-badge badge-bottom-left">
+                            <div class="badge-icon icon-star"><i class="bi bi-star-fill"></i></div>
+                            <div class="badge-content">
+                                <span class="badge-num">4.9 / 5.0</span>
+                                <span class="badge-desc">Alumni Rating</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-bottom-right">
+                            <div class="badge-icon icon-mentor"><i class="bi bi-mortarboard-fill"></i></div>
+                            <div class="badge-content">
+                                <span class="badge-num">1-on-1 Guidance</span>
+                                <span class="badge-desc">PhD &amp; Industry Mentors</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Programs / Features Section -->
-        <section class="programs-section" id="programs">
+        <!-- ===============================================================
+             P1: BY THE NUMBERS METRICS BAR
+             =============================================================== -->
+        <section class="metrics-bar-section">
+            <div class="container">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon-circle icon-green">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <div class="metric-text-group">
+                            <div class="metric-number">500+</div>
+                            <div class="metric-label">University Students Mentored</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon-circle icon-blue">
+                            <i class="bi bi-rocket-takeoff-fill"></i>
+                        </div>
+                        <div class="metric-text-group">
+                            <div class="metric-number">8+</div>
+                            <div class="metric-label">Live Commercial MVPs Deployed</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon-circle icon-yellow">
+                            <i class="bi bi-laptop-fill"></i>
+                        </div>
+                        <div class="metric-text-group">
+                            <div class="metric-number">100%</div>
+                            <div class="metric-label">Practical Project-Based Learning</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon-circle icon-red">
+                            <i class="bi bi-calendar-week-fill"></i>
+                        </div>
+                        <div class="metric-text-group">
+                            <div class="metric-number">Weekend</div>
+                            <div class="metric-label">Aligned with Degree Schedules</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===============================================================
+             P1: CURRICULUM & TECH STACK ROADMAP
+             =============================================================== -->
+        <section class="curriculum-section" id="curriculum">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title title-primary">More than<br>Just a Training Program</h2>
-                    <p class="section-subtitle">We bridge the gap between university theory and industry practice.</p>
+                    <h2 class="section-title title-primary">Industry-Engineered<br>Curriculum Roadmap</h2>
+                    <p class="section-subtitle">We bridge the gap between academic theory and production-grade software engineering through a structured, 4-phase mastery track.</p>
                 </div>
 
-                <div class="cards-grid-3">
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper">
-                            <i class="bi bi-laptop"></i>
+                <div class="curriculum-grid-4">
+                    <!-- Phase 1 -->
+                    <div class="curriculum-card phase-1">
+                        <span class="curriculum-phase-tag">Phase 01 • Months 1-3</span>
+                        <h3 class="curriculum-title">Modern Web Engineering &amp; UI Architecture</h3>
+                        <p class="curriculum-desc">Master the foundations of scalable, responsive web systems with modern web standards and design principles.</p>
+                        <ul class="curriculum-bullets">
+                            <li><i class="bi bi-check-circle-fill"></i> Semantic HTML5 &amp; Modern CSS Architecture</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Advanced JavaScript ES6+ &amp; DOM Engineering</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Component Systems &amp; Responsive Layouts</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Git, GitHub Collaboration &amp; Code Reviews</li>
+                        </ul>
+                        <div class="curriculum-milestone">
+                            <i class="bi bi-flag-fill text-primary-brand"></i> Milestone: Production-Grade Responsive Web App
                         </div>
-                        <h3 class="feature-title">Immersive Learning</h3>
-                        <p class="feature-desc">Weekend-based, year-long program in Fullstack Web Development with integrated AI Automation. Learn by doing, not just watching.</p>
                     </div>
 
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper">
-                            <i class="bi bi-terminal"></i>
+                    <!-- Phase 2 -->
+                    <div class="curriculum-card phase-2">
+                        <span class="curriculum-phase-tag">Phase 02 • Months 4-6</span>
+                        <h3 class="curriculum-title">Enterprise Backend &amp; Cloud Database APIs</h3>
+                        <p class="curriculum-desc">Architect robust server-side business logic, relational schemas, secure authentication, and high-performance REST APIs.</p>
+                        <ul class="curriculum-bullets">
+                            <li><i class="bi bi-check-circle-fill"></i> C# Language Mastery &amp; .NET 8 Framework</li>
+                            <li><i class="bi bi-check-circle-fill"></i> ASP.NET Core Web APIs &amp; Middleware</li>
+                            <li><i class="bi bi-check-circle-fill"></i> SQL Server, Stored Procedures &amp; ADO.NET</li>
+                            <li><i class="bi bi-check-circle-fill"></i> OAuth 2.0, Cookies &amp; Enterprise Security</li>
+                        </ul>
+                        <div class="curriculum-milestone">
+                            <i class="bi bi-flag-fill text-primary-brand"></i> Milestone: Scalable Multi-Tier Database &amp; API Service
                         </div>
-                        <h3 class="feature-title">Real-World Projects</h3>
-                        <p class="feature-desc">We don't build toy projects. We identify business problems and develop real software solutions that are deployed to actual clients.</p>
                     </div>
 
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper">
-                            <i class="bi bi-graph-up-arrow"></i>
+                    <!-- Phase 3 -->
+                    <div class="curriculum-card phase-3">
+                        <span class="curriculum-phase-tag">Phase 03 • Months 7-9</span>
+                        <h3 class="curriculum-title">AI Automation &amp; Intelligent Workflows</h3>
+                        <p class="curriculum-desc">Augment software applications with cutting-edge AI capabilities, LLM integration, and agentic process automation.</p>
+                        <ul class="curriculum-bullets">
+                            <li><i class="bi bi-check-circle-fill"></i> LLM API Integration (OpenAI, Gemini, Anthropic)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Prompt Engineering &amp; Structured JSON Outputs</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Autonomous Agent Workflows &amp; Tool Calling</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Automated Data Extraction &amp; Business Bots</li>
+                        </ul>
+                        <div class="curriculum-milestone">
+                            <i class="bi bi-flag-fill" style="color: var(--accent-purple);"></i> Milestone: Intelligent AI-Powered SaaS Application
                         </div>
-                        <h3 class="feature-title">Career Launchpad</h3>
-                        <p class="feature-desc">Graduate with a portfolio, an internship certificate, and the skills to earn through freelancing or land a top tech internship.</p>
+                    </div>
+
+                    <!-- Phase 4 -->
+                    <div class="curriculum-card phase-4">
+                        <span class="curriculum-phase-tag">Phase 04 • Months 10-12</span>
+                        <h3 class="curriculum-title">Commercial Client MVP &amp; Launchpad</h3>
+                        <p class="curriculum-desc">Form agile startup pods to build, deploy, and support a live, commercial product for actual business clients.</p>
+                        <ul class="curriculum-bullets">
+                            <li><i class="bi bi-check-circle-fill"></i> Agile Sprint Planning &amp; Product Management</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Production CI/CD, Domain &amp; Cloud Deployment</li>
+                            <li><i class="bi bi-check-circle-fill"></i> User Feedback, Bug Tracking &amp; Iteration</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Portfolio Defense, LinkedIn &amp; Career Placement</li>
+                        </ul>
+                        <div class="curriculum-milestone">
+                            <i class="bi bi-flag-fill text-success-brand"></i> Milestone: Shipped Commercial MVP on Wall of Glory
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technologies Taught Strip -->
+                <div class="tech-stack-strip">
+                    <div class="tech-stack-label">
+                        <i class="bi bi-cpu-fill text-primary-brand"></i> Industry Technologies You Will Master:
+                    </div>
+                    <div class="tech-stack-pills">
+                        <span class="tech-pill"><i class="bi bi-filetype-cs text-primary-brand"></i> C#</span>
+                        <span class="tech-pill"><i class="bi bi-window-stack text-primary-brand"></i> .NET 8 / ASP.NET</span>
+                        <span class="tech-pill"><i class="bi bi-filetype-js text-warning-brand"></i> JavaScript (ES6+)</span>
+                        <span class="tech-pill"><i class="bi bi-database-fill text-danger-brand"></i> SQL Server</span>
+                        <span class="tech-pill"><i class="bi bi-robot text-success-brand"></i> AI Agents &amp; LLMs</span>
+                        <span class="tech-pill"><i class="bi bi-git text-danger-brand"></i> Git &amp; GitHub</span>
+                        <span class="tech-pill"><i class="bi bi-cloud-arrow-up-fill text-primary-brand"></i> Cloud Deployment</span>
+                    </div>
+                </div>
+
+                <!-- Schedule Guarantee Box -->
+                <div class="schedule-guarantee-box">
+                    <div class="schedule-icon-wrap">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <div class="schedule-text">
+                        <strong>Designed Exclusively for University Students:</strong> All interactive workshops, code reviews, and mentorship sprints take place on <strong>Saturdays &amp; Sundays</strong>. Project deadlines automatically pause during university midterms and finals, ensuring your GPA is always protected.
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MVP Showcase Section -->
+        <!-- ===============================================================
+             P2: 4-STEP STUDENT JOURNEY ("HOW IT WORKS")
+             =============================================================== -->
+        <section class="journey-section" id="journey">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title title-success">Your 4-Step Journey<br>From Student to Hired Engineer</h2>
+                    <p class="section-subtitle">A proven, transparent blueprint designed to transform university students into confident, production-ready engineers.</p>
+                </div>
+
+                <div class="journey-timeline">
+                    <!-- Step 1 -->
+                    <div class="journey-step-card">
+                        <div class="step-number-bubble">1</div>
+                        <div class="step-icon-wrap">
+                            <i class="bi bi-clipboard2-check-fill"></i>
+                        </div>
+                        <h3 class="step-title">Apply &amp; Pitch</h3>
+                        <p class="step-desc">Submit your academic details and describe a software product idea you are passionate about building. We assess dedication, problem-solving mindset, and drive.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="journey-step-card">
+                        <div class="step-number-bubble">2</div>
+                        <div class="step-icon-wrap">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h3 class="step-title">Weekend Sprints</h3>
+                        <p class="step-desc">Master fullstack engineering, database architecture, and AI automation in intensive weekend labs with zero conflict with your university timetable.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="journey-step-card">
+                        <div class="step-number-bubble">3</div>
+                        <div class="step-icon-wrap">
+                            <i class="bi bi-rocket-takeoff-fill"></i>
+                        </div>
+                        <h3 class="step-title">Ship a Real MVP</h3>
+                        <p class="step-desc">Collaborate in agile teams under senior mentorship to architect, build, test, and deploy a live commercial MVP solving real market problems in Pakistan.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="journey-step-card">
+                        <div class="step-number-bubble">4</div>
+                        <div class="step-icon-wrap">
+                            <i class="bi bi-trophy-fill"></i>
+                        </div>
+                        <h3 class="step-title">Wall of Glory</h3>
+                        <p class="step-desc">Graduate with a live production URL, verified internship credentials, recommendation letters from PhD leadership, and direct employer interviews.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===============================================================
+             P2: APPLIED INNOVATION THROUGH MVP DEVELOPMENT (PRODUCT CARDS)
+             =============================================================== -->
         <section class="mvp-section" id="mvps">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title title-success">Applied Innovation<br>Through MVP Development</h2>
-                    <p class="section-subtitle">These Minimum Viable Products (MVPs) represent our students' ability to transform ideas into market-ready digital solutions.</p>
+                    <p class="section-subtitle">These are not toy demo projects. Our university students design, engineer, and deploy real commercial solutions that solve genuine business problems across Pakistan.</p>
                 </div>
 
-                <div class="logo-grid" style="margin-bottom: 24px;">
-                    <a href="https://mobilexp.pk" target="_blank" class="logo-card" title="MobileXP MVP">
-                        <img src="../IntelligementApp/wwwroot/logos/MobileXP.webp" alt="MobileXP MVP">
-                    </a>
-                    <a href="https://business.careho.pk" target="_blank" class="logo-card" title="CAREHO MVP">
-                        <img src="../IntelligementApp/wwwroot/logos/CAREHO.png" alt="CAREHO MVP">
-                    </a>
-                    <a href="https://gorent.pk" target="_blank" class="logo-card" title="GoRent MVP">
-                        <img src="../IntelligementApp/wwwroot/logos/gorent.png" alt="GoRent MVP">
-                    </a>
-                    <a href="https://pkversity.com" target="_blank" class="logo-card" title="PKVersity MVP">
-                        <img src="../IntelligementApp/wwwroot/logos/pkversity.png" alt="PKVersity MVP">
-                    </a>
-                </div>
+                <div class="mvp-cards-grid">
+                    <!-- MVP 1: CAREHO -->
+                    <div class="mvp-product-card">
+                        <div class="mvp-card-top">
+                            <div class="mvp-logo-badge">
+                                <img src="logos/CAREHO.png" alt="CAREHO MVP">
+                            </div>
+                            <span class="mvp-badge-category cat-health">HealthTech</span>
+                        </div>
+                        <h3 class="mvp-title">CAREHO</h3>
+                        <p class="mvp-desc">Digital healthcare clinic management and patient appointment booking platform streamlining clinical workflows.</p>
+                        <div class="mvp-card-footer">
+                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
+                            <a href="https://business.careho.pk" target="_blank" class="mvp-visit-link">
+                                Visit Live App <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
 
-                <div class="logo-grid">
-                    <a href="https://careerx.pk" target="_blank" class="logo-card" title="CareerX MVP">
-                        <img src="../IntelligementApp/wwwroot/logos/CX.jpeg" alt="CareerX MVP">
-                    </a>
-                    <a href="https://sukhenvar.pk" target="_blank" class="logo-card" title="Sukhenver MVP">
-                        <img src="../IntelligementApp/wwwroot/logos/SV.jpeg" alt="Sukhenver MVP">
-                    </a>
-                    <a href="https://combathome.pk" target="_blank" class="logo-card" title="Combat Home MVP">
-                        <img src="../IntelligementApp/wwwroot/logos/CTH.jpeg" alt="Combat Home MVP">
-                    </a>
-                    <a href="https://layerish.pk" target="_blank" class="logo-card" title="Layerish MVP">
-                        <img src="../IntelligementApp/wwwroot/logos/LB.jpeg" alt="Layerish MVP">
-                    </a>
+                    <!-- MVP 2: MobileXP -->
+                    <div class="mvp-product-card">
+                        <div class="mvp-card-top">
+                            <div class="mvp-logo-badge">
+                                <img src="logos/MobileXP.webp" alt="MobileXP MVP">
+                            </div>
+                            <span class="mvp-badge-category cat-ecom">E-Commerce</span>
+                        </div>
+                        <h3 class="mvp-title">MobileXP</h3>
+                        <p class="mvp-desc">Smart mobile device repair tracking, genuine parts inventory, and tech accessories digital marketplace.</p>
+                        <div class="mvp-card-footer">
+                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
+                            <a href="https://mobilexp.pk" target="_blank" class="mvp-visit-link">
+                                Visit Live App <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MVP 3: GoRent -->
+                    <div class="mvp-product-card">
+                        <div class="mvp-card-top">
+                            <div class="mvp-logo-badge">
+                                <img src="logos/gorent.png" alt="GoRent MVP">
+                            </div>
+                            <span class="mvp-badge-category cat-auto">Automotive</span>
+                        </div>
+                        <h3 class="mvp-title">GoRent</h3>
+                        <p class="mvp-desc">Peer-to-peer vehicle rental management, automated booking schedules, and fleet reservation tracking engine.</p>
+                        <div class="mvp-card-footer">
+                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
+                            <a href="https://gorent.pk" target="_blank" class="mvp-visit-link">
+                                Visit Live App <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MVP 4: PKVersity -->
+                    <div class="mvp-product-card">
+                        <div class="mvp-card-top">
+                            <div class="mvp-logo-badge">
+                                <img src="logos/pkversity.png" alt="PKVersity MVP">
+                            </div>
+                            <span class="mvp-badge-category cat-edtech">EdTech</span>
+                        </div>
+                        <h3 class="mvp-title">PKVersity</h3>
+                        <p class="mvp-desc">Centralized university admissions directory and academic program discovery portal for prospective students in Pakistan.</p>
+                        <div class="mvp-card-footer">
+                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
+                            <a href="https://pkversity.com" target="_blank" class="mvp-visit-link">
+                                Visit Live App <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MVP 5: CareerX -->
+                    <div class="mvp-product-card">
+                        <div class="mvp-card-top">
+                            <div class="mvp-logo-badge">
+                                <img src="logos/CX.jpeg" alt="CareerX MVP">
+                            </div>
+                            <span class="mvp-badge-category cat-hr">HR &amp; Jobs</span>
+                        </div>
+                        <h3 class="mvp-title">CareerX</h3>
+                        <p class="mvp-desc">AI-powered technical recruitment portal connecting verified university engineering graduates with hiring software firms.</p>
+                        <div class="mvp-card-footer">
+                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
+                            <a href="https://careerx.pk" target="_blank" class="mvp-visit-link">
+                                Visit Live App <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MVP 6: Sukhenvar -->
+                    <div class="mvp-product-card">
+                        <div class="mvp-card-top">
+                            <div class="mvp-logo-badge">
+                                <img src="logos/SV.jpeg" alt="Sukhenver MVP">
+                            </div>
+                            <span class="mvp-badge-category cat-media">Digital Media</span>
+                        </div>
+                        <h3 class="mvp-title">Sukhenvar</h3>
+                        <p class="mvp-desc">Rich digital literature and cultural publishing platform empowering South Asian writers with reader engagement tools.</p>
+                        <div class="mvp-card-footer">
+                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
+                            <a href="https://sukhenvar.pk" target="_blank" class="mvp-visit-link">
+                                Visit Live App <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MVP 7: Combat Home -->
+                    <div class="mvp-product-card">
+                        <div class="mvp-card-top">
+                            <div class="mvp-logo-badge">
+                                <img src="logos/CTH.jpeg" alt="Combat Home MVP">
+                            </div>
+                            <span class="mvp-badge-category cat-iot">Smart Home</span>
+                        </div>
+                        <h3 class="mvp-title">Combat Home</h3>
+                        <p class="mvp-desc">Residential security coordination and maintenance request platform designed for modern gated housing communities.</p>
+                        <div class="mvp-card-footer">
+                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
+                            <a href="https://combathome.pk" target="_blank" class="mvp-visit-link">
+                                Visit Live App <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MVP 8: Layerish -->
+                    <div class="mvp-product-card">
+                        <div class="mvp-card-top">
+                            <div class="mvp-logo-badge">
+                                <img src="logos/LB.jpeg" alt="Layerish MVP">
+                            </div>
+                            <span class="mvp-badge-category cat-apparel">E-Commerce</span>
+                        </div>
+                        <h3 class="mvp-title">Layerish</h3>
+                        <p class="mvp-desc">Custom apparel design studio and print-on-demand fulfillment portal for independent graphic designers.</p>
+                        <div class="mvp-card-footer">
+                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
+                            <a href="https://layerish.pk" target="_blank" class="mvp-visit-link">
+                                Visit Live App <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -179,16 +524,16 @@
 
                 <div class="brands-grid">
                     <div class="brand-card" title="Futurenostics">
-                        <img src="../IntelligementApp/wwwroot/logos/futurenostics-logo.jpeg" alt="Futurenostics">
+                        <img src="logos/futurenostics-logo.jpeg" alt="Futurenostics">
                     </div>
                     <div class="brand-card" title="Colinca">
-                        <img src="../IntelligementApp/wwwroot/logos/colinca_logo.png" alt="Colinca">
+                        <img src="logos/colinca_logo.png" alt="Colinca">
                     </div>
                     <div class="brand-card" title="Air University">
-                        <img src="../IntelligementApp/wwwroot/logos/air.png" alt="Air University">
+                        <img src="logos/air.png" alt="Air University">
                     </div>
                     <div class="brand-card" title="Softbuild">
-                        <img src="../IntelligementApp/wwwroot/logos/softbuild.png" alt="Softbuild">
+                        <img src="logos/softbuild.png" alt="Softbuild">
                     </div>
                 </div>
             </div>
@@ -208,7 +553,7 @@
                         <div class="alumni-card-body">
                             <div class="alumni-header">
                                 <div class="alumni-avatar-wrapper">
-                                    <img src="../IntelligementApp/wwwroot/logos/24774716-b1a5-4651-ada8-58b2ed1f8e38.jpeg" alt="Muhammad Saad Hassan" class="alumni-avatar">
+                                    <img src="logos/24774716-b1a5-4651-ada8-58b2ed1f8e38.jpeg" alt="Muhammad Saad Hassan" class="alumni-avatar">
                                 </div>
                                 <div class="alumni-meta">
                                     <h3 class="alumni-name">Saad Hassan</h3>
@@ -220,7 +565,7 @@
 
                             <p class="alumni-comment">"Intelligement completely reshaped my career mindset. The project-driven curriculum and direct mentorship from industry leaders gave me confidence during technical interviews."</p>
                             
-                            <button class="read-full-btn" onclick="openReviewModal('Saad Hassan', 'Software Engineer', 'TechVentures PK', '2024-A', '../IntelligementApp/wwwroot/logos/24774716-b1a5-4651-ada8-58b2ed1f8e38.jpeg', 'Intelligement completely reshaped my career mindset. The project-driven curriculum and direct mentorship from industry leaders gave me confidence during technical interviews. I was able to build scalable real-world MVPs that impressed hiring managers right out of graduation.', 'https://linkedin.com')">
+                            <button class="read-full-btn" onclick="openReviewModal('Saad Hassan', 'Software Engineer', 'TechVentures PK', '2024-A', 'logos/24774716-b1a5-4651-ada8-58b2ed1f8e38.jpeg', 'Intelligement completely reshaped my career mindset. The project-driven curriculum and direct mentorship from industry leaders gave me confidence during technical interviews. I was able to build scalable real-world MVPs that impressed hiring managers right out of graduation.', 'https://linkedin.com')">
                                 Read full review →
                             </button>
 
@@ -237,7 +582,7 @@
                         <div class="alumni-card-body">
                             <div class="alumni-header">
                                 <div class="alumni-avatar-wrapper">
-                                    <img src="../IntelligementApp/wwwroot/logos/8183ff30-322c-4a30-99e1-d3ade541407d.jpeg" alt="Ayesha Tariq" class="alumni-avatar">
+                                    <img src="logos/8183ff30-322c-4a30-99e1-d3ade541407d.jpeg" alt="Ayesha Tariq" class="alumni-avatar">
                                 </div>
                                 <div class="alumni-meta">
                                     <h3 class="alumni-name">Ayesha Tariq</h3>
@@ -249,7 +594,7 @@
 
                             <p class="alumni-comment">"The blend of Fullstack development with cutting-edge AI workflow automation is something you rarely see in typical bootcamps. Truly transformative experience."</p>
                             
-                            <button class="read-full-btn" onclick="openReviewModal('Ayesha Tariq', 'AI Engineer', 'CloudWorks Global', '2023-B', '../IntelligementApp/wwwroot/logos/8183ff30-322c-4a30-99e1-d3ade541407d.jpeg', 'The blend of Fullstack development with cutting-edge AI workflow automation is something you rarely see in typical bootcamps. Truly transformative experience. I learned to build production web applications that integrated intelligent automation, helping me secure an AI Engineering position right away.', 'https://linkedin.com')">
+                            <button class="read-full-btn" onclick="openReviewModal('Ayesha Tariq', 'AI Engineer', 'CloudWorks Global', '2023-B', 'logos/8183ff30-322c-4a30-99e1-d3ade541407d.jpeg', 'The blend of Fullstack development with cutting-edge AI workflow automation is something you rarely see in typical bootcamps. Truly transformative experience. I learned to build production web applications that integrated intelligent automation, helping me secure an AI Engineering position right away.', 'https://linkedin.com')">
                                 Read full review →
                             </button>
 
@@ -266,7 +611,7 @@
                         <div class="alumni-card-body">
                             <div class="alumni-header">
                                 <div class="alumni-avatar-wrapper">
-                                    <img src="../IntelligementApp/wwwroot/logos/8bb330b6-662d-4936-a9d1-4ede95bdb45d.jpeg" alt="Hamza Khan" class="alumni-avatar">
+                                    <img src="logos/8bb330b6-662d-4936-a9d1-4ede95bdb45d.jpeg" alt="Hamza Khan" class="alumni-avatar">
                                 </div>
                                 <div class="alumni-meta">
                                     <h3 class="alumni-name">Hamza Khan</h3>
@@ -278,7 +623,7 @@
 
                             <p class="alumni-comment">"Working on real client projects instead of generic demo tasks made all the difference. I graduated with a verified portfolio of shipped products."</p>
                             
-                            <button class="read-full-btn" onclick="openReviewModal('Hamza Khan', 'Fullstack Developer', 'InnovateX Labs', '2024-B', '../IntelligementApp/wwwroot/logos/8bb330b6-662d-4936-a9d1-4ede95bdb45d.jpeg', 'Working on real client projects instead of generic demo tasks made all the difference. I graduated with a verified portfolio of shipped products, strong architectural fundamentals, and the skills needed to lead fullstack teams.', 'https://linkedin.com')">
+                            <button class="read-full-btn" onclick="openReviewModal('Hamza Khan', 'Fullstack Developer', 'InnovateX Labs', '2024-B', 'logos/8bb330b6-662d-4936-a9d1-4ede95bdb45d.jpeg', 'Working on real client projects instead of generic demo tasks made all the difference. I graduated with a verified portfolio of shipped products, strong architectural fundamentals, and the skills needed to lead fullstack teams.', 'https://linkedin.com')">
                                 Read full review →
                             </button>
 
@@ -312,7 +657,7 @@
                     <div class="intern-card">
                         <span class="intern-batch-pill">2026-A</span>
                         <div class="intern-avatar-wrapper">
-                            <img src="../IntelligementApp/wwwroot/images/1dd932e7-c2ff-4e0c-843a-6a110083e9f7.jpeg" alt="Danial Ahmed" class="intern-avatar">
+                            <img src="images/1dd932e7-c2ff-4e0c-843a-6a110083e9f7.jpeg" alt="Danial Ahmed" class="intern-avatar">
                         </div>
                         <h3 class="intern-name">Danial Ahmed</h3>
                         <p class="intern-role">Intern @ Intelligement</p>
@@ -323,7 +668,7 @@
                     <div class="intern-card">
                         <span class="intern-batch-pill">2026-A</span>
                         <div class="intern-avatar-wrapper">
-                            <img src="../IntelligementApp/wwwroot/images/e700c62e-678e-4937-b135-961cc3cfcf6f.jpeg" alt="Fatima Zahra" class="intern-avatar">
+                            <img src="images/e700c62e-678e-4937-b135-961cc3cfcf6f.jpeg" alt="Fatima Zahra" class="intern-avatar">
                         </div>
                         <h3 class="intern-name">Fatima Zahra</h3>
                         <p class="intern-role">Intern @ Intelligement</p>
@@ -334,7 +679,7 @@
                     <div class="intern-card">
                         <span class="intern-batch-pill">2026-A</span>
                         <div class="intern-avatar-wrapper">
-                            <img src="../IntelligementApp/wwwroot/images/d586bf83-a489-4285-94dd-3e2f0e0e5df0.jpeg" alt="Bilal Mehmood" class="intern-avatar">
+                            <img src="images/d586bf83-a489-4285-94dd-3e2f0e0e5df0.jpeg" alt="Bilal Mehmood" class="intern-avatar">
                         </div>
                         <h3 class="intern-name">Bilal Mehmood</h3>
                         <p class="intern-role">Intern @ Intelligement</p>
@@ -345,7 +690,7 @@
                     <div class="intern-card">
                         <span class="intern-batch-pill">2026-A</span>
                         <div class="intern-avatar-wrapper">
-                            <img src="../IntelligementApp/wwwroot/images/eb940ea1-c990-4071-b6f6-ac0078a9bec1.jpeg" alt="Zainab Noor" class="intern-avatar">
+                            <img src="images/eb940ea1-c990-4071-b6f6-ac0078a9bec1.jpeg" alt="Zainab Noor" class="intern-avatar">
                         </div>
                         <h3 class="intern-name">Zainab Noor</h3>
                         <p class="intern-role">Intern @ Intelligement</p>
@@ -357,6 +702,98 @@
                     <button class="btn btn-primary btn-lg" onclick="alert('View All Interns loads the full roster of verified candidates.')">
                         <i class="bi bi-mortarboard-fill me-1"></i> View All Interns
                     </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===============================================================
+             P2: FREQUENTLY ASKED QUESTIONS (ACCORDION)
+             =============================================================== -->
+        <section class="faq-section" id="faq">
+            <div class="container faq-container">
+                <div class="section-header">
+                    <h2 class="section-title title-primary">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything university students and parents want to know about our curriculum, schedule, and career outcomes.</p>
+                </div>
+
+                <div class="faq-accordion">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item active">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <h3 class="faq-question">How do I manage this program alongside my regular university classes and exams?</h3>
+                            <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Intelligement is built exclusively for enrolled university students. All interactive lecture workshops, code reviews, and mentor check-ins are conducted on <strong>weekends (Saturdays &amp; Sundays)</strong>. Furthermore, sprint deadlines are automatically suspended during university midterms and finals weeks so your academic GPA is never compromised.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <h3 class="faq-question">Do I need advanced coding or prior fullstack experience to apply?</h3>
+                            <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                No advanced background is required. We look for curiosity, problem-solving mindset, and consistent commitment. Our curriculum begins with strong structural foundations in web architecture and progressively accelerates into enterprise backend logic (.NET &amp; SQL Server) and modern AI automation.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <h3 class="faq-question">What makes Intelligement different from typical short bootcamps or online courses?</h3>
+                            <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Most bootcamps assign generic demo projects (like todo lists or weather apps) that impress no employers. At Intelligement, you build and ship <strong>real commercial MVPs</strong> (such as CAREHO, MobileXP, GoRent) with active users, enterprise databases, and AI tooling. You graduate with verified production software on your resume.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <h3 class="faq-question">Is the program conducted in-person, online, or hybrid?</h3>
+                            <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                We utilize a flexible, high-touch hybrid format. Weekend labs and strategic architecture sessions are held at our designated campus lab in Islamabad (with Air University collaboration), complemented by high-definition interactive streaming and structured remote sprint standups for out-of-city students.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <h3 class="faq-question">What certificates and credentials will I receive upon completion?</h3>
+                            <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Graduates receive an official Intelligement Certification, a verified Internship Experience Letter specifying their technical contributions to live client MVPs, a permanent profile on our Wall of Glory, and personalized letters of recommendation for employers or international graduate school applications.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <h3 class="faq-question">Who will be mentoring and reviewing my code during the training?</h3>
+                            <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                You receive direct mentorship from <strong>Mr. Asim Ali Fayyaz</strong> (PhD Scholar, Lecturer at Air University, Founder of Intelligement) alongside senior software architects, engineering managers, and Microsoft MVPs who actively guide sprint reviews and technical interviews.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -571,7 +1008,7 @@
             <div class="founder-card">
                 <div class="founder-header-hero">
                     <div class="founder-img-wrapper">
-                        <img src="../IntelligementApp/wwwroot/logos/asim.png" alt="Asim Ali Fayyaz" class="founder-img">
+                        <img src="logos/asim.png" alt="Asim Ali Fayyaz" class="founder-img">
                     </div>
                     <h2 class="founder-name">Asim Ali Fayyaz</h2>
                     <p class="founder-title">CEO & Founder, Intelligement</p>
@@ -703,7 +1140,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="../IntelligementApp/wwwroot/logos/Intelligement.png" alt="Intelligement" style="height: 30px; filter: brightness(0) invert(1); margin-bottom: 18px;">
+                    <img src="logos/Intelligement.png" alt="Intelligement" style="height: 30px; filter: brightness(0) invert(1); margin-bottom: 18px;">
                     <p style="color: #9ca3af; font-size: 0.9rem; line-height: 1.7; max-width: 340px;">
                         Empowering university students with hands-on fullstack development and AI automation, turning ambition into industry-ready tech careers.
                     </p>
@@ -785,6 +1222,21 @@
         function closeReviewModal(e) {
             if (e.target.id === 'review-modal-overlay') {
                 closeReviewModalDirect();
+            }
+        }
+
+        function toggleFaq(headerEl) {
+            const item = headerEl.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close other open accordion items
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
             }
         }
 
