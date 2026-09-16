@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligement - Tech Training & Career Launchpad (Design Prototype)</title>
+    <meta name="description" content="Intelligement provides industry-focused tech training for university students in Pakistan. Fullstack Web Development & AI Automation.">
+    <link rel="icon" type="image/png" href="../IntelligementApp/wwwroot/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Prototype View Switcher Toolbar (for design evaluation) -->
+    <div class="prototype-bar">
+        <div class="brand-badge">
+            <span class="status-dot"></span>
+            <span>Intelligement Design Prototype</span>
+            <span style="opacity: 0.6; font-size: 0.75rem;">(Original Color Palette)</span>
+        </div>
+        <div class="prototype-nav">
+            <button class="prototype-tab-btn active" onclick="switchView('landing', this)">
+                <i class="bi bi-layout-text-window-reverse"></i> Main Landing Page
+            </button>
+            <button class="prototype-tab-btn" onclick="switchView('apply', this)">
+                <i class="bi bi-person-plus-fill"></i> Candidate Registration
+            </button>
+            <button class="prototype-tab-btn" onclick="switchView('contact', this)">
+                <i class="bi bi-person-badge-fill"></i> Founder & Contact
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="main-navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="brand-logo-link" onclick="switchView('landing', document.querySelector('.prototype-tab-btn:first-child'))">
+                <img src="../IntelligementApp/wwwroot/logos/Intelligement.png" alt="Intelligement Logo" class="brand-logo-img">
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#programs" class="nav-link">Training Programs</a></li>
+                    <li><a href="#mvps" class="nav-link">MVPs</a></li>
+                    <li><a href="#brands" class="nav-link">Brands</a></li>
+                    <li><a href="#success" class="nav-link">Wall of Glory</a></li>
+                    <li><a href="#interns" class="nav-link">Interns</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchView('contact', document.querySelectorAll('.prototype-tab-btn')[2])" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-cta-group">
+                <button class="btn btn-primary" onclick="switchView('apply', document.querySelectorAll('.prototype-tab-btn')[1])">
+                    <i class="bi bi-rocket-takeoff-fill"></i> Apply Now
+                </button>
+                <button class="btn btn-danger" onclick="alert('Sign In clicked. In production, this initiates Google OAuth.')">
+                    <i class="bi bi-google"></i> Sign In
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Rainbow Decorative Top Stripe -->
+    <div class="rainbow-bar"></div>
+
+    <!-- ===================================================================
+         VIEW 1: MAIN LANDING PAGE
+         =================================================================== -->
+    <main id="view-landing" class="view-panel">
+        
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="container">
+                <div class="hero-img-container">
+                    <img src="../IntelligementApp/wwwroot/logos/im-bg.png" alt="Students collaborating at Intelligement" class="hero-img">
+                </div>
+
+                <h1 class="hero-headline">
+                    <span class="text-primary-brand">Intelligement</span> early-bird initiative for university students providing 
+                    <span class="text-warning-brand">real-world experience</span>, 
+                    <span class="text-danger-brand">mentorship</span>, and a 
+                    <span class="text-success-brand">launchpad</span> for successful tech careers.
+                </h1>
+
+                <div class="hero-cta-wrapper">
+                    <button class="btn btn-primary btn-lg" onclick="switchView('apply', document.querySelectorAll('.prototype-tab-btn')[1])">
+                        <i class="bi bi-send-check-fill"></i> Apply Now (Early-Bird)
+                    </button>
+                    <a href="#programs" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-compass-fill"></i> Explore Training Programs
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs / Features Section -->
+        <section class="programs-section" id="programs">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title title-primary">More than<br>Just a Training Program</h2>
+                    <p class="section-subtitle">We bridge the gap between university theory and industry practice.</p>
+                </div>
+
+                <div class="cards-grid-3">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h3 class="feature-title">Immersive Learning</h3>
+                        <p class="feature-desc">Weekend-based, year-long program in Fullstack Web Development with integrated AI Automation. Learn by doing, not just watching.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-terminal"></i>
+                        </div>
+                        <h3 class="feature-title">Real-World Projects</h3>
+                        <p class="feature-desc">We don't build toy projects. We identify business problems and develop real software solutions that are deployed to actual clients.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h3 class="feature-title">Career Launchpad</h3>
+                        <p class="feature-desc">Graduate with a portfolio, an internship certificate, and the skills to earn through freelancing or land a top tech internship.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MVP Showcase Section -->
+        <section class="mvp-section" id="mvps">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title title-success">Applied Innovation<br>Through MVP Development</h2>
+                    <p class="section-subtitle">These Minimum Viable Products (MVPs) represent our students' ability to transform ideas into market-ready digital solutions.</p>
+                </div>
+
+                <div class="logo-grid" style="margin-bottom: 24px;">
+                    <a href="https://mobilexp.pk" target="_blank" class="logo-card" title="MobileXP MVP">
+                        <img src="../IntelligementApp/wwwroot/logos/MobileXP.webp" alt="MobileXP MVP">
+                    </a>
+                    <a href="https://business.careho.pk" target="_blank" class="logo-card" title="CAREHO MVP">
+                        <img src="../IntelligementApp/wwwroot/logos/CAREHO.png" alt="CAREHO MVP">
+                    </a>
+                    <a href="https://gorent.pk" target="_blank" class="logo-card" title="GoRent MVP">
+                        <img src="../IntelligementApp/wwwroot/logos/gorent.png" alt="GoRent MVP">
+                    </a>
+                    <a href="https://pkversity.com" target="_blank" class="logo-card" title="PKVersity MVP">
+                        <img src="../IntelligementApp/wwwroot/logos/pkversity.png" alt="PKVersity MVP">
+                    </a>
+                </div>
+
+                <div class="logo-grid">
+                    <a href="https://careerx.pk" target="_blank" class="logo-card" title="CareerX MVP">
+                        <img src="../IntelligementApp/wwwroot/logos/CX.jpeg" alt="CareerX MVP">
+                    </a>
+                    <a href="https://sukhenvar.pk" target="_blank" class="logo-card" title="Sukhenver MVP">
+                        <img src="../IntelligementApp/wwwroot/logos/SV.jpeg" alt="Sukhenver MVP">
+                    </a>
+                    <a href="https://combathome.pk" target="_blank" class="logo-card" title="Combat Home MVP">
+                        <img src="../IntelligementApp/wwwroot/logos/CTH.jpeg" alt="Combat Home MVP">
+                    </a>
+                    <a href="https://layerish.pk" target="_blank" class="logo-card" title="Layerish MVP">
+                        <img src="../IntelligementApp/wwwroot/logos/LB.jpeg" alt="Layerish MVP">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brands Collaboration Section -->
+        <section class="brands-section" id="brands">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title title-danger">Collaborations<br>With Leading Brands</h2>
+                    <p class="section-subtitle">We collaborate with top-tier companies on imagining the future of work.</p>
+                </div>
+
+                <div class="brands-grid">
+                    <div class="brand-card" title="Futurenostics">
+                        <img src="../IntelligementApp/wwwroot/logos/futurenostics-logo.jpeg" alt="Futurenostics">
+                    </div>
+                    <div class="brand-card" title="Colinca">
+                        <img src="../IntelligementApp/wwwroot/logos/colinca_logo.png" alt="Colinca">
+                    </div>
+                    <div class="brand-card" title="Air University">
+                        <img src="../IntelligementApp/wwwroot/logos/air.png" alt="Air University">
+                    </div>
+                    <div class="brand-card" title="Softbuild">
+                        <img src="../IntelligementApp/wwwroot/logos/softbuild.png" alt="Softbuild">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wall of Glory Section -->
+        <section class="glory-section" id="success">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title title-warning">Wall of Glory</h2>
+                    <p class="section-subtitle">Celebrating our exceptional alumni who are making their mark in the tech industry worldwide</p>
+                </div>
+
+                <div class="alumni-grid">
+                    <!-- Alumni Card 1 -->
+                    <div class="alumni-card">
+                        <div class="alumni-card-body">
+                            <div class="alumni-header">
+                                <div class="alumni-avatar-wrapper">
+                                    <img src="../IntelligementApp/wwwroot/logos/24774716-b1a5-4651-ada8-58b2ed1f8e38.jpeg" alt="Muhammad Saad Hassan" class="alumni-avatar">
+                                </div>
+                                <div class="alumni-meta">
+                                    <h3 class="alumni-name">Saad Hassan</h3>
+                                    <p class="alumni-role">Software Engineer</p>
+                                    <p class="alumni-company"><i class="bi bi-building me-1"></i>TechVentures PK</p>
+                                </div>
+                                <span class="alumni-batch-badge">2024-A</span>
+                            </div>
+
+                            <p class="alumni-comment">"Intelligement completely reshaped my career mindset. The project-driven curriculum and direct mentorship from industry leaders gave me confidence during technical interviews."</p>
+                            
+                            <button class="read-full-btn" onclick="openReviewModal('Saad Hassan', 'Software Engineer', 'TechVentures PK', '2024-A', '../IntelligementApp/wwwroot/logos/24774716-b1a5-4651-ada8-58b2ed1f8e38.jpeg', 'Intelligement completely reshaped my career mindset. The project-driven curriculum and direct mentorship from industry leaders gave me confidence during technical interviews. I was able to build scalable real-world MVPs that impressed hiring managers right out of graduation.', 'https://linkedin.com')">
+                                Read full review →
+                            </button>
+
+                            <div class="alumni-footer">
+                                <a href="https://linkedin.com" target="_blank" class="linkedin-link-btn">
+                                    <i class="bi bi-linkedin"></i> Connect on LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alumni Card 2 -->
+                    <div class="alumni-card">
+                        <div class="alumni-card-body">
+                            <div class="alumni-header">
+                                <div class="alumni-avatar-wrapper">
+                                    <img src="../IntelligementApp/wwwroot/logos/8183ff30-322c-4a30-99e1-d3ade541407d.jpeg" alt="Ayesha Tariq" class="alumni-avatar">
+                                </div>
+                                <div class="alumni-meta">
+                                    <h3 class="alumni-name">Ayesha Tariq</h3>
+                                    <p class="alumni-role">AI Engineer</p>
+                                    <p class="alumni-company"><i class="bi bi-building me-1"></i>CloudWorks Global</p>
+                                </div>
+                                <span class="alumni-batch-badge">2023-B</span>
+                            </div>
+
+                            <p class="alumni-comment">"The blend of Fullstack development with cutting-edge AI workflow automation is something you rarely see in typical bootcamps. Truly transformative experience."</p>
+                            
+                            <button class="read-full-btn" onclick="openReviewModal('Ayesha Tariq', 'AI Engineer', 'CloudWorks Global', '2023-B', '../IntelligementApp/wwwroot/logos/8183ff30-322c-4a30-99e1-d3ade541407d.jpeg', 'The blend of Fullstack development with cutting-edge AI workflow automation is something you rarely see in typical bootcamps. Truly transformative experience. I learned to build production web applications that integrated intelligent automation, helping me secure an AI Engineering position right away.', 'https://linkedin.com')">
+                                Read full review →
+                            </button>
+
+                            <div class="alumni-footer">
+                                <a href="https://linkedin.com" target="_blank" class="linkedin-link-btn">
+                                    <i class="bi bi-linkedin"></i> Connect on LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alumni Card 3 -->
+                    <div class="alumni-card">
+                        <div class="alumni-card-body">
+                            <div class="alumni-header">
+                                <div class="alumni-avatar-wrapper">
+                                    <img src="../IntelligementApp/wwwroot/logos/8bb330b6-662d-4936-a9d1-4ede95bdb45d.jpeg" alt="Hamza Khan" class="alumni-avatar">
+                                </div>
+                                <div class="alumni-meta">
+                                    <h3 class="alumni-name">Hamza Khan</h3>
+                                    <p class="alumni-role">Fullstack Developer</p>
+                                    <p class="alumni-company"><i class="bi bi-building me-1"></i>InnovateX Labs</p>
+                                </div>
+                                <span class="alumni-batch-badge">2024-B</span>
+                            </div>
+
+                            <p class="alumni-comment">"Working on real client projects instead of generic demo tasks made all the difference. I graduated with a verified portfolio of shipped products."</p>
+                            
+                            <button class="read-full-btn" onclick="openReviewModal('Hamza Khan', 'Fullstack Developer', 'InnovateX Labs', '2024-B', '../IntelligementApp/wwwroot/logos/8bb330b6-662d-4936-a9d1-4ede95bdb45d.jpeg', 'Working on real client projects instead of generic demo tasks made all the difference. I graduated with a verified portfolio of shipped products, strong architectural fundamentals, and the skills needed to lead fullstack teams.', 'https://linkedin.com')">
+                                Read full review →
+                            </button>
+
+                            <div class="alumni-footer">
+                                <a href="https://linkedin.com" target="_blank" class="linkedin-link-btn">
+                                    <i class="bi bi-linkedin"></i> Connect on LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 45px;">
+                    <button class="btn btn-warning btn-lg" onclick="alert('View All Alumni opens the full Wall of Glory paginated grid.')">
+                        <i class="bi bi-people-fill me-1"></i> View All Alumni Stories
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Interns Section -->
+        <section class="interns-section" id="interns">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title title-primary">Our Interns</h2>
+                    <p class="section-subtitle">Meet the talented interns who are building their careers at Intelligement</p>
+                </div>
+
+                <div class="interns-grid">
+                    <!-- Intern Card 1 -->
+                    <div class="intern-card">
+                        <span class="intern-batch-pill">2026-A</span>
+                        <div class="intern-avatar-wrapper">
+                            <img src="../IntelligementApp/wwwroot/images/1dd932e7-c2ff-4e0c-843a-6a110083e9f7.jpeg" alt="Danial Ahmed" class="intern-avatar">
+                        </div>
+                        <h3 class="intern-name">Danial Ahmed</h3>
+                        <p class="intern-role">Intern @ Intelligement</p>
+                        <span class="course-badge">Web Development</span>
+                    </div>
+
+                    <!-- Intern Card 2 -->
+                    <div class="intern-card">
+                        <span class="intern-batch-pill">2026-A</span>
+                        <div class="intern-avatar-wrapper">
+                            <img src="../IntelligementApp/wwwroot/images/e700c62e-678e-4937-b135-961cc3cfcf6f.jpeg" alt="Fatima Zahra" class="intern-avatar">
+                        </div>
+                        <h3 class="intern-name">Fatima Zahra</h3>
+                        <p class="intern-role">Intern @ Intelligement</p>
+                        <span class="course-badge">Web Development</span>
+                    </div>
+
+                    <!-- Intern Card 3 -->
+                    <div class="intern-card">
+                        <span class="intern-batch-pill">2026-A</span>
+                        <div class="intern-avatar-wrapper">
+                            <img src="../IntelligementApp/wwwroot/images/d586bf83-a489-4285-94dd-3e2f0e0e5df0.jpeg" alt="Bilal Mehmood" class="intern-avatar">
+                        </div>
+                        <h3 class="intern-name">Bilal Mehmood</h3>
+                        <p class="intern-role">Intern @ Intelligement</p>
+                        <span class="course-badge">Web Development</span>
+                    </div>
+
+                    <!-- Intern Card 4 -->
+                    <div class="intern-card">
+                        <span class="intern-batch-pill">2026-A</span>
+                        <div class="intern-avatar-wrapper">
+                            <img src="../IntelligementApp/wwwroot/images/eb940ea1-c990-4071-b6f6-ac0078a9bec1.jpeg" alt="Zainab Noor" class="intern-avatar">
+                        </div>
+                        <h3 class="intern-name">Zainab Noor</h3>
+                        <p class="intern-role">Intern @ Intelligement</p>
+                        <span class="course-badge">Web Development</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 45px;">
+                    <button class="btn btn-primary btn-lg" onclick="alert('View All Interns loads the full roster of verified candidates.')">
+                        <i class="bi bi-mortarboard-fill me-1"></i> View All Interns
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================================================================
+         VIEW 2: CANDIDATE REGISTRATION FORM
+         =================================================================== -->
+    <section id="view-apply" class="view-panel form-view-section" style="display: none;">
+        <div class="container">
+            <div class="form-card">
+                <div class="form-header-box">
+                    <h1 class="gradient-title">Register as a Candidate</h1>
+                    <p class="text-muted">Join our growing community and take the next step in your tech career journey</p>
+                    
+                    <div class="stat-pills-row">
+                        <span class="stat-pill pill-green"><i class="bi bi-briefcase-fill"></i> Career Growth</span>
+                        <span class="stat-pill pill-blue"><i class="bi bi-book-fill"></i> Learn & Develop</span>
+                        <span class="stat-pill pill-yellow"><i class="bi bi-people-fill"></i> Network</span>
+                        <span class="stat-pill pill-purple"><i class="bi bi-star-fill"></i> Opportunities</span>
+                    </div>
+
+                    <div class="step-indicator">
+                        <div class="step-dot active"></div>
+                        <div class="step-dot active"></div>
+                        <div class="step-dot"></div>
+                        <div class="step-dot"></div>
+                    </div>
+                </div>
+
+                <div class="form-body">
+                    <div class="form-banner-alert">
+                        <i class="bi bi-info-circle-fill me-1"></i>
+                        <strong>Complete all required fields</strong> to get matched with the right opportunities.
+                    </div>
+
+                    <!-- Photo Upload -->
+                    <div class="avatar-upload-box">
+                        <div class="form-label label-red" style="justify-content: center; margin-bottom: 12px;">
+                            <i class="bi bi-person-circle"></i> Profile Picture
+                        </div>
+                        <div class="upload-avatar-circle">
+                            <i class="bi bi-camera-fill"></i>
+                        </div>
+                        <label class="upload-btn-fake">
+                            <i class="bi bi-cloud-arrow-up-fill"></i> Choose Profile Photo
+                            <input type="file" accept="image/*" style="display: none;" onchange="alert('Image selected: in actual app, generates base64 preview.')">
+                        </label>
+                        <p class="form-hint">JPG, PNG or GIF • Max 3MB • Square photo recommended</p>
+                    </div>
+
+                    <!-- Personal Information -->
+                    <div class="form-section-group">
+                        <h3 class="form-section-title title-green">
+                            <i class="bi bi-person-lines-fill"></i> Personal Information
+                        </h3>
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label class="form-label label-green"><i class="bi bi-person-fill"></i> First Name</label>
+                                <div class="input-wrapper">
+                                    <i class="bi bi-person-fill input-icon text-success-brand"></i>
+                                    <input type="text" class="form-control has-icon" placeholder="e.g. John">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label label-green"><i class="bi bi-person-fill"></i> Last Name</label>
+                                <div class="input-wrapper">
+                                    <i class="bi bi-person-fill input-icon text-success-brand"></i>
+                                    <input type="text" class="form-control has-icon" placeholder="e.g. Doe">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label label-green"><i class="bi bi-gender-ambiguous"></i> Gender</label>
+                                <div class="input-wrapper">
+                                    <i class="bi bi-gender-ambiguous input-icon text-success-brand"></i>
+                                    <select class="form-select has-icon">
+                                        <option value="">Select Gender</option>
+                                        <option value="Male" selected>Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label label-blue"><i class="bi bi-telephone-fill"></i> Phone Number</label>
+                                <div class="input-wrapper">
+                                    <i class="bi bi-telephone-fill input-icon text-primary-brand"></i>
+                                    <input type="tel" class="form-control has-icon" placeholder="+92-300-1234567">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label label-red"><i class="bi bi-card-text"></i> CNIC</label>
+                                <div class="input-wrapper">
+                                    <i class="bi bi-card-text input-icon text-danger-brand"></i>
+                                    <input type="text" class="form-control has-icon" placeholder="12345-6789012-3">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label label-red"><i class="bi bi-geo-alt-fill"></i> City</label>
+                                <div class="input-wrapper">
+                                    <i class="bi bi-geo-alt-fill input-icon text-danger-brand"></i>
+                                    <select class="form-select has-icon">
+                                        <option value="">Select City</option>
+                                        <option value="Islamabad" selected>Islamabad</option>
+                                        <option value="Rawalpindi">Rawalpindi</option>
+                                        <option value="Lahore">Lahore</option>
+                                        <option value="Karachi">Karachi</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Academic & Professional -->
+                    <div class="form-section-group">
+                        <h3 class="form-section-title title-blue">
+                            <i class="bi bi-mortarboard-fill"></i> Academic & Professional
+                        </h3>
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label class="form-label label-blue"><i class="bi bi-mortarboard"></i> Education Level</label>
+                                <select class="form-select">
+                                    <option value="">Select Level</option>
+                                    <option value="Bachelor" selected>Bachelor's Degree</option>
+                                    <option value="Master">Master's Degree</option>
+                                    <option value="PhD">PhD</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label label-blue"><i class="bi bi-briefcase-fill"></i> Current Status</label>
+                                <select class="form-select">
+                                    <option value="Student" selected>Student</option>
+                                    <option value="Employed">Employed</option>
+                                    <option value="Freelancer">Freelancer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label label-blue"><i class="bi bi-building"></i> Institute / University</label>
+                                <select class="form-select">
+                                    <option value="Air University" selected>Air University</option>
+                                    <option value="NUST">NUST</option>
+                                    <option value="FAST-NUCES">FAST-NUCES</option>
+                                    <option value="COMSATS">COMSATS</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label label-blue"><i class="bi bi-journal-code"></i> Program</label>
+                                <select class="form-select">
+                                    <option value="CS" selected>Computer Science (CS)</option>
+                                    <option value="SE">Software Engineering (SE)</option>
+                                    <option value="AI">Artificial Intelligence (AI)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label label-blue"><i class="bi bi-calendar-event"></i> Current Semester</label>
+                                <select class="form-select">
+                                    <option value="6th" selected>6th Semester</option>
+                                    <option value="7th">7th Semester</option>
+                                    <option value="8th">8th Semester</option>
+                                    <option value="Graduated">Graduated</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label label-yellow"><i class="bi bi-code-slash"></i> Program Track</label>
+                                <input type="text" class="form-control" value="Fullstack Web Development & AI" readonly style="background-color: #f8f9fa;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Idea & Bio -->
+                    <div class="form-section-group">
+                        <h3 class="form-section-title title-purple">
+                            <i class="bi bi-chat-square-text-fill"></i> Tell Us About Yourself
+                        </h3>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label class="form-label label-purple"><i class="bi bi-lightbulb-fill"></i> Your Project Idea</label>
+                            <textarea class="form-textarea" rows="3" placeholder="Tell us about the software project you want to build during the training program..."></textarea>
+                            <p class="form-hint"><i class="bi bi-lightbulb text-warning-brand"></i> Share your innovative MVP idea that you want to transform into a real product.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label label-purple"><i class="bi bi-person-badge"></i> About You & Aspirations</label>
+                            <textarea class="form-textarea" rows="4" placeholder="Share your background, programming skills, goals, and why you want to join Intelligement..."></textarea>
+                            <p class="form-hint">Tell us what drives your passion in software engineering and technology.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 35px;">
+                        <button type="button" class="btn btn-success btn-lg" style="width: 100%;" onclick="alert('Form submission successful! Welcome to Intelligement.')">
+                            <i class="bi bi-check-circle-fill"></i> Complete Candidate Registration
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         VIEW 3: FOUNDER & CONTACT US
+         =================================================================== -->
+    <section id="view-contact" class="view-panel" style="display: none;">
+        <div class="contact-hero">
+            <div class="container">
+                <h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 10px;">
+                    <i class="bi bi-chat-dots-fill me-2"></i> Get in Touch
+                </h1>
+                <p style="font-size: 1.15rem; opacity: 0.9;">Connect with Intelligement leadership for mentorship, collaborations, and career opportunities</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="founder-card">
+                <div class="founder-header-hero">
+                    <div class="founder-img-wrapper">
+                        <img src="../IntelligementApp/wwwroot/logos/asim.png" alt="Asim Ali Fayyaz" class="founder-img">
+                    </div>
+                    <h2 class="founder-name">Asim Ali Fayyaz</h2>
+                    <p class="founder-title">CEO & Founder, Intelligement</p>
+                    <div class="founder-badges">
+                        <span class="founder-pill"><i class="bi bi-award-fill me-1"></i> PhD Scholar</span>
+                        <span class="founder-pill"><i class="bi bi-mortarboard-fill me-1"></i> Lecturer at Air University</span>
+                    </div>
+                </div>
+
+                <div class="founder-body">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--primary-navy);">
+                        <i class="bi bi-person-badge text-success-brand me-1"></i> About Asim Ali Fayyaz
+                    </h3>
+                    <div class="accent-subbar"></div>
+
+                    <p class="founder-bio-p">
+                        Mr. Asim Ali Fayyaz is a visionary technology leader and dedicated educator committed to revolutionizing tech education in Pakistan. As the Founder of Intelligement, he bridges the critical gap between academic theory and industry demands by empowering university students with real-world experience, mentorship, and practical skills needed to launch successful tech careers.
+                    </p>
+                    <p class="founder-bio-p">
+                        Currently pursuing his PhD in Computer Science and serving as a Lecturer at Air University, Islamabad, he combines rigorous academic excellence with hands-on industry training. His unique approach focuses on transforming students into industry-ready professionals through project-based learning and continuous guidance.
+                    </p>
+
+                    <div class="qualifications-box">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--brand-green); margin-bottom: 16px;">
+                            <i class="bi bi-trophy-fill me-1"></i> Qualifications & Expertise
+                        </h4>
+                        <div class="qual-item">
+                            <span class="qual-icon">✓</span>
+                            <span>PhD Scholar in Computer Science - Research in Tech Pedagogy & Engineering</span>
+                        </div>
+                        <div class="qual-item">
+                            <span class="qual-icon">✓</span>
+                            <span>Lecturer at Air University, Islamabad - Inspiring Future Tech Leaders</span>
+                        </div>
+                        <div class="qual-item">
+                            <span class="qual-icon">✓</span>
+                            <span>Founder of Intelligement - Revolutionizing Practical Tech Bootcamps</span>
+                        </div>
+                        <div class="qual-item">
+                            <span class="qual-icon">✓</span>
+                            <span>Technology Leader & Industry Architect with 8+ Years of Practical Experience</span>
+                        </div>
+                        <div class="qual-item">
+                            <span class="qual-icon">✓</span>
+                            <span>Mentor for 500+ Successful Software Engineers & Tech Professionals</span>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--primary-navy); margin-top: 40px;">
+                        <i class="bi bi-telephone-inbound text-primary-brand me-1"></i> Direct Connect Channels
+                    </h3>
+                    <div class="accent-subbar"></div>
+
+                    <div class="contact-channels-grid">
+                        <!-- WhatsApp -->
+                        <div class="contact-card card-whatsapp">
+                            <i class="bi bi-whatsapp contact-icon-large"></i>
+                            <div class="contact-channel-label">WhatsApp</div>
+                            <div class="contact-channel-val">+92 303 0505090</div>
+                            <a href="https://wa.me/923030505090" target="_blank" class="contact-action-btn">
+                                <i class="bi bi-chat-text-fill"></i> Message
+                            </a>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="contact-card card-phone">
+                            <i class="bi bi-telephone-fill contact-icon-large"></i>
+                            <div class="contact-channel-label">Phone Call</div>
+                            <div class="contact-channel-val">+92 303 0505090</div>
+                            <a href="tel:+923030505090" class="contact-action-btn">
+                                <i class="bi bi-telephone-outbound-fill"></i> Call Now
+                            </a>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="contact-card card-email">
+                            <i class="bi bi-envelope-fill contact-icon-large"></i>
+                            <div class="contact-channel-label">Email</div>
+                            <div class="contact-channel-val" style="font-size: 0.78rem;">intelligement@outlook.com</div>
+                            <a href="mailto:intelligement@outlook.com" class="contact-action-btn">
+                                <i class="bi bi-envelope-paper-fill"></i> Send Email
+                            </a>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div class="contact-card card-linkedin">
+                            <i class="bi bi-linkedin contact-icon-large"></i>
+                            <div class="contact-channel-label">LinkedIn</div>
+                            <div class="contact-channel-val">Professional Network</div>
+                            <a href="https://www.linkedin.com/in/asim-ali-fayyaz/" target="_blank" class="contact-action-btn">
+                                <i class="bi bi-box-arrow-up-right"></i> Connect
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         INTERACTIVE ALUMNI REVIEW MODAL DIALOG
+         =================================================================== -->
+    <div id="review-modal-overlay" class="modal-overlay" onclick="closeReviewModal(event)">
+        <div class="modal-container" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeReviewModalDirect()">&times;</button>
+            <div class="modal-header-styled">
+                <img id="modal-img" src="" alt="Alumni" class="modal-avatar">
+                <div>
+                    <h3 id="modal-name" style="font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px;"></h3>
+                    <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 2px;">
+                        <span id="modal-role" style="font-weight: 600; color: var(--brand-green);"></span> @ <span id="modal-company" style="color: var(--primary-navy); font-weight: 600;"></span>
+                    </p>
+                    <small style="color: #64748b; font-size: 0.82rem;"><i class="bi bi-calendar3 me-1"></i> Batch: <span id="modal-batch"></span></small>
+                </div>
+            </div>
+            <div class="modal-body-content">
+                <p id="modal-quote" class="modal-quote-text"></p>
+                <div style="text-align: center;">
+                    <a id="modal-linkedin" href="#" target="_blank" class="btn btn-outline-primary" style="padding: 8px 24px;">
+                        <i class="bi bi-linkedin me-1"></i> Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="../IntelligementApp/wwwroot/logos/Intelligement.png" alt="Intelligement" style="height: 30px; filter: brightness(0) invert(1); margin-bottom: 18px;">
+                    <p style="color: #9ca3af; font-size: 0.9rem; line-height: 1.7; max-width: 340px;">
+                        Empowering university students with hands-on fullstack development and AI automation, turning ambition into industry-ready tech careers.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Programs</h5>
+                    <ul class="footer-links-list">
+                        <li class="footer-link-item"><a href="#programs" class="footer-link">Fullstack Development</a></li>
+                        <li class="footer-link-item"><a href="#programs" class="footer-link">AI Automation</a></li>
+                        <li class="footer-link-item"><a href="#programs" class="footer-link">Mentorship</a></li>
+                        <li class="footer-link-item"><a href="#interns" class="footer-link">Internships</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul class="footer-links-list">
+                        <li class="footer-link-item"><a href="#success" class="footer-link">Success Stories</a></li>
+                        <li class="footer-link-item"><a href="javascript:void(0)" onclick="switchView('contact', document.querySelectorAll('.prototype-tab-btn')[2])" class="footer-link">FAQs</a></li>
+                        <li class="footer-link-item"><a href="javascript:void(0)" onclick="switchView('contact', document.querySelectorAll('.prototype-tab-btn')[2])" class="footer-link">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Connect With Us</h5>
+                    <ul class="footer-links-list">
+                        <li class="footer-link-item"><a href="https://www.linkedin.com/company/intelligement/" target="_blank" class="footer-link"><i class="bi bi-linkedin text-primary-brand"></i> LinkedIn</a></li>
+                        <li class="footer-link-item"><a href="https://www.facebook.com/profile.php?id=100091131041446" target="_blank" class="footer-link"><i class="bi bi-facebook text-primary-brand"></i> Facebook</a></li>
+                        <li class="footer-link-item"><a href="https://www.instagram.com/intelligement" target="_blank" class="footer-link"><i class="bi bi-instagram text-danger-brand"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024–2026 Intelligement. All rights reserved. Professional Tech Training for University Students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        function switchView(viewName, buttonEl) {
+            // Update active tab styling
+            document.querySelectorAll('.prototype-tab-btn').forEach(btn => btn.classList.remove('active'));
+            if (buttonEl) buttonEl.classList.add('active');
+
+            // Hide all view panels
+            document.querySelectorAll('.view-panel').forEach(panel => {
+                panel.style.display = 'none';
+            });
+
+            // Show selected view
+            const target = document.getElementById('view-' + viewName);
+            if (target) {
+                target.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function openReviewModal(name, role, company, batch, imgSrc, quote, linkedinUrl) {
+            document.getElementById('modal-name').textContent = name;
+            document.getElementById('modal-role').textContent = role;
+            document.getElementById('modal-company').textContent = company;
+            document.getElementById('modal-batch').textContent = batch;
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('modal-quote').textContent = '"' + quote + '"';
+            document.getElementById('modal-linkedin').href = linkedinUrl;
+
+            document.getElementById('review-modal-overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeReviewModalDirect() {
+            document.getElementById('review-modal-overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeReviewModal(e) {
+            if (e.target.id === 'review-modal-overlay') {
+                closeReviewModalDirect();
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeReviewModalDirect();
+        });
+    </script>
+</body>
+</html>
