@@ -10,50 +10,30 @@
 </head>
 <body>
 
-    <!-- Prototype View Switcher Toolbar (for design evaluation) -->
-    <div class="prototype-bar">
-        <div class="brand-badge">
-            <span class="status-dot"></span>
-            <span>Intelligement Design Prototype</span>
-            <span style="opacity: 0.6; font-size: 0.75rem;">(Original Color Palette)</span>
-        </div>
-        <div class="prototype-nav">
-            <button class="prototype-tab-btn active" onclick="switchView('landing', this)">
-                <i class="bi bi-layout-text-window-reverse"></i> Main Landing Page
-            </button>
-            <button class="prototype-tab-btn" onclick="switchView('apply', this)">
-                <i class="bi bi-person-plus-fill"></i> Candidate Registration
-            </button>
-            <button class="prototype-tab-btn" onclick="switchView('contact', this)">
-                <i class="bi bi-person-badge-fill"></i> Founder & Contact
-            </button>
-        </div>
-    </div>
-
     <!-- Main Navigation Bar -->
     <header class="main-navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#home" class="brand-logo-link" onclick="switchView('landing', document.querySelector('.prototype-tab-btn:first-child'))">
+            <a href="#home" class="brand-logo-link" onclick="switchView('landing')">
                 <img src="logos/Intelligement.png" alt="Intelligement Logo" class="brand-logo-img">
             </a>
 
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#curriculum" class="nav-link">Curriculum</a></li>
-                    <li><a href="#journey" class="nav-link">Journey</a></li>
-                    <li><a href="#mvps" class="nav-link">MVPs</a></li>
-                    <li><a href="#brands" class="nav-link">Brands</a></li>
-                    <li><a href="#success" class="nav-link">Wall of Glory</a></li>
-                    <li><a href="#interns" class="nav-link">Interns</a></li>
-                    <li><a href="#faq" class="nav-link">FAQ</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('contact', document.querySelectorAll('.prototype-tab-btn')[2])" class="nav-link">Contact</a></li>
+                    <li><a href="#home" class="nav-link active" onclick="switchView('landing')">Home</a></li>
+                    <li><a href="#curriculum" class="nav-link" onclick="switchView('landing')">Curriculum</a></li>
+                    <li><a href="#journey" class="nav-link" onclick="switchView('landing')">Journey</a></li>
+                    <li><a href="#mvps" class="nav-link" onclick="switchView('landing')">MVPs</a></li>
+                    <li><a href="#brands" class="nav-link" onclick="switchView('landing')">Brands</a></li>
+                    <li><a href="#success" class="nav-link" onclick="switchView('landing')">Wall of Glory</a></li>
+                    <li><a href="#interns" class="nav-link" onclick="switchView('landing')">Interns</a></li>
+                    <li><a href="#faq" class="nav-link" onclick="switchView('landing')">FAQ</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchView('contact')" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
 
             <div class="nav-cta-group">
-                <button class="btn btn-primary" onclick="switchView('apply', document.querySelectorAll('.prototype-tab-btn')[1])">
-                    <i class="bi bi-rocket-takeoff-fill"></i> Apply Now
+                <button class="btn btn-primary" onclick="switchView('apply')">
+                    Apply Now
                 </button>
                 <button class="btn btn-danger" onclick="alert('Sign In clicked. In production, this initiates Google OAuth.')">
                     <i class="bi bi-google"></i> Sign In
@@ -91,8 +71,8 @@
                     </p>
 
                     <div class="hero-cta-wrapper">
-                        <button class="btn btn-primary btn-lg" onclick="switchView('apply', document.querySelectorAll('.prototype-tab-btn')[1])">
-                            <i class="bi bi-rocket-takeoff-fill"></i> Apply Now (Early-Bird)
+                        <button class="btn btn-primary btn-lg" onclick="switchView('apply')">
+                            Apply Now (Early-Bird)
                         </button>
                         <a href="#curriculum" class="btn btn-outline-primary btn-lg">
                             <i class="bi bi-journal-code"></i> Explore Curriculum
@@ -518,7 +498,7 @@
         <section class="brands-section" id="brands">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title title-danger">Collaborations<br>With Leading Brands</h2>
+                    <h2 class="section-title title-primary">Collaborations<br>With Leading Brands</h2>
                     <p class="section-subtitle">We collaborate with top-tier companies on imagining the future of work.</p>
                 </div>
 
@@ -543,7 +523,7 @@
         <section class="glory-section" id="success">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title title-warning">Wall of Glory</h2>
+                    <h2 class="section-title title-primary">Wall of Glory</h2>
                     <p class="section-subtitle">Celebrating our exceptional alumni who are making their mark in the tech industry worldwide</p>
                 </div>
 
@@ -637,7 +617,7 @@
                 </div>
 
                 <div style="text-align: center; margin-top: 45px;">
-                    <button class="btn btn-warning btn-lg" onclick="alert('View All Alumni opens the full Wall of Glory paginated grid.')">
+                    <button class="btn btn-outline-primary btn-lg" onclick="alert('View All Alumni opens the full Wall of Glory paginated grid.')">
                         <i class="bi bi-people-fill me-1"></i> View All Alumni Stories
                     </button>
                 </div>
@@ -716,9 +696,25 @@
                     <p class="section-subtitle">Everything university students and parents want to know about our curriculum, schedule, and career outcomes.</p>
                 </div>
 
+                <!-- Category Filter Tabs (Option C) -->
+                <div class="faq-tabs-nav">
+                    <button class="faq-tab-btn active" onclick="filterFaq('all', this)">
+                        <i class="bi bi-grid-fill"></i> All Questions
+                    </button>
+                    <button class="faq-tab-btn" onclick="filterFaq('admissions', this)">
+                        <i class="bi bi-calendar-event"></i> Admissions &amp; Schedule
+                    </button>
+                    <button class="faq-tab-btn" onclick="filterFaq('curriculum', this)">
+                        <i class="bi bi-code-slash"></i> Curriculum &amp; Projects
+                    </button>
+                    <button class="faq-tab-btn" onclick="filterFaq('careers', this)">
+                        <i class="bi bi-award-fill"></i> Certification &amp; Careers
+                    </button>
+                </div>
+
                 <div class="faq-accordion">
-                    <!-- FAQ 1 -->
-                    <div class="faq-item active">
+                    <!-- FAQ 1 (Admissions) -->
+                    <div class="faq-item active" data-category="admissions">
                         <div class="faq-header" onclick="toggleFaq(this)">
                             <h3 class="faq-question">How do I manage this program alongside my regular university classes and exams?</h3>
                             <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
@@ -730,8 +726,8 @@
                         </div>
                     </div>
 
-                    <!-- FAQ 2 -->
-                    <div class="faq-item">
+                    <!-- FAQ 2 (Admissions) -->
+                    <div class="faq-item" data-category="admissions">
                         <div class="faq-header" onclick="toggleFaq(this)">
                             <h3 class="faq-question">Do I need advanced coding or prior fullstack experience to apply?</h3>
                             <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
@@ -743,8 +739,8 @@
                         </div>
                     </div>
 
-                    <!-- FAQ 3 -->
-                    <div class="faq-item">
+                    <!-- FAQ 3 (Curriculum) -->
+                    <div class="faq-item" data-category="curriculum">
                         <div class="faq-header" onclick="toggleFaq(this)">
                             <h3 class="faq-question">What makes Intelligement different from typical short bootcamps or online courses?</h3>
                             <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
@@ -756,8 +752,8 @@
                         </div>
                     </div>
 
-                    <!-- FAQ 4 -->
-                    <div class="faq-item">
+                    <!-- FAQ 4 (Admissions) -->
+                    <div class="faq-item" data-category="admissions">
                         <div class="faq-header" onclick="toggleFaq(this)">
                             <h3 class="faq-question">Is the program conducted in-person, online, or hybrid?</h3>
                             <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
@@ -769,8 +765,8 @@
                         </div>
                     </div>
 
-                    <!-- FAQ 5 -->
-                    <div class="faq-item">
+                    <!-- FAQ 5 (Careers) -->
+                    <div class="faq-item" data-category="careers">
                         <div class="faq-header" onclick="toggleFaq(this)">
                             <h3 class="faq-question">What certificates and credentials will I receive upon completion?</h3>
                             <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
@@ -782,8 +778,8 @@
                         </div>
                     </div>
 
-                    <!-- FAQ 6 -->
-                    <div class="faq-item">
+                    <!-- FAQ 6 (Curriculum) -->
+                    <div class="faq-item" data-category="curriculum">
                         <div class="faq-header" onclick="toggleFaq(this)">
                             <h3 class="faq-question">Who will be mentoring and reviewing my code during the training?</h3>
                             <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
@@ -794,6 +790,32 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- FAQ 7 (Curriculum) -->
+                    <div class="faq-item" data-category="curriculum">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <h3 class="faq-question">What technologies and AI frameworks are integrated into the curriculum?</h3>
+                            <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                The curriculum spans Modern HTML5/CSS3, Advanced JavaScript/TypeScript, ASP.NET Core Web APIs, Entity Framework Core, SQL Server, Git/GitHub CI/CD, and practical AI workflow automation including OpenAI APIs, LangChain, and Agentic Automation pipelines.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 8 (Careers) -->
+                    <div class="faq-item" data-category="careers">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <h3 class="faq-question">How does Intelligement support student job placement and career advancement?</h3>
+                            <div class="faq-icon-toggle"><i class="bi bi-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Through our partner brand network (including Futurenostics, Colinca, Softbuild), top cohort performers are directly recommended for fullstack engineering roles and paid software internships. We also conduct mock interviews, resume refinement, and technical portfolio reviews.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -801,217 +823,310 @@
     </main>
 
     <!-- ===================================================================
-         VIEW 2: CANDIDATE REGISTRATION FORM
+         VIEW 2: CANDIDATE REGISTRATION FORM (3-STEP WIZARD & SIDEBAR)
          =================================================================== -->
     <section id="view-apply" class="view-panel form-view-section" style="display: none;">
         <div class="container">
-            <div class="form-card">
-                <div class="form-header-box">
-                    <h1 class="gradient-title">Register as a Candidate</h1>
-                    <p class="text-muted">Join our growing community and take the next step in your tech career journey</p>
-                    
-                    <div class="stat-pills-row">
-                        <span class="stat-pill pill-green"><i class="bi bi-briefcase-fill"></i> Career Growth</span>
-                        <span class="stat-pill pill-blue"><i class="bi bi-book-fill"></i> Learn & Develop</span>
-                        <span class="stat-pill pill-yellow"><i class="bi bi-people-fill"></i> Network</span>
-                        <span class="stat-pill pill-purple"><i class="bi bi-star-fill"></i> Opportunities</span>
+            <div class="apply-layout-grid">
+                
+                <!-- Left Column: 3-Step Wizard Card -->
+                <div class="form-card">
+                    <div class="form-header-box">
+                        <h1 class="gradient-title">Candidate Registration</h1>
+                        <p class="form-subtitle">Take the next step in your software engineering career with Intelligement's 1-Year Immersive Cohort (Batch 2026-B).</p>
                     </div>
 
-                    <div class="step-indicator">
-                        <div class="step-dot active"></div>
-                        <div class="step-dot active"></div>
-                        <div class="step-dot"></div>
-                        <div class="step-dot"></div>
+                    <!-- Step Progress Bar -->
+                    <div class="wizard-steps-nav">
+                        <div class="wizard-step-item active" id="step-nav-1" onclick="goToWizardStep(1)">
+                            <div class="wizard-step-circle">1</div>
+                            <span class="wizard-step-title">Personal Details</span>
+                        </div>
+                        <div class="wizard-step-divider"></div>
+                        <div class="wizard-step-item" id="step-nav-2" onclick="goToWizardStep(2)">
+                            <div class="wizard-step-circle">2</div>
+                            <span class="wizard-step-title">Academic Profile</span>
+                        </div>
+                        <div class="wizard-step-divider"></div>
+                        <div class="wizard-step-item" id="step-nav-3" onclick="goToWizardStep(3)">
+                            <div class="wizard-step-circle">3</div>
+                            <span class="wizard-step-title">Project Idea &amp; Bio</span>
+                        </div>
+                    </div>
+
+                    <div class="form-body">
+                        
+                        <!-- STEP 1: Personal Information -->
+                        <div class="wizard-step-pane active" id="wizard-step-1">
+                            <h3 class="form-section-title">
+                                <i class="bi bi-person-lines-fill text-primary"></i> Step 1: Personal Information
+                            </h3>
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label class="form-label">First Name <span class="req-star">*</span></label>
+                                    <div class="input-wrapper">
+                                        <i class="bi bi-person-fill input-icon"></i>
+                                        <input type="text" id="reg-fname" class="form-control has-icon" placeholder="e.g. Danial">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Last Name <span class="req-star">*</span></label>
+                                    <div class="input-wrapper">
+                                        <i class="bi bi-person-fill input-icon"></i>
+                                        <input type="text" id="reg-lname" class="form-control has-icon" placeholder="e.g. Ahmed">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Gender <span class="req-star">*</span></label>
+                                    <div class="input-wrapper">
+                                        <i class="bi bi-gender-ambiguous input-icon"></i>
+                                        <select id="reg-gender" class="form-select has-icon">
+                                            <option value="">Select Gender</option>
+                                            <option value="Male" selected>Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone / WhatsApp <span class="req-star">*</span></label>
+                                    <div class="input-wrapper">
+                                        <i class="bi bi-telephone-fill input-icon"></i>
+                                        <input type="tel" id="reg-phone" class="form-control has-icon" placeholder="+92 300 1234567">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">CNIC / Form B Number <span class="req-star">*</span></label>
+                                    <div class="input-wrapper">
+                                        <i class="bi bi-card-text input-icon"></i>
+                                        <input type="text" id="reg-cnic" class="form-control has-icon" placeholder="e.g. 61101-1234567-1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Current City <span class="req-star">*</span></label>
+                                    <div class="input-wrapper">
+                                        <i class="bi bi-geo-alt-fill input-icon"></i>
+                                        <select id="reg-city" class="form-select has-icon">
+                                            <option value="Islamabad" selected>Islamabad</option>
+                                            <option value="Rawalpindi">Rawalpindi</option>
+                                            <option value="Lahore">Lahore</option>
+                                            <option value="Karachi">Karachi</option>
+                                            <option value="Peshawar">Peshawar</option>
+                                            <option value="Other">Other City</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="wizard-nav-actions" style="justify-content: flex-end;">
+                                <button type="button" class="btn btn-primary" onclick="goToWizardStep(2)">
+                                    Continue to Academic Profile <i class="bi bi-arrow-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2: Academic & Professional Profile -->
+                        <div class="wizard-step-pane" id="wizard-step-2">
+                            <h3 class="form-section-title">
+                                <i class="bi bi-mortarboard-fill text-primary"></i> Step 2: Academic &amp; Professional Profile
+                            </h3>
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label class="form-label">Education Level <span class="req-star">*</span></label>
+                                    <select id="reg-degree" class="form-select">
+                                        <option value="Bachelor" selected>Bachelor's Degree</option>
+                                        <option value="Master">Master's Degree</option>
+                                        <option value="PhD">PhD Scholar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Current Enrollment Status <span class="req-star">*</span></label>
+                                    <select id="reg-status" class="form-select">
+                                        <option value="Student" selected>Enrolled University Student</option>
+                                        <option value="Recent Graduate">Recent Graduate</option>
+                                        <option value="Junior Professional">Junior Developer / Employed</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">University / Institution <span class="req-star">*</span></label>
+                                    <select id="reg-university" class="form-select">
+                                        <option value="Air University" selected>Air University, Islamabad</option>
+                                        <option value="NUST">NUST (National University of Sciences &amp; Tech)</option>
+                                        <option value="FAST-NUCES">FAST-NUCES</option>
+                                        <option value="COMSATS">COMSATS University</option>
+                                        <option value="Bahria University">Bahria University</option>
+                                        <option value="Other">Other University</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Discipline / Major <span class="req-star">*</span></label>
+                                    <select id="reg-major" class="form-select">
+                                        <option value="Computer Science" selected>Computer Science (BS CS)</option>
+                                        <option value="Software Engineering">Software Engineering (BS SE)</option>
+                                        <option value="Artificial Intelligence">Artificial Intelligence (BS AI)</option>
+                                        <option value="Data Science">Data Science (BS DS)</option>
+                                        <option value="Information Technology">Information Technology (BS IT)</option>
+                                        <option value="Electrical Engineering">Electrical / Telecom Engineering</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Current Semester <span class="req-star">*</span></label>
+                                    <select id="reg-semester" class="form-select">
+                                        <option value="3rd - 4th">3rd or 4th Semester</option>
+                                        <option value="5th - 6th" selected>5th or 6th Semester</option>
+                                        <option value="7th - 8th">7th or 8th Semester (Final Year)</option>
+                                        <option value="Graduated">Completed / Graduated</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Cohort Track</label>
+                                    <input type="text" class="form-control" value="Fullstack Web &amp; AI Automation" readonly style="background: #f8fafc; font-weight: 500;">
+                                </div>
+                            </div>
+
+                            <div class="wizard-nav-actions">
+                                <button type="button" class="btn btn-outline-primary" onclick="goToWizardStep(1)">
+                                    <i class="bi bi-arrow-left me-1"></i> Back to Personal Info
+                                </button>
+                                <button type="button" class="btn btn-primary" onclick="goToWizardStep(3)">
+                                    Continue to Project &amp; Bio <i class="bi bi-arrow-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: Project Idea & Aspirations -->
+                        <div class="wizard-step-pane" id="wizard-step-3">
+                            <h3 class="form-section-title">
+                                <i class="bi bi-lightbulb-fill text-primary"></i> Step 3: Project Idea &amp; Aspirations
+                            </h3>
+
+                            <!-- Optional Profile Photo Widget -->
+                            <div class="avatar-upload-box">
+                                <div class="upload-avatar-circle">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <label class="upload-btn-fake">
+                                    <i class="bi bi-cloud-arrow-up-fill"></i> Upload Profile Photo (Optional)
+                                    <input type="file" accept="image/*" style="display: none;" onchange="alert('Photo selected successfully.')">
+                                </label>
+                                <p class="form-hint">JPG, PNG format • Square headshot recommended</p>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label class="form-label">
+                                    Commercial MVP Idea <span class="req-star">*</span>
+                                </label>
+                                <textarea id="reg-idea" class="form-textarea" rows="3" placeholder="Describe the software project or commercial web application you aspire to build during the cohort..."></textarea>
+                                <p class="form-hint">Share what problem you want your project to solve (e.g. EdTech, Healthcare, Logistics, FinTech).</p>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label class="form-label">
+                                    About You &amp; Career Objectives <span class="req-star">*</span>
+                                </label>
+                                <textarea id="reg-bio" class="form-textarea" rows="4" placeholder="Tell us about your background, any previous programming languages you have explored, and your career goals..."></textarea>
+                                <p class="form-hint">Helps our faculty personalize mentorship reviews and match you with the right project team.</p>
+                            </div>
+
+                            <div class="wizard-nav-actions">
+                                <button type="button" class="btn btn-outline-primary" onclick="goToWizardStep(2)">
+                                    <i class="bi bi-arrow-left me-1"></i> Back to Academic Profile
+                                </button>
+                                <button type="button" class="btn btn-success btn-lg" onclick="submitRegistration()">
+                                    <i class="bi bi-check-circle-fill me-1"></i> Submit Candidate Application
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <div class="form-body">
-                    <div class="form-banner-alert">
-                        <i class="bi bi-info-circle-fill me-1"></i>
-                        <strong>Complete all required fields</strong> to get matched with the right opportunities.
-                    </div>
+                <!-- Right Column: Reassuring Overview Sidebar -->
+                <div class="apply-sidebar-card">
+                    <h4 class="sidebar-title">Admissions Overview</h4>
+                    <p class="sidebar-subtitle">Transparent, structured timeline from submission to cohort onboarding.</p>
 
-                    <!-- Photo Upload -->
-                    <div class="avatar-upload-box">
-                        <div class="form-label label-red" style="justify-content: center; margin-bottom: 12px;">
-                            <i class="bi bi-person-circle"></i> Profile Picture
+                    <div class="sidebar-steps-list">
+                        <div class="sidebar-step-item">
+                            <div class="sidebar-step-num">1</div>
+                            <div class="sidebar-step-text">
+                                <h5>Application Review</h5>
+                                <p>Our admissions committee evaluates your background, university track, and MVP vision within 48 business hours.</p>
+                            </div>
                         </div>
-                        <div class="upload-avatar-circle">
-                            <i class="bi bi-camera-fill"></i>
-                        </div>
-                        <label class="upload-btn-fake">
-                            <i class="bi bi-cloud-arrow-up-fill"></i> Choose Profile Photo
-                            <input type="file" accept="image/*" style="display: none;" onchange="alert('Image selected: in actual app, generates base64 preview.')">
-                        </label>
-                        <p class="form-hint">JPG, PNG or GIF • Max 3MB • Square photo recommended</p>
-                    </div>
 
-                    <!-- Personal Information -->
-                    <div class="form-section-group">
-                        <h3 class="form-section-title title-green">
-                            <i class="bi bi-person-lines-fill"></i> Personal Information
-                        </h3>
-                        <div class="form-grid-2">
-                            <div class="form-group">
-                                <label class="form-label label-green"><i class="bi bi-person-fill"></i> First Name</label>
-                                <div class="input-wrapper">
-                                    <i class="bi bi-person-fill input-icon text-success-brand"></i>
-                                    <input type="text" class="form-control has-icon" placeholder="e.g. John">
-                                </div>
+                        <div class="sidebar-step-item">
+                            <div class="sidebar-step-num">2</div>
+                            <div class="sidebar-step-text">
+                                <h5>Discovery Chat (20 min)</h5>
+                                <p>An informal online discussion with a technical mentor to confirm schedule compatibility and answer questions.</p>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label label-green"><i class="bi bi-person-fill"></i> Last Name</label>
-                                <div class="input-wrapper">
-                                    <i class="bi bi-person-fill input-icon text-success-brand"></i>
-                                    <input type="text" class="form-control has-icon" placeholder="e.g. Doe">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label label-green"><i class="bi bi-gender-ambiguous"></i> Gender</label>
-                                <div class="input-wrapper">
-                                    <i class="bi bi-gender-ambiguous input-icon text-success-brand"></i>
-                                    <select class="form-select has-icon">
-                                        <option value="">Select Gender</option>
-                                        <option value="Male" selected>Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label label-blue"><i class="bi bi-telephone-fill"></i> Phone Number</label>
-                                <div class="input-wrapper">
-                                    <i class="bi bi-telephone-fill input-icon text-primary-brand"></i>
-                                    <input type="tel" class="form-control has-icon" placeholder="+92-300-1234567">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label label-red"><i class="bi bi-card-text"></i> CNIC</label>
-                                <div class="input-wrapper">
-                                    <i class="bi bi-card-text input-icon text-danger-brand"></i>
-                                    <input type="text" class="form-control has-icon" placeholder="12345-6789012-3">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label label-red"><i class="bi bi-geo-alt-fill"></i> City</label>
-                                <div class="input-wrapper">
-                                    <i class="bi bi-geo-alt-fill input-icon text-danger-brand"></i>
-                                    <select class="form-select has-icon">
-                                        <option value="">Select City</option>
-                                        <option value="Islamabad" selected>Islamabad</option>
-                                        <option value="Rawalpindi">Rawalpindi</option>
-                                        <option value="Lahore">Lahore</option>
-                                        <option value="Karachi">Karachi</option>
-                                    </select>
-                                </div>
+                        </div>
+
+                        <div class="sidebar-step-item">
+                            <div class="sidebar-step-num">3</div>
+                            <div class="sidebar-step-text">
+                                <h5>Cohort Acceptance</h5>
+                                <p>Receive your official acceptance letter, schedule packet, and pre-cohort developer environment setup instructions.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Academic & Professional -->
-                    <div class="form-section-group">
-                        <h3 class="form-section-title title-blue">
-                            <i class="bi bi-mortarboard-fill"></i> Academic & Professional
-                        </h3>
-                        <div class="form-grid-2">
-                            <div class="form-group">
-                                <label class="form-label label-blue"><i class="bi bi-mortarboard"></i> Education Level</label>
-                                <select class="form-select">
-                                    <option value="">Select Level</option>
-                                    <option value="Bachelor" selected>Bachelor's Degree</option>
-                                    <option value="Master">Master's Degree</option>
-                                    <option value="PhD">PhD</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label label-blue"><i class="bi bi-briefcase-fill"></i> Current Status</label>
-                                <select class="form-select">
-                                    <option value="Student" selected>Student</option>
-                                    <option value="Employed">Employed</option>
-                                    <option value="Freelancer">Freelancer</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label label-blue"><i class="bi bi-building"></i> Institute / University</label>
-                                <select class="form-select">
-                                    <option value="Air University" selected>Air University</option>
-                                    <option value="NUST">NUST</option>
-                                    <option value="FAST-NUCES">FAST-NUCES</option>
-                                    <option value="COMSATS">COMSATS</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label label-blue"><i class="bi bi-journal-code"></i> Program</label>
-                                <select class="form-select">
-                                    <option value="CS" selected>Computer Science (CS)</option>
-                                    <option value="SE">Software Engineering (SE)</option>
-                                    <option value="AI">Artificial Intelligence (AI)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label label-blue"><i class="bi bi-calendar-event"></i> Current Semester</label>
-                                <select class="form-select">
-                                    <option value="6th" selected>6th Semester</option>
-                                    <option value="7th">7th Semester</option>
-                                    <option value="8th">8th Semester</option>
-                                    <option value="Graduated">Graduated</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label label-yellow"><i class="bi bi-code-slash"></i> Program Track</label>
-                                <input type="text" class="form-control" value="Fullstack Web Development & AI" readonly style="background-color: #f8f9fa;">
-                            </div>
+                    <!-- Fast Facts -->
+                    <div class="sidebar-cohort-box">
+                        <div class="cohort-fact-row">
+                            <span class="cohort-fact-label">Cohort:</span>
+                            <span class="cohort-fact-val">Batch 2026-B</span>
+                        </div>
+                        <div class="cohort-fact-row">
+                            <span class="cohort-fact-label">Schedule:</span>
+                            <span class="cohort-fact-val">Sat &amp; Sun (Weekends)</span>
+                        </div>
+                        <div class="cohort-fact-row">
+                            <span class="cohort-fact-label">Format:</span>
+                            <span class="cohort-fact-val">Campus Lab &amp; Hybrid</span>
+                        </div>
+                        <div class="cohort-fact-row">
+                            <span class="cohort-fact-label">Duration:</span>
+                            <span class="cohort-fact-val">12 Months Immersive</span>
                         </div>
                     </div>
 
-                    <!-- Project Idea & Bio -->
-                    <div class="form-section-group">
-                        <h3 class="form-section-title title-purple">
-                            <i class="bi bi-chat-square-text-fill"></i> Tell Us About Yourself
-                        </h3>
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <label class="form-label label-purple"><i class="bi bi-lightbulb-fill"></i> Your Project Idea</label>
-                            <textarea class="form-textarea" rows="3" placeholder="Tell us about the software project you want to build during the training program..."></textarea>
-                            <p class="form-hint"><i class="bi bi-lightbulb text-warning-brand"></i> Share your innovative MVP idea that you want to transform into a real product.</p>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label label-purple"><i class="bi bi-person-badge"></i> About You & Aspirations</label>
-                            <textarea class="form-textarea" rows="4" placeholder="Share your background, programming skills, goals, and why you want to join Intelligement..."></textarea>
-                            <p class="form-hint">Tell us what drives your passion in software engineering and technology.</p>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 35px;">
-                        <button type="button" class="btn btn-success btn-lg" style="width: 100%;" onclick="alert('Form submission successful! Welcome to Intelligement.')">
-                            <i class="bi bi-check-circle-fill"></i> Complete Candidate Registration
-                        </button>
+                    <!-- Admissions WhatsApp Help -->
+                    <div class="sidebar-help-box">
+                        <p>Have questions before applying?</p>
+                        <a href="https://wa.me/923030505090" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Chat with Admissions Team
+                        </a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- ===================================================================
-         VIEW 3: FOUNDER & CONTACT US
+         VIEW 3: FOUNDER & CONTACT US (SYMMETRICAL 2-COLUMN DESIGN)
          =================================================================== -->
     <section id="view-contact" class="view-panel" style="display: none;">
         <div class="contact-hero">
             <div class="container">
-                <h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 10px;">
-                    <i class="bi bi-chat-dots-fill me-2"></i> Get in Touch
+                <h1>
+                    <i class="bi bi-chat-dots-fill me-2"></i> Connect &amp; Contact
                 </h1>
-                <p style="font-size: 1.15rem; opacity: 0.9;">Connect with Intelligement leadership for mentorship, collaborations, and career opportunities</p>
+                <p>Reach out to Intelligement leadership for academic counseling, enterprise partnerships, or cohort admissions inquiries.</p>
             </div>
         </div>
 
         <div class="container">
+            <!-- Founder Profile Card -->
             <div class="founder-card">
                 <div class="founder-header-hero">
                     <div class="founder-img-wrapper">
                         <img src="logos/asim.png" alt="Asim Ali Fayyaz" class="founder-img">
                     </div>
                     <h2 class="founder-name">Asim Ali Fayyaz</h2>
-                    <p class="founder-title">CEO & Founder, Intelligement</p>
+                    <p class="founder-title">CEO &amp; Founder, Intelligement</p>
                     <div class="founder-badges">
                         <span class="founder-pill"><i class="bi bi-award-fill me-1"></i> PhD Scholar</span>
                         <span class="founder-pill"><i class="bi bi-mortarboard-fill me-1"></i> Lecturer at Air University</span>
@@ -1019,89 +1134,142 @@
                 </div>
 
                 <div class="founder-body">
-                    <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--primary-navy);">
-                        <i class="bi bi-person-badge text-success-brand me-1"></i> About Asim Ali Fayyaz
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--primary-navy);">
+                        <i class="bi bi-person-badge text-success-brand me-1"></i> Leadership &amp; Educational Mission
                     </h3>
                     <div class="accent-subbar"></div>
 
                     <p class="founder-bio-p">
-                        Mr. Asim Ali Fayyaz is a visionary technology leader and dedicated educator committed to revolutionizing tech education in Pakistan. As the Founder of Intelligement, he bridges the critical gap between academic theory and industry demands by empowering university students with real-world experience, mentorship, and practical skills needed to launch successful tech careers.
+                        Mr. Asim Ali Fayyaz is a visionary technology leader and dedicated educator committed to transforming tech education in Pakistan. As the Founder of Intelligement, he bridges the critical gap between academic theory and industry demands by empowering university students with real-world product engineering experience, senior mentorship, and the practical software skills needed to launch successful tech careers.
                     </p>
                     <p class="founder-bio-p">
-                        Currently pursuing his PhD in Computer Science and serving as a Lecturer at Air University, Islamabad, he combines rigorous academic excellence with hands-on industry training. His unique approach focuses on transforming students into industry-ready professionals through project-based learning and continuous guidance.
+                        Currently pursuing his PhD in Computer Science and serving as a Lecturer at Air University, Islamabad, he combines rigorous academic excellence with hands-on industry training. His unique approach focuses on transforming students into industry-ready software engineers through commercial MVP construction and continuous architectural guidance.
                     </p>
 
                     <div class="qualifications-box">
-                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--brand-green); margin-bottom: 16px;">
-                            <i class="bi bi-trophy-fill me-1"></i> Qualifications & Expertise
+                        <h4>
+                            <i class="bi bi-trophy-fill me-1"></i> Qualifications &amp; Leadership Profile
                         </h4>
                         <div class="qual-item">
                             <span class="qual-icon">✓</span>
-                            <span>PhD Scholar in Computer Science - Research in Tech Pedagogy & Engineering</span>
+                            <span>PhD Scholar in Computer Science — Active Research in Modern Tech Pedagogy</span>
                         </div>
                         <div class="qual-item">
                             <span class="qual-icon">✓</span>
-                            <span>Lecturer at Air University, Islamabad - Inspiring Future Tech Leaders</span>
+                            <span>Lecturer at Air University, Islamabad — Mentoring Undergraduate Engineers</span>
                         </div>
                         <div class="qual-item">
                             <span class="qual-icon">✓</span>
-                            <span>Founder of Intelligement - Revolutionizing Practical Tech Bootcamps</span>
+                            <span>Founder of Intelligement — Pioneering Commercial MVP-Driven Cohorts</span>
                         </div>
                         <div class="qual-item">
                             <span class="qual-icon">✓</span>
-                            <span>Technology Leader & Industry Architect with 8+ Years of Practical Experience</span>
+                            <span>Software Architecture Leader with 8+ Years of Practical Production Experience</span>
                         </div>
                         <div class="qual-item">
                             <span class="qual-icon">✓</span>
-                            <span>Mentor for 500+ Successful Software Engineers & Tech Professionals</span>
+                            <span>Personal Mentor to 500+ Graduated Engineers Placed in Top Tech Firms</span>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--primary-navy); margin-top: 40px;">
-                        <i class="bi bi-telephone-inbound text-primary-brand me-1"></i> Direct Connect Channels
-                    </h3>
-                    <div class="accent-subbar"></div>
+            <!-- Symmetrical 2-Column Section: Direct Message Form + 2x2 Contact Matrix -->
+            <div class="contact-section-container">
+                <div class="contact-layout-grid">
+                    
+                    <!-- Left Column: Direct Inquiry Message Form -->
+                    <div class="contact-form-card">
+                        <h4 class="contact-form-title">
+                            <i class="bi bi-envelope-paper-fill text-primary me-2"></i> Send a Direct Inquiry
+                        </h4>
+                        <p class="contact-form-desc">
+                            Have questions regarding cohort admission, university collaboration, or curriculum? Send our leadership team a direct message.
+                        </p>
 
-                    <div class="contact-channels-grid">
-                        <!-- WhatsApp -->
-                        <div class="contact-card card-whatsapp">
-                            <i class="bi bi-whatsapp contact-icon-large"></i>
-                            <div class="contact-channel-label">WhatsApp</div>
-                            <div class="contact-channel-val">+92 303 0505090</div>
-                            <a href="https://wa.me/923030505090" target="_blank" class="contact-action-btn">
-                                <i class="bi bi-chat-text-fill"></i> Message
+                        <form onsubmit="event.preventDefault(); submitInquiry();" style="display: flex; flex-direction: column; gap: 14px; flex: 1;">
+                            <div class="form-group">
+                                <label class="form-label">Full Name <span class="req-star">*</span></label>
+                                <input type="text" id="inq-name" class="form-control" placeholder="e.g. Hamza Tariq" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address <span class="req-star">*</span></label>
+                                <input type="email" id="inq-email" class="form-control" placeholder="e.g. name@university.edu.pk" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone / WhatsApp Number</label>
+                                <input type="tel" id="inq-phone" class="form-control" placeholder="+92 300 1234567">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Inquiry Subject <span class="req-star">*</span></label>
+                                <select id="inq-subject" class="form-select">
+                                    <option value="Admissions">Batch 2026-B Admissions &amp; Schedule</option>
+                                    <option value="Curriculum">Curriculum &amp; Tech Stack Details</option>
+                                    <option value="Corporate">University or Corporate Collaboration</option>
+                                    <option value="Other">General Question / Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label class="form-label">Your Message <span class="req-star">*</span></label>
+                                <textarea id="inq-msg" class="form-textarea" rows="3" placeholder="Write your inquiry here..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+                                <i class="bi bi-send-fill me-1"></i> Send Inquiry Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right Column: Symmetrical 2x2 Matrix of Equal-Dimension Cards -->
+                    <div class="contact-cards-matrix">
+                        
+                        <!-- Card 1: WhatsApp -->
+                        <div class="symmetrical-contact-card card-whatsapp-brand">
+                            <div class="symmetrical-card-icon">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+                            <div class="symmetrical-card-label">WhatsApp Channel</div>
+                            <div class="symmetrical-card-val">+92 303 0505090</div>
+                            <a href="https://wa.me/923030505090" target="_blank" class="symmetrical-card-btn">
+                                <i class="bi bi-chat-text-fill"></i> Message Us
                             </a>
                         </div>
 
-                        <!-- Phone -->
-                        <div class="contact-card card-phone">
-                            <i class="bi bi-telephone-fill contact-icon-large"></i>
-                            <div class="contact-channel-label">Phone Call</div>
-                            <div class="contact-channel-val">+92 303 0505090</div>
-                            <a href="tel:+923030505090" class="contact-action-btn">
-                                <i class="bi bi-telephone-outbound-fill"></i> Call Now
+                        <!-- Card 2: Phone Hotline -->
+                        <div class="symmetrical-contact-card">
+                            <div class="symmetrical-card-icon">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <div class="symmetrical-card-label">Admissions Hotline</div>
+                            <div class="symmetrical-card-val">+92 303 0505090</div>
+                            <a href="tel:+923030505090" class="symmetrical-card-btn">
+                                <i class="bi bi-telephone-outbound-fill"></i> Call Helpline
                             </a>
                         </div>
 
-                        <!-- Email -->
-                        <div class="contact-card card-email">
-                            <i class="bi bi-envelope-fill contact-icon-large"></i>
-                            <div class="contact-channel-label">Email</div>
-                            <div class="contact-channel-val" style="font-size: 0.78rem;">intelligement@outlook.com</div>
-                            <a href="mailto:intelligement@outlook.com" class="contact-action-btn">
-                                <i class="bi bi-envelope-paper-fill"></i> Send Email
+                        <!-- Card 3: Email Support -->
+                        <div class="symmetrical-contact-card">
+                            <div class="symmetrical-card-icon">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div class="symmetrical-card-label">Official Email</div>
+                            <div class="symmetrical-card-val" style="font-size: 0.8rem;">intelligement@outlook.com</div>
+                            <a href="mailto:intelligement@outlook.com" class="symmetrical-card-btn">
+                                <i class="bi bi-envelope-paper-fill"></i> Write Email
                             </a>
                         </div>
 
-                        <!-- LinkedIn -->
-                        <div class="contact-card card-linkedin">
-                            <i class="bi bi-linkedin contact-icon-large"></i>
-                            <div class="contact-channel-label">LinkedIn</div>
-                            <div class="contact-channel-val">Professional Network</div>
-                            <a href="https://www.linkedin.com/in/asim-ali-fayyaz/" target="_blank" class="contact-action-btn">
-                                <i class="bi bi-box-arrow-up-right"></i> Connect
+                        <!-- Card 4: Campus Office -->
+                        <div class="symmetrical-contact-card">
+                            <div class="symmetrical-card-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div class="symmetrical-card-label">Campus Office</div>
+                            <div class="symmetrical-card-val" style="font-size: 0.78rem;">Air University, E-9, Islamabad</div>
+                            <a href="https://maps.google.com/?q=Air+University+Islamabad" target="_blank" class="symmetrical-card-btn">
+                                <i class="bi bi-compass-fill"></i> Campus Map
                             </a>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -1117,7 +1285,7 @@
             <div class="modal-header-styled">
                 <img id="modal-img" src="" alt="Alumni" class="modal-avatar">
                 <div>
-                    <h3 id="modal-name" style="font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px;"></h3>
+                    <h3 id="modal-name" style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2px;"></h3>
                     <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 2px;">
                         <span id="modal-role" style="font-weight: 600; color: var(--brand-green);"></span> @ <span id="modal-company" style="color: var(--primary-navy); font-weight: 600;"></span>
                     </p>
@@ -1140,8 +1308,11 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="logos/Intelligement.png" alt="Intelligement" style="height: 30px; filter: brightness(0) invert(1); margin-bottom: 18px;">
-                    <p style="color: #9ca3af; font-size: 0.9rem; line-height: 1.7; max-width: 340px;">
+                    <!-- Authentic Full-Color Intelligement Brand Logo Container -->
+                    <div class="footer-logo-badge">
+                        <img src="logos/Intelligement.png" alt="Intelligement" class="footer-logo-img">
+                    </div>
+                    <p style="color: #9ca3af; font-size: 0.9rem; line-height: 1.7; max-width: 340px; text-align: justify; text-justify: inter-word;">
                         Empowering university students with hands-on fullstack development and AI automation, turning ambition into industry-ready tech careers.
                     </p>
                 </div>
@@ -1149,19 +1320,19 @@
                 <div class="footer-col">
                     <h5>Programs</h5>
                     <ul class="footer-links-list">
-                        <li class="footer-link-item"><a href="#programs" class="footer-link">Fullstack Development</a></li>
-                        <li class="footer-link-item"><a href="#programs" class="footer-link">AI Automation</a></li>
-                        <li class="footer-link-item"><a href="#programs" class="footer-link">Mentorship</a></li>
-                        <li class="footer-link-item"><a href="#interns" class="footer-link">Internships</a></li>
+                        <li class="footer-link-item"><a href="#curriculum" onclick="switchView('landing')" class="footer-link">Fullstack Development</a></li>
+                        <li class="footer-link-item"><a href="#curriculum" onclick="switchView('landing')" class="footer-link">AI Automation</a></li>
+                        <li class="footer-link-item"><a href="#journey" onclick="switchView('landing')" class="footer-link">Mentorship Journey</a></li>
+                        <li class="footer-link-item"><a href="#interns" onclick="switchView('landing')" class="footer-link">Internships</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h5>Resources</h5>
                     <ul class="footer-links-list">
-                        <li class="footer-link-item"><a href="#success" class="footer-link">Success Stories</a></li>
-                        <li class="footer-link-item"><a href="javascript:void(0)" onclick="switchView('contact', document.querySelectorAll('.prototype-tab-btn')[2])" class="footer-link">FAQs</a></li>
-                        <li class="footer-link-item"><a href="javascript:void(0)" onclick="switchView('contact', document.querySelectorAll('.prototype-tab-btn')[2])" class="footer-link">Support</a></li>
+                        <li class="footer-link-item"><a href="#success" onclick="switchView('landing')" class="footer-link">Wall of Glory</a></li>
+                        <li class="footer-link-item"><a href="#faq" onclick="switchView('landing')" class="footer-link">FAQs</a></li>
+                        <li class="footer-link-item"><a href="javascript:void(0)" onclick="switchView('contact')" class="footer-link">Contact &amp; Support</a></li>
                     </ul>
                 </div>
 
@@ -1183,24 +1354,129 @@
 
     <!-- Interactive Logic Script -->
     <script>
-        function switchView(viewName, buttonEl) {
-            // Update active tab styling
-            document.querySelectorAll('.prototype-tab-btn').forEach(btn => btn.classList.remove('active'));
-            if (buttonEl) buttonEl.classList.add('active');
+        function switchView(viewName) {
+            // Update active navbar link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
 
             // Hide all view panels
             document.querySelectorAll('.view-panel').forEach(panel => {
                 panel.style.display = 'none';
             });
 
-            // Show selected view
+            // Show selected view panel
             const target = document.getElementById('view-' + viewName);
             if (target) {
                 target.style.display = 'block';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+
+            if (viewName === 'landing') {
+                const homeLink = document.querySelector('.nav-links a[href="#home"]');
+                if (homeLink) homeLink.classList.add('active');
+            } else if (viewName === 'contact') {
+                const contactLink = document.querySelector('.nav-links a[onclick*="contact"]');
+                if (contactLink) contactLink.classList.add('active');
+            }
         }
 
+        // Option C: Tabbed FAQ Filter
+        function filterFaq(category, btnEl) {
+            document.querySelectorAll('.faq-tab-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const itemCat = item.getAttribute('data-category');
+                if (category === 'all' || itemCat === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Accordion Toggle
+        function toggleFaq(headerEl) {
+            const item = headerEl.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close other open accordion items
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // 3-Step Wizard Navigation
+        function goToWizardStep(stepNum) {
+            // Validate step 1 if moving to step 2
+            if (stepNum === 2) {
+                const fname = document.getElementById('reg-fname');
+                const lname = document.getElementById('reg-lname');
+                if (fname && lname && (!fname.value.trim() || !lname.value.trim())) {
+                    alert('Please enter your First Name and Last Name to continue.');
+                    if (!fname.value.trim()) fname.focus();
+                    else lname.focus();
+                    return;
+                }
+            }
+
+            // Update Wizard Step Indicators
+            for (let i = 1; i <= 3; i++) {
+                const navItem = document.getElementById('step-nav-' + i);
+                const paneItem = document.getElementById('wizard-step-' + i);
+
+                if (navItem) {
+                    navItem.classList.remove('active', 'completed');
+                    if (i === stepNum) {
+                        navItem.classList.add('active');
+                    } else if (i < stepNum) {
+                        navItem.classList.add('completed');
+                    }
+                }
+
+                if (paneItem) {
+                    if (i === stepNum) {
+                        paneItem.classList.add('active');
+                    } else {
+                        paneItem.classList.remove('active');
+                    }
+                }
+            }
+
+            // Scroll smoothly to wizard top
+            const wizardCard = document.querySelector('.form-card');
+            if (wizardCard) {
+                wizardCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function submitRegistration() {
+            const idea = document.getElementById('reg-idea');
+            if (idea && !idea.value.trim()) {
+                alert('Please provide a brief description of the MVP software project you wish to build.');
+                idea.focus();
+                return;
+            }
+
+            alert('Registration Successful! Thank you for applying to Intelligement Batch 2026-B. Our admissions team will contact you on WhatsApp / Phone within 48 business hours.');
+            goToWizardStep(1);
+            switchView('landing');
+        }
+
+        function submitInquiry() {
+            const name = document.getElementById('inq-name').value;
+            alert('Thank you, ' + (name || 'valued candidate') + '! Your message has been received. Our leadership team will respond shortly.');
+            const form = document.querySelector('.contact-form-card form');
+            if (form) form.reset();
+        }
+
+        // Alumni Modal
         function openReviewModal(name, role, company, batch, imgSrc, quote, linkedinUrl) {
             document.getElementById('modal-name').textContent = name;
             document.getElementById('modal-role').textContent = role;
@@ -1222,21 +1498,6 @@
         function closeReviewModal(e) {
             if (e.target.id === 'review-modal-overlay') {
                 closeReviewModalDirect();
-            }
-        }
-
-        function toggleFaq(headerEl) {
-            const item = headerEl.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            // Close other open accordion items
-            document.querySelectorAll('.faq-item').forEach(el => {
-                el.classList.remove('active');
-            });
-
-            // Toggle current item
-            if (!isActive) {
-                item.classList.add('active');
             }
         }
 
