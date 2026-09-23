@@ -364,10 +364,9 @@ a:hover {
    =================================================================== */
 .hero-section {
     padding: 70px 0 60px;
-    background: linear-gradient(180deg, #f0f4f9 0%, #ffffff 100%);
+    background: #ffffff;
     position: relative;
     overflow: hidden;
-    border-bottom: 3px solid #d0deec;
 }
 
 .hero-container {
@@ -595,9 +594,6 @@ a:hover {
     background: #0f2b4f; /* Deep Dark Brand Navy anchor */
     position: relative;
     z-index: 20;
-    border-top: 3px solid var(--brand-green);
-    border-bottom: 3px solid var(--brand-green);
-    box-shadow: 0 10px 30px rgba(15, 43, 79, 0.35);
 }
 
 .metrics-grid {
@@ -705,8 +701,6 @@ a:hover {
 .curriculum-section {
     padding: 85px 0 75px;
     background: #ffffff;
-    border-top: 3px solid #d0deec;
-    border-bottom: 3px solid #a3d7ae;
 }
 
 .curriculum-split-layout {
@@ -1056,10 +1050,7 @@ a:hover {
    =================================================================== */
 .journey-section {
     padding: 85px 0;
-    background: #eaf5ec; /* Defined Brand Green Tint - High Visibility */
-    border-top: 3px solid #a3d7ae;
-    border-bottom: 3px solid #b8d4f0;
-    box-shadow: inset 0 3px 12px rgba(40, 167, 69, 0.05);
+    background: #edf6ef; /* Organic Brand Green Tint - Clean Seamless Surface */
 }
 
 .journey-timeline {
@@ -1152,10 +1143,7 @@ a:hover {
    =================================================================== */
 .mvp-section {
     padding: 85px 0;
-    background-color: #e9f0f8; /* Defined Academic Ice-Navy Slate - High Visibility */
-    border-top: 3px solid #b4cbe4;
-    border-bottom: 3px solid #d0deec;
-    box-shadow: inset 0 3px 12px rgba(30, 60, 114, 0.05);
+    background-color: #edf2f8; /* Organic Academic Slate Tint - Clean Seamless Surface */
 }
 
 /* Master Detail Stage */
@@ -1468,8 +1456,6 @@ a:hover {
 .brands-section {
     padding: 85px 0;
     background: #ffffff;
-    border-top: 3px solid #d0deec;
-    border-bottom: 3px solid #b8d0e8;
 }
 
 .brands-grid {
@@ -1508,10 +1494,7 @@ a:hover {
    =================================================================== */
 .glory-section {
     padding: 85px 0;
-    background-color: #eef4fa; /* Academic Ice-Navy Slate */
-    border-top: 3px solid #b8d0e8;
-    border-bottom: 3px solid #d0deec;
-    box-shadow: inset 0 3px 12px rgba(30, 60, 114, 0.04);
+    background-color: #edf2f8; /* Organic Academic Slate Tint */
 }
 
 .alumni-grid {
@@ -1681,8 +1664,6 @@ a:hover {
 .interns-section {
     padding: 85px 0;
     background: #ffffff;
-    border-top: 3px solid #d0deec;
-    border-bottom: 3px solid #a3d7ae;
 }
 
 .interns-grid {
@@ -2669,10 +2650,7 @@ a:hover {
    =================================================================== */
 .faq-section {
     padding: 85px 0 95px;
-    background: #eaf5ec; /* Fresh Brand Green Soft Tint */
-    border-top: 3px solid #a3d7ae;
-    border-bottom: 4px solid var(--primary-navy);
-    box-shadow: inset 0 3px 12px rgba(40, 167, 69, 0.05);
+    background: #edf6ef; /* Organic Brand Green Tint */
 }
 
 .faq-container {
