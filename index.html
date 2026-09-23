@@ -98,6 +98,7 @@
                 <!-- Hero Right Column: Interactive Visual Frame & Floating Badges -->
                 <div class="hero-visual-wrapper">
                     <div class="hero-card-frame">
+                        <span class="oxford-pill-badge pill-green" style="position: absolute; top: 20px; left: 20px; z-index: 10;"><i class="bi bi-patch-check-fill"></i> Batch 2026-B Verified Cohort</span>
                         <img src="logos/im-bg.png" alt="Students collaborating at Intelligement Lab" class="hero-img">
                         
                         <!-- Floating Glassmorphic Achievement Badges -->
@@ -183,100 +184,154 @@
              =============================================================== -->
         <section class="curriculum-section" id="curriculum">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title title-primary">Industry-Engineered<br>Curriculum Roadmap</h2>
-                    <p class="section-subtitle">We bridge the gap between academic theory and production-grade software engineering through a structured, 4-phase mastery track.</p>
-                </div>
+                <div class="curriculum-split-layout">
+                    <!-- Sticky Left Column: Academic Authority, Overview & Live Phase Tracking -->
+                    <aside class="curriculum-sticky-aside">
+                        <div class="curriculum-sticky-content">
+                            <span class="curriculum-eyebrow"><i class="bi bi-compass-fill"></i> CURRICULUM ROADMAP</span>
+                            <h2 class="curriculum-sticky-headline">Industry-Engineered<br>Technical Mastery</h2>
+                            <p class="curriculum-sticky-desc">
+                                We bridge the gap between academic theory and production-grade software engineering through a structured, 4-phase immersion track.
+                            </p>
+                            
+                            <!-- Interactive Phase Indicator Tracking Current Phase -->
+                            <nav class="curriculum-phase-tracker" aria-label="Curriculum Phases">
+                                <a href="#curriculum-phase-1" class="phase-track-item active" data-phase="1">
+                                    <span class="track-indicator">01</span>
+                                    <div class="track-info">
+                                        <span class="track-title">Web Engineering & UI</span>
+                                        <span class="track-duration">Months 1-3 • Foundation</span>
+                                    </div>
+                                </a>
+                                <a href="#curriculum-phase-2" class="phase-track-item" data-phase="2">
+                                    <span class="track-indicator">02</span>
+                                    <div class="track-info">
+                                        <span class="track-title">Backend & Cloud APIs</span>
+                                        <span class="track-duration">Months 4-6 • Enterprise</span>
+                                    </div>
+                                </a>
+                                <a href="#curriculum-phase-3" class="phase-track-item" data-phase="3">
+                                    <span class="track-indicator">03</span>
+                                    <div class="track-info">
+                                        <span class="track-title">AI Agents & Workflows</span>
+                                        <span class="track-duration">Months 7-9 • Intelligence</span>
+                                    </div>
+                                </a>
+                                <a href="#curriculum-phase-4" class="phase-track-item" data-phase="4">
+                                    <span class="track-indicator">04</span>
+                                    <div class="track-info">
+                                        <span class="track-title">Commercial Client MVP</span>
+                                        <span class="track-duration">Months 10-12 • Capstone</span>
+                                    </div>
+                                </a>
+                            </nav>
 
-                <div class="curriculum-grid-4">
-                    <!-- Phase 1 -->
-                    <div class="curriculum-card phase-1">
-                        <span class="curriculum-phase-tag">Phase 01 • Months 1-3</span>
-                        <h3 class="curriculum-title">Modern Web Engineering &amp; UI Architecture</h3>
-                        <p class="curriculum-desc">Master the foundations of scalable, responsive web systems with modern web standards and design principles.</p>
-                        <ul class="curriculum-bullets">
-                            <li><i class="bi bi-check-circle-fill"></i> Semantic HTML5 &amp; Modern CSS Architecture</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Advanced JavaScript ES6+ &amp; DOM Engineering</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Component Systems &amp; Responsive Layouts</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Git, GitHub Collaboration &amp; Code Reviews</li>
-                        </ul>
-                        <div class="curriculum-milestone">
-                            <i class="bi bi-flag-fill text-primary-brand"></i> Milestone: Production-Grade Responsive Web App
+                            <div class="curriculum-sticky-cta">
+                                <button class="btn btn-primary" onclick="switchView('apply')">
+                                    Apply for Next Cohort
+                                </button>
+                            </div>
+
+                            <div class="schedule-guarantee-mini">
+                                <i class="bi bi-shield-check text-success-brand"></i>
+                                <span><strong>Weekend Schedule:</strong> Classes paused during university exams to protect your GPA.</span>
+                            </div>
                         </div>
-                    </div>
+                    </aside>
 
-                    <!-- Phase 2 -->
-                    <div class="curriculum-card phase-2">
-                        <span class="curriculum-phase-tag">Phase 02 • Months 4-6</span>
-                        <h3 class="curriculum-title">Enterprise Backend &amp; Cloud Database APIs</h3>
-                        <p class="curriculum-desc">Architect robust server-side business logic, relational schemas, secure authentication, and high-performance REST APIs.</p>
-                        <ul class="curriculum-bullets">
-                            <li><i class="bi bi-check-circle-fill"></i> C# Language Mastery &amp; .NET 8 Framework</li>
-                            <li><i class="bi bi-check-circle-fill"></i> ASP.NET Core Web APIs &amp; Middleware</li>
-                            <li><i class="bi bi-check-circle-fill"></i> SQL Server, Stored Procedures &amp; ADO.NET</li>
-                            <li><i class="bi bi-check-circle-fill"></i> OAuth 2.0, Cookies &amp; Enterprise Security</li>
-                        </ul>
-                        <div class="curriculum-milestone">
-                            <i class="bi bi-flag-fill text-primary-brand"></i> Milestone: Scalable Multi-Tier Database &amp; API Service
+                    <!-- Right Scrolling Column: Technical Phase Cards -->
+                    <div class="curriculum-scroll-column">
+                        <!-- Phase 1 Card with Oxford Image Metadata Pill Badge -->
+                        <div class="curriculum-phase-card" id="curriculum-phase-1" data-phase="1">
+                            <div class="phase-card-header">
+                                <span class="curriculum-phase-tag">Phase 01</span>
+                                <span class="oxford-pill-badge pill-green"><i class="bi bi-calendar3"></i> Months 1-3 • Web Foundation</span>
+                            </div>
+                            <h3 class="curriculum-title">Modern Web Engineering &amp; UI Architecture</h3>
+                            <p class="curriculum-desc">Master the foundations of scalable, responsive web systems with modern web standards and design principles.</p>
+                            <ul class="curriculum-bullets">
+                                <li><i class="bi bi-check-circle-fill"></i> Semantic HTML5 &amp; Modern CSS Architecture</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Advanced JavaScript ES6+ &amp; DOM Engineering</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Component Systems &amp; Responsive Layouts</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Git, GitHub Collaboration &amp; Code Reviews</li>
+                            </ul>
+                            <div class="curriculum-milestone">
+                                <i class="bi bi-flag-fill text-primary-brand"></i> Milestone: Production-Grade Responsive Web App
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Phase 3 -->
-                    <div class="curriculum-card phase-3">
-                        <span class="curriculum-phase-tag">Phase 03 • Months 7-9</span>
-                        <h3 class="curriculum-title">AI Automation &amp; Intelligent Workflows</h3>
-                        <p class="curriculum-desc">Augment software applications with cutting-edge AI capabilities, LLM integration, and agentic process automation.</p>
-                        <ul class="curriculum-bullets">
-                            <li><i class="bi bi-check-circle-fill"></i> LLM API Integration (OpenAI, Gemini, Anthropic)</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Prompt Engineering &amp; Structured JSON Outputs</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Autonomous Agent Workflows &amp; Tool Calling</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Automated Data Extraction &amp; Business Bots</li>
-                        </ul>
-                        <div class="curriculum-milestone">
-                            <i class="bi bi-flag-fill" style="color: var(--accent-purple);"></i> Milestone: Intelligent AI-Powered SaaS Application
+                        <!-- Phase 2 Card -->
+                        <div class="curriculum-phase-card" id="curriculum-phase-2" data-phase="2">
+                            <div class="phase-card-header">
+                                <span class="curriculum-phase-tag">Phase 02</span>
+                                <span class="oxford-pill-badge pill-navy"><i class="bi bi-database-check"></i> Months 4-6 • Enterprise .NET</span>
+                            </div>
+                            <h3 class="curriculum-title">Enterprise Backend &amp; Cloud Database APIs</h3>
+                            <p class="curriculum-desc">Architect robust server-side business logic, relational schemas, secure authentication, and high-performance REST APIs.</p>
+                            <ul class="curriculum-bullets">
+                                <li><i class="bi bi-check-circle-fill"></i> C# Language Mastery &amp; .NET 8 Framework</li>
+                                <li><i class="bi bi-check-circle-fill"></i> ASP.NET Core Web APIs &amp; Middleware</li>
+                                <li><i class="bi bi-check-circle-fill"></i> SQL Server, Stored Procedures &amp; ADO.NET</li>
+                                <li><i class="bi bi-check-circle-fill"></i> OAuth 2.0, Cookies &amp; Enterprise Security</li>
+                            </ul>
+                            <div class="curriculum-milestone">
+                                <i class="bi bi-flag-fill text-primary-brand"></i> Milestone: Scalable Multi-Tier Database &amp; API Service
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Phase 4 -->
-                    <div class="curriculum-card phase-4">
-                        <span class="curriculum-phase-tag">Phase 04 • Months 10-12</span>
-                        <h3 class="curriculum-title">Commercial Client MVP &amp; Launchpad</h3>
-                        <p class="curriculum-desc">Form agile startup pods to build, deploy, and support a live, commercial product for actual business clients.</p>
-                        <ul class="curriculum-bullets">
-                            <li><i class="bi bi-check-circle-fill"></i> Agile Sprint Planning &amp; Product Management</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Production CI/CD, Domain &amp; Cloud Deployment</li>
-                            <li><i class="bi bi-check-circle-fill"></i> User Feedback, Bug Tracking &amp; Iteration</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Portfolio Defense, LinkedIn &amp; Career Placement</li>
-                        </ul>
-                        <div class="curriculum-milestone">
-                            <i class="bi bi-flag-fill text-success-brand"></i> Milestone: Shipped Commercial MVP on Wall of Glory
+                        <!-- Phase 3 Card -->
+                        <div class="curriculum-phase-card" id="curriculum-phase-3" data-phase="3">
+                            <div class="phase-card-header">
+                                <span class="curriculum-phase-tag">Phase 03</span>
+                                <span class="oxford-pill-badge pill-green"><i class="bi bi-robot"></i> Months 7-9 • AI Workflows</span>
+                            </div>
+                            <h3 class="curriculum-title">AI Automation &amp; Intelligent Workflows</h3>
+                            <p class="curriculum-desc">Augment software applications with cutting-edge AI capabilities, LLM integration, and agentic process automation.</p>
+                            <ul class="curriculum-bullets">
+                                <li><i class="bi bi-check-circle-fill"></i> LLM API Integration (OpenAI, Gemini, Anthropic)</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Prompt Engineering &amp; Structured JSON Outputs</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Autonomous Agent Workflows &amp; Tool Calling</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Automated Data Extraction &amp; Business Bots</li>
+                            </ul>
+                            <div class="curriculum-milestone">
+                                <i class="bi bi-flag-fill text-primary-brand"></i> Milestone: Intelligent AI-Powered SaaS Application
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Technologies Taught Strip -->
-                <div class="tech-stack-strip">
-                    <div class="tech-stack-label">
-                        <i class="bi bi-cpu-fill text-primary-brand"></i> Industry Technologies You Will Master:
-                    </div>
-                    <div class="tech-stack-pills">
-                        <span class="tech-pill"><i class="bi bi-filetype-cs text-primary-brand"></i> C#</span>
-                        <span class="tech-pill"><i class="bi bi-window-stack text-primary-brand"></i> .NET 8 / ASP.NET</span>
-                        <span class="tech-pill"><i class="bi bi-filetype-js text-warning-brand"></i> JavaScript (ES6+)</span>
-                        <span class="tech-pill"><i class="bi bi-database-fill text-danger-brand"></i> SQL Server</span>
-                        <span class="tech-pill"><i class="bi bi-robot text-success-brand"></i> AI Agents &amp; LLMs</span>
-                        <span class="tech-pill"><i class="bi bi-git text-danger-brand"></i> Git &amp; GitHub</span>
-                        <span class="tech-pill"><i class="bi bi-cloud-arrow-up-fill text-primary-brand"></i> Cloud Deployment</span>
-                    </div>
-                </div>
+                        <!-- Phase 4 Card -->
+                        <div class="curriculum-phase-card" id="curriculum-phase-4" data-phase="4">
+                            <div class="phase-card-header">
+                                <span class="curriculum-phase-tag">Phase 04</span>
+                                <span class="oxford-pill-badge pill-navy"><i class="bi bi-rocket-takeoff-fill"></i> Months 10-12 • Commercial Capstone</span>
+                            </div>
+                            <h3 class="curriculum-title">Commercial Client MVP &amp; Launchpad</h3>
+                            <p class="curriculum-desc">Form agile startup pods to build, deploy, and support a live, commercial product for actual business clients.</p>
+                            <ul class="curriculum-bullets">
+                                <li><i class="bi bi-check-circle-fill"></i> Agile Sprint Planning &amp; Product Management</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Production CI/CD, Domain &amp; Cloud Deployment</li>
+                                <li><i class="bi bi-check-circle-fill"></i> User Feedback, Bug Tracking &amp; Iteration</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Portfolio Defense, LinkedIn &amp; Career Placement</li>
+                            </ul>
+                            <div class="curriculum-milestone">
+                                <i class="bi bi-flag-fill text-success-brand"></i> Milestone: Shipped Commercial MVP on Wall of Glory
+                            </div>
+                        </div>
 
-                <!-- Schedule Guarantee Box -->
-                <div class="schedule-guarantee-box">
-                    <div class="schedule-icon-wrap">
-                        <i class="bi bi-shield-check"></i>
-                    </div>
-                    <div class="schedule-text">
-                        <strong>Designed Exclusively for University Students:</strong> All interactive workshops, code reviews, and mentorship sprints take place on <strong>Saturdays &amp; Sundays</strong>. Project deadlines automatically pause during university midterms and finals, ensuring your GPA is always protected.
+                        <!-- Technologies Taught Strip -->
+                        <div class="tech-stack-strip">
+                            <div class="tech-stack-label">
+                                <i class="bi bi-cpu-fill text-primary-brand"></i> Industry Technologies You Will Master:
+                            </div>
+                            <div class="tech-stack-pills">
+                                <span class="tech-pill"><i class="bi bi-filetype-cs text-primary-brand"></i> C#</span>
+                                <span class="tech-pill"><i class="bi bi-window-stack text-primary-brand"></i> .NET 8 / ASP.NET</span>
+                                <span class="tech-pill"><i class="bi bi-filetype-js text-primary-brand"></i> JavaScript (ES6+)</span>
+                                <span class="tech-pill"><i class="bi bi-database-fill text-primary-brand"></i> SQL Server</span>
+                                <span class="tech-pill"><i class="bi bi-robot text-success-brand"></i> AI Agents &amp; LLMs</span>
+                                <span class="tech-pill"><i class="bi bi-git text-primary-brand"></i> Git &amp; GitHub</span>
+                                <span class="tech-pill"><i class="bi bi-cloud-arrow-up-fill text-primary-brand"></i> Cloud Deployment</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -342,152 +397,202 @@
         <section class="mvp-section" id="mvps">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title title-success">Applied Innovation<br>Through MVP Development</h2>
+                    <span class="curriculum-eyebrow"><i class="bi bi-rocket-takeoff-fill"></i> APPLIED INNOVATION</span>
+                    <h2 class="section-title title-primary">Commercial MVP Showcase</h2>
                     <p class="section-subtitle">These are not toy demo projects. Our university students design, engineer, and deploy real commercial solutions that solve genuine business problems across Pakistan.</p>
                 </div>
 
-                <div class="mvp-cards-grid">
-                    <!-- MVP 1: CAREHO -->
-                    <div class="mvp-product-card">
-                        <div class="mvp-card-top">
-                            <div class="mvp-logo-badge">
-                                <img src="logos/CAREHO.png" alt="CAREHO MVP">
-                            </div>
-                            <span class="mvp-badge-category cat-health">HealthTech</span>
-                        </div>
-                        <h3 class="mvp-title">CAREHO</h3>
-                        <p class="mvp-desc">Digital healthcare clinic management and patient appointment booking platform streamlining clinical workflows.</p>
-                        <div class="mvp-card-footer">
+                <!-- Master Detail Stage (Top View) -->
+                <div class="mvp-master-stage" id="mvp-master-stage">
+                    <div class="mvp-master-info">
+                        <div class="mvp-master-meta-row">
+                            <span class="mvp-badge-category" id="stage-category">HealthTech</span>
                             <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
-                            <a href="https://business.careho.pk" target="_blank" class="mvp-visit-link">
+                            <span class="oxford-pill-badge pill-navy"><i class="bi bi-broadcast"></i> Live in Production</span>
+                        </div>
+                        <h3 class="mvp-master-title" id="stage-title">CAREHO</h3>
+                        <p class="mvp-master-desc" id="stage-desc">Digital healthcare clinic management and patient appointment booking platform streamlining clinical workflows across private clinics.</p>
+                        
+                        <div class="mvp-tech-stack-row" id="stage-tech">
+                            <span class="mvp-tech-tag"><i class="bi bi-code-slash text-primary-brand"></i> ASP.NET Core</span>
+                            <span class="mvp-tech-tag"><i class="bi bi-filetype-cs text-primary-brand"></i> C# .NET 8</span>
+                            <span class="mvp-tech-tag"><i class="bi bi-database-fill text-primary-brand"></i> SQL Server</span>
+                            <span class="mvp-tech-tag"><i class="bi bi-bootstrap-fill text-primary-brand"></i> Modern UI</span>
+                        </div>
+
+                        <div class="mvp-master-actions">
+                            <a href="https://business.careho.pk" target="_blank" class="btn btn-primary" id="stage-link">
                                 Visit Live App <i class="bi bi-arrow-up-right"></i>
                             </a>
+                            <button class="btn btn-outline-primary" onclick="switchView('apply')">
+                                Build Projects Like This
+                            </button>
                         </div>
                     </div>
 
-                    <!-- MVP 2: MobileXP -->
-                    <div class="mvp-product-card">
-                        <div class="mvp-card-top">
-                            <div class="mvp-logo-badge">
-                                <img src="logos/MobileXP.webp" alt="MobileXP MVP">
-                            </div>
-                            <span class="mvp-badge-category cat-ecom">E-Commerce</span>
+                    <div class="mvp-preview-card">
+                        <div class="mvp-preview-logo-box">
+                            <img src="logos/CAREHO.png" alt="CAREHO MVP" id="stage-logo">
                         </div>
-                        <h3 class="mvp-title">MobileXP</h3>
-                        <p class="mvp-desc">Smart mobile device repair tracking, genuine parts inventory, and tech accessories digital marketplace.</p>
-                        <div class="mvp-card-footer">
-                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
-                            <a href="https://mobilexp.pk" target="_blank" class="mvp-visit-link">
-                                Visit Live App <i class="bi bi-arrow-up-right"></i>
-                            </a>
+                        <div class="oxford-pill-badge pill-tint-green">
+                            <i class="bi bi-check-circle-fill"></i> Verified Enterprise Deployment
+                        </div>
+                        <div class="mvp-preview-stats-grid">
+                            <div class="preview-stat-item">
+                                <span class="stat-sublabel">Sector</span>
+                                <span class="stat-mainval" id="stage-sector">Healthcare</span>
+                            </div>
+                            <div class="preview-stat-item">
+                                <span class="stat-sublabel">Stage</span>
+                                <span class="stat-mainval" id="stage-status">Live in Market</span>
+                            </div>
+                            <div class="preview-stat-item">
+                                <span class="stat-sublabel">Team Size</span>
+                                <span class="stat-mainval">4 Student Engineers</span>
+                            </div>
+                            <div class="preview-stat-item">
+                                <span class="stat-sublabel">Mentorship</span>
+                                <span class="stat-mainval">1-on-1 Code Reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Horizontal Carousel Controls & Rail -->
+                <div class="mvp-carousel-wrapper">
+                    <div class="mvp-carousel-header">
+                        <span class="carousel-count-text">
+                            <i class="bi bi-collection-play-fill text-primary-brand"></i> Select an MVP to Explore Details (8 Live Applications)
+                        </span>
+                        <div class="carousel-nav-arrows">
+                            <button class="carousel-arrow-btn" onclick="scrollMvpCarousel(-1)" aria-label="Previous MVP">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="carousel-arrow-btn" onclick="scrollMvpCarousel(1)" aria-label="Next MVP">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
                         </div>
                     </div>
 
-                    <!-- MVP 3: GoRent -->
-                    <div class="mvp-product-card">
-                        <div class="mvp-card-top">
-                            <div class="mvp-logo-badge">
-                                <img src="logos/gorent.png" alt="GoRent MVP">
+                    <div class="mvp-carousel-rail" id="mvp-carousel-rail">
+                        <!-- MVP 0: CAREHO -->
+                        <div class="mvp-carousel-card active" onclick="selectMvp(0)" data-index="0">
+                            <div class="mvp-thumb-top">
+                                <div class="mvp-thumb-logo"><img src="logos/CAREHO.png" alt="CAREHO"></div>
+                                <span class="mvp-badge-category">HealthTech</span>
                             </div>
-                            <span class="mvp-badge-category cat-auto">Automotive</span>
+                            <div>
+                                <h4 class="mvp-thumb-title">CAREHO</h4>
+                                <p class="mvp-thumb-desc">Clinic management & patient booking engine.</p>
+                            </div>
+                            <div class="mvp-thumb-footer">
+                                <i class="bi bi-patch-check-fill"></i> Built by Interns
+                            </div>
                         </div>
-                        <h3 class="mvp-title">GoRent</h3>
-                        <p class="mvp-desc">Peer-to-peer vehicle rental management, automated booking schedules, and fleet reservation tracking engine.</p>
-                        <div class="mvp-card-footer">
-                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
-                            <a href="https://gorent.pk" target="_blank" class="mvp-visit-link">
-                                Visit Live App <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
 
-                    <!-- MVP 4: PKVersity -->
-                    <div class="mvp-product-card">
-                        <div class="mvp-card-top">
-                            <div class="mvp-logo-badge">
-                                <img src="logos/pkversity.png" alt="PKVersity MVP">
+                        <!-- MVP 1: MobileXP -->
+                        <div class="mvp-carousel-card" onclick="selectMvp(1)" data-index="1">
+                            <div class="mvp-thumb-top">
+                                <div class="mvp-thumb-logo"><img src="logos/MobileXP.webp" alt="MobileXP"></div>
+                                <span class="mvp-badge-category">E-Commerce</span>
                             </div>
-                            <span class="mvp-badge-category cat-edtech">EdTech</span>
+                            <div>
+                                <h4 class="mvp-thumb-title">MobileXP</h4>
+                                <p class="mvp-thumb-desc">Smart device repair & genuine parts portal.</p>
+                            </div>
+                            <div class="mvp-thumb-footer">
+                                <i class="bi bi-patch-check-fill"></i> Built by Interns
+                            </div>
                         </div>
-                        <h3 class="mvp-title">PKVersity</h3>
-                        <p class="mvp-desc">Centralized university admissions directory and academic program discovery portal for prospective students in Pakistan.</p>
-                        <div class="mvp-card-footer">
-                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
-                            <a href="https://pkversity.com" target="_blank" class="mvp-visit-link">
-                                Visit Live App <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
 
-                    <!-- MVP 5: CareerX -->
-                    <div class="mvp-product-card">
-                        <div class="mvp-card-top">
-                            <div class="mvp-logo-badge">
-                                <img src="logos/CX.jpeg" alt="CareerX MVP">
+                        <!-- MVP 2: GoRent -->
+                        <div class="mvp-carousel-card" onclick="selectMvp(2)" data-index="2">
+                            <div class="mvp-thumb-top">
+                                <div class="mvp-thumb-logo"><img src="logos/gorent.png" alt="GoRent"></div>
+                                <span class="mvp-badge-category">Automotive</span>
                             </div>
-                            <span class="mvp-badge-category cat-hr">HR &amp; Jobs</span>
+                            <div>
+                                <h4 class="mvp-thumb-title">GoRent</h4>
+                                <p class="mvp-thumb-desc">Peer-to-peer vehicle rental & fleet scheduling.</p>
+                            </div>
+                            <div class="mvp-thumb-footer">
+                                <i class="bi bi-patch-check-fill"></i> Built by Interns
+                            </div>
                         </div>
-                        <h3 class="mvp-title">CareerX</h3>
-                        <p class="mvp-desc">AI-powered technical recruitment portal connecting verified university engineering graduates with hiring software firms.</p>
-                        <div class="mvp-card-footer">
-                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
-                            <a href="https://careerx.pk" target="_blank" class="mvp-visit-link">
-                                Visit Live App <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
 
-                    <!-- MVP 6: Sukhenvar -->
-                    <div class="mvp-product-card">
-                        <div class="mvp-card-top">
-                            <div class="mvp-logo-badge">
-                                <img src="logos/SV.jpeg" alt="Sukhenver MVP">
+                        <!-- MVP 3: PKVersity -->
+                        <div class="mvp-carousel-card" onclick="selectMvp(3)" data-index="3">
+                            <div class="mvp-thumb-top">
+                                <div class="mvp-thumb-logo"><img src="logos/pkversity.png" alt="PKVersity"></div>
+                                <span class="mvp-badge-category">EdTech</span>
                             </div>
-                            <span class="mvp-badge-category cat-media">Digital Media</span>
+                            <div>
+                                <h4 class="mvp-thumb-title">PKVersity</h4>
+                                <p class="mvp-thumb-desc">University program directory & admission portal.</p>
+                            </div>
+                            <div class="mvp-thumb-footer">
+                                <i class="bi bi-patch-check-fill"></i> Built by Interns
+                            </div>
                         </div>
-                        <h3 class="mvp-title">Sukhenvar</h3>
-                        <p class="mvp-desc">Rich digital literature and cultural publishing platform empowering South Asian writers with reader engagement tools.</p>
-                        <div class="mvp-card-footer">
-                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
-                            <a href="https://sukhenvar.pk" target="_blank" class="mvp-visit-link">
-                                Visit Live App <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
 
-                    <!-- MVP 7: Combat Home -->
-                    <div class="mvp-product-card">
-                        <div class="mvp-card-top">
-                            <div class="mvp-logo-badge">
-                                <img src="logos/CTH.jpeg" alt="Combat Home MVP">
+                        <!-- MVP 4: CareerX -->
+                        <div class="mvp-carousel-card" onclick="selectMvp(4)" data-index="4">
+                            <div class="mvp-thumb-top">
+                                <div class="mvp-thumb-logo"><img src="logos/CX.jpeg" alt="CareerX"></div>
+                                <span class="mvp-badge-category">HR & Jobs</span>
                             </div>
-                            <span class="mvp-badge-category cat-iot">Smart Home</span>
+                            <div>
+                                <h4 class="mvp-thumb-title">CareerX</h4>
+                                <p class="mvp-thumb-desc">AI technical recruitment & hiring bridge.</p>
+                            </div>
+                            <div class="mvp-thumb-footer">
+                                <i class="bi bi-patch-check-fill"></i> Built by Interns
+                            </div>
                         </div>
-                        <h3 class="mvp-title">Combat Home</h3>
-                        <p class="mvp-desc">Residential security coordination and maintenance request platform designed for modern gated housing communities.</p>
-                        <div class="mvp-card-footer">
-                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
-                            <a href="https://combathome.pk" target="_blank" class="mvp-visit-link">
-                                Visit Live App <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
 
-                    <!-- MVP 8: Layerish -->
-                    <div class="mvp-product-card">
-                        <div class="mvp-card-top">
-                            <div class="mvp-logo-badge">
-                                <img src="logos/LB.jpeg" alt="Layerish MVP">
+                        <!-- MVP 5: Sukhenvar -->
+                        <div class="mvp-carousel-card" onclick="selectMvp(5)" data-index="5">
+                            <div class="mvp-thumb-top">
+                                <div class="mvp-thumb-logo"><img src="logos/SV.jpeg" alt="Sukhenvar"></div>
+                                <span class="mvp-badge-category">Digital Media</span>
                             </div>
-                            <span class="mvp-badge-category cat-apparel">E-Commerce</span>
+                            <div>
+                                <h4 class="mvp-thumb-title">Sukhenvar</h4>
+                                <p class="mvp-thumb-desc">South Asian literature & writer publishing platform.</p>
+                            </div>
+                            <div class="mvp-thumb-footer">
+                                <i class="bi bi-patch-check-fill"></i> Built by Interns
+                            </div>
                         </div>
-                        <h3 class="mvp-title">Layerish</h3>
-                        <p class="mvp-desc">Custom apparel design studio and print-on-demand fulfillment portal for independent graphic designers.</p>
-                        <div class="mvp-card-footer">
-                            <span class="mvp-tag-intern"><i class="bi bi-patch-check-fill"></i> Built by Interns</span>
-                            <a href="https://layerish.pk" target="_blank" class="mvp-visit-link">
-                                Visit Live App <i class="bi bi-arrow-up-right"></i>
-                            </a>
+
+                        <!-- MVP 6: Combat Home -->
+                        <div class="mvp-carousel-card" onclick="selectMvp(6)" data-index="6">
+                            <div class="mvp-thumb-top">
+                                <div class="mvp-thumb-logo"><img src="logos/CTH.jpeg" alt="Combat Home"></div>
+                                <span class="mvp-badge-category">Smart Home</span>
+                            </div>
+                            <div>
+                                <h4 class="mvp-thumb-title">Combat Home</h4>
+                                <p class="mvp-thumb-desc">Residential security & gated community workflow.</p>
+                            </div>
+                            <div class="mvp-thumb-footer">
+                                <i class="bi bi-patch-check-fill"></i> Built by Interns
+                            </div>
+                        </div>
+
+                        <!-- MVP 7: Layerish -->
+                        <div class="mvp-carousel-card" onclick="selectMvp(7)" data-index="7">
+                            <div class="mvp-thumb-top">
+                                <div class="mvp-thumb-logo"><img src="logos/LB.jpeg" alt="Layerish"></div>
+                                <span class="mvp-badge-category">E-Commerce</span>
+                            </div>
+                            <div>
+                                <h4 class="mvp-thumb-title">Layerish</h4>
+                                <p class="mvp-thumb-desc">Custom apparel design & print-on-demand studio.</p>
+                            </div>
+                            <div class="mvp-thumb-footer">
+                                <i class="bi bi-patch-check-fill"></i> Built by Interns
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -540,7 +645,7 @@
                                     <p class="alumni-role">Software Engineer</p>
                                     <p class="alumni-company"><i class="bi bi-building me-1"></i>TechVentures PK</p>
                                 </div>
-                                <span class="alumni-batch-badge">2024-A</span>
+                                <span class="oxford-pill-badge pill-green"><i class="bi bi-patch-check-fill"></i> Batch 2024-A</span>
                             </div>
 
                             <p class="alumni-comment">"Intelligement completely reshaped my career mindset. The project-driven curriculum and direct mentorship from industry leaders gave me confidence during technical interviews."</p>
@@ -569,7 +674,7 @@
                                     <p class="alumni-role">AI Engineer</p>
                                     <p class="alumni-company"><i class="bi bi-building me-1"></i>CloudWorks Global</p>
                                 </div>
-                                <span class="alumni-batch-badge">2023-B</span>
+                                <span class="oxford-pill-badge pill-navy"><i class="bi bi-patch-check-fill"></i> Batch 2023-B</span>
                             </div>
 
                             <p class="alumni-comment">"The blend of Fullstack development with cutting-edge AI workflow automation is something you rarely see in typical bootcamps. Truly transformative experience."</p>
@@ -1503,6 +1608,187 @@
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeReviewModalDirect();
+        });
+
+        // ===================================================================
+        // MVP MASTER-DETAIL CAROUSEL INTERACTIVITY
+        // ===================================================================
+        const mvpData = [
+            {
+                title: "CAREHO",
+                category: "HealthTech",
+                desc: "Digital healthcare clinic management and patient appointment booking platform streamlining clinical workflows across private clinics in Pakistan.",
+                logo: "logos/CAREHO.png",
+                link: "https://business.careho.pk",
+                sector: "Healthcare",
+                status: "Live in Production",
+                tech: ["ASP.NET Core", "C# .NET 8", "SQL Server", "Bootstrap 5"]
+            },
+            {
+                title: "MobileXP",
+                category: "E-Commerce",
+                desc: "Smart mobile device repair tracking, genuine parts inventory management, and digital accessories marketplace for repair technicians.",
+                logo: "logos/MobileXP.webp",
+                link: "https://mobilexp.pk",
+                sector: "Retail & Repair",
+                status: "Live in Production",
+                tech: ["ASP.NET Core", "Entity Framework", "SQL Server", "REST APIs"]
+            },
+            {
+                title: "GoRent",
+                category: "Automotive",
+                desc: "Peer-to-peer vehicle rental management, automated booking schedules, and fleet reservation tracking engine for vehicle rental businesses.",
+                logo: "logos/gorent.png",
+                link: "https://gorent.pk",
+                sector: "Transportation",
+                status: "Live in Production",
+                tech: ["C#", "ASP.NET MVC", "SQL Server", "JavaScript ES6+"]
+            },
+            {
+                title: "PKVersity",
+                category: "EdTech",
+                desc: "Centralized university admissions directory and academic program discovery portal helping prospective students navigate higher education.",
+                logo: "logos/pkversity.png",
+                link: "https://pkversity.com",
+                sector: "Education",
+                status: "Live in Production",
+                tech: ["ASP.NET Core", "SQL Server", "Modern UI", "Search Indexing"]
+            },
+            {
+                title: "CareerX",
+                category: "HR & Jobs",
+                desc: "AI-powered technical recruitment portal connecting verified university engineering graduates directly with hiring software firms.",
+                logo: "logos/CX.jpeg",
+                link: "https://careerx.pk",
+                sector: "Recruitment",
+                status: "Live in Production",
+                tech: ["AI Matching", "C# .NET 8", "SQL Server", "REST APIs"]
+            },
+            {
+                title: "Sukhenvar",
+                category: "Digital Media",
+                desc: "Rich digital literature and cultural publishing platform empowering South Asian writers with reader engagement tools and publishing analytics.",
+                logo: "logos/SV.jpeg",
+                link: "https://sukhenvar.pk",
+                sector: "Publishing",
+                status: "Live in Production",
+                tech: ["Content Engine", "ASP.NET Core", "SQL Server", "Responsive UI"]
+            },
+            {
+                title: "Combat Home",
+                category: "Smart Home",
+                desc: "Residential security coordination and maintenance request platform designed for modern gated housing societies and communities.",
+                logo: "logos/CTH.jpeg",
+                link: "https://combathome.pk",
+                sector: "Security / IoT",
+                status: "Live in Production",
+                tech: ["Real-time Logs", "ASP.NET Core", "SQL Server", "Mobile API"]
+            },
+            {
+                title: "Layerish",
+                category: "E-Commerce",
+                desc: "Custom apparel design studio and print-on-demand fulfillment portal empowering independent graphic designers with automated ordering.",
+                logo: "logos/LB.jpeg",
+                link: "https://layerish.pk",
+                sector: "Apparel Tech",
+                status: "Live in Production",
+                tech: ["Design Canvas", "ASP.NET Core", "SQL Server", "Payment APIs"]
+            }
+        ];
+
+        function selectMvp(index) {
+            const data = mvpData[index];
+            if (!data) return;
+
+            const stage = document.getElementById('mvp-master-stage');
+            if (stage) {
+                stage.style.opacity = '0.4';
+                stage.style.transform = 'translateY(4px)';
+            }
+
+            setTimeout(() => {
+                const stageTitle = document.getElementById('stage-title');
+                const stageCategory = document.getElementById('stage-category');
+                const stageDesc = document.getElementById('stage-desc');
+                const stageLogo = document.getElementById('stage-logo');
+                const stageLink = document.getElementById('stage-link');
+                const stageSector = document.getElementById('stage-sector');
+                const stageStatus = document.getElementById('stage-status');
+                const stageTech = document.getElementById('stage-tech');
+
+                if (stageTitle) stageTitle.textContent = data.title;
+                if (stageCategory) stageCategory.textContent = data.category;
+                if (stageDesc) stageDesc.textContent = data.desc;
+                if (stageLogo) {
+                    stageLogo.src = data.logo;
+                    stageLogo.alt = data.title + ' MVP';
+                }
+                if (stageLink) stageLink.href = data.link;
+                if (stageSector) stageSector.textContent = data.sector;
+                if (stageStatus) stageStatus.textContent = data.status;
+
+                if (stageTech) {
+                    stageTech.innerHTML = data.tech.map(t => 
+                        `<span class="mvp-tech-tag"><i class="bi bi-cpu text-primary-brand"></i> ${t}</span>`
+                    ).join('');
+                }
+
+                // Update active state in carousel rail
+                document.querySelectorAll('.mvp-carousel-card').forEach((card, idx) => {
+                    if (idx === index) {
+                        card.classList.add('active');
+                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+
+                if (stage) {
+                    stage.style.opacity = '1';
+                    stage.style.transform = 'translateY(0)';
+                }
+            }, 120);
+        }
+
+        function scrollMvpCarousel(direction) {
+            const rail = document.getElementById('mvp-carousel-rail');
+            if (rail) {
+                const scrollAmount = 260 * direction;
+                rail.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        // ===================================================================
+        // CURRICULUM STICKY LEFT PHASE TRACKER (SCROLL SPY)
+        // ===================================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const phaseCards = document.querySelectorAll('.curriculum-phase-card');
+            const trackerItems = document.querySelectorAll('.phase-track-item');
+
+            if (phaseCards.length && trackerItems.length && 'IntersectionObserver' in window) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-20% 0px -60% 0px',
+                    threshold: 0.1
+                };
+
+                const phaseObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const phaseNum = entry.target.getAttribute('data-phase');
+                            trackerItems.forEach(item => {
+                                if (item.getAttribute('data-phase') === phaseNum) {
+                                    item.classList.add('active');
+                                } else {
+                                    item.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                phaseCards.forEach(card => phaseObserver.observe(card));
+            }
         });
     </script>
 </body>
