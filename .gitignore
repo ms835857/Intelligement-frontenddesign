@@ -1,0 +1,8 @@
+# Dev server scripts and local configs (kept outside repo)
+server.sh
+start-server.sh
+stop-server.sh
+dev-server.sh
+package.json
+*.pid
+*.log

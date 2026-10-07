@@ -17,7 +17,7 @@
                 <img src="logos/Intelligement.png" alt="Intelligement Logo" class="brand-logo-img">
             </a>
 
-            <nav>
+            <nav class="desktop-nav">
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link active" onclick="switchView('landing')">Home</a></li>
                     <li><a href="#curriculum" class="nav-link" onclick="switchView('landing')">Curriculum</a></li>
@@ -32,15 +32,52 @@
             </nav>
 
             <div class="nav-cta-group">
-                <button class="btn btn-primary" onclick="switchView('apply')">
+                <button class="btn btn-primary nav-btn-apply" onclick="switchView('apply')">
                     Apply Now
                 </button>
-                <button class="btn btn-danger" onclick="alert('Sign In clicked. In production, this initiates Google OAuth.')">
+                <button class="btn btn-danger nav-btn-signin" onclick="alert('Sign In clicked. In production, this initiates Google OAuth.')">
                     <i class="bi bi-google"></i> Sign In
+                </button>
+                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu" onclick="toggleMobileNav()">
+                    <i class="bi bi-list"></i>
                 </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Navigation Drawer & Backdrop -->
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" onclick="closeMobileNav()"></div>
+    <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+        <div class="mobile-nav-header">
+            <a href="#home" class="brand-logo-link" onclick="handleMobileNavClick('landing', '#home')">
+                <img src="logos/Intelligement.png" alt="Intelligement Logo" class="brand-logo-img">
+            </a>
+            <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Close menu">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav-body">
+            <ul class="mobile-nav-links">
+                <li><a href="#home" class="mobile-nav-link active" onclick="handleMobileNavClick('landing', '#home')"><i class="bi bi-house-door"></i> Home</a></li>
+                <li><a href="#curriculum" class="mobile-nav-link" onclick="handleMobileNavClick('landing', '#curriculum')"><i class="bi bi-journal-code"></i> Curriculum</a></li>
+                <li><a href="#journey" class="mobile-nav-link" onclick="handleMobileNavClick('landing', '#journey')"><i class="bi bi-signpost-split"></i> Journey</a></li>
+                <li><a href="#mvps" class="mobile-nav-link" onclick="handleMobileNavClick('landing', '#mvps')"><i class="bi bi-rocket-takeoff"></i> Live MVPs</a></li>
+                <li><a href="#brands" class="mobile-nav-link" onclick="handleMobileNavClick('landing', '#brands')"><i class="bi bi-building"></i> Partner Brands</a></li>
+                <li><a href="#success" class="mobile-nav-link" onclick="handleMobileNavClick('landing', '#success')"><i class="bi bi-trophy"></i> Wall of Glory</a></li>
+                <li><a href="#interns" class="mobile-nav-link" onclick="handleMobileNavClick('landing', '#interns')"><i class="bi bi-people"></i> Interns</a></li>
+                <li><a href="#faq" class="mobile-nav-link" onclick="handleMobileNavClick('landing', '#faq')"><i class="bi bi-question-circle"></i> FAQ</a></li>
+                <li><a href="javascript:void(0)" class="mobile-nav-link" onclick="handleMobileNavClick('contact')"><i class="bi bi-envelope"></i> Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-nav-footer">
+            <button class="btn btn-primary w-100 mb-2" onclick="handleMobileNavClick('apply')">
+                <i class="bi bi-pencil-square"></i> Apply Now
+            </button>
+            <button class="btn btn-danger w-100" onclick="alert('Sign In clicked. In production, this initiates Google OAuth.')">
+                <i class="bi bi-google"></i> Sign In
+            </button>
+        </div>
+    </aside>
 
     <!-- Rainbow Decorative Top Stripe -->
     <div class="rainbow-bar"></div>
@@ -1459,9 +1496,53 @@
 
     <!-- Interactive Logic Script -->
     <script>
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobile-nav-drawer');
+            const backdrop = document.getElementById('mobile-nav-backdrop');
+            const toggleBtn = document.getElementById('mobile-nav-toggle');
+            const isOpen = drawer && drawer.classList.contains('open');
+
+            if (isOpen) {
+                closeMobileNav();
+            } else {
+                if (drawer) drawer.classList.add('open');
+                if (backdrop) backdrop.classList.add('active');
+                if (toggleBtn) toggleBtn.innerHTML = '<i class="bi bi-x-lg"></i>';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileNav() {
+            const drawer = document.getElementById('mobile-nav-drawer');
+            const backdrop = document.getElementById('mobile-nav-backdrop');
+            const toggleBtn = document.getElementById('mobile-nav-toggle');
+
+            if (drawer) drawer.classList.remove('open');
+            if (backdrop) backdrop.classList.remove('active');
+            if (toggleBtn) toggleBtn.innerHTML = '<i class="bi bi-list"></i>';
+            document.body.style.overflow = '';
+        }
+
+        function handleMobileNavClick(viewName, hash) {
+            closeMobileNav();
+            switchView(viewName);
+            if (hash && viewName === 'landing') {
+                setTimeout(() => {
+                    const el = document.querySelector(hash);
+                    if (el) {
+                        const navHeight = document.getElementById('navbar')?.offsetHeight || 70;
+                        const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                }, 100);
+            }
+        }
+
         function switchView(viewName) {
+            closeMobileNav();
+
             // Update active navbar link
-            document.querySelectorAll('.nav-link').forEach(link => {
+            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
                 link.classList.remove('active');
             });
 
@@ -1478,11 +1559,9 @@
             }
 
             if (viewName === 'landing') {
-                const homeLink = document.querySelector('.nav-links a[href="#home"]');
-                if (homeLink) homeLink.classList.add('active');
+                document.querySelectorAll('a[href="#home"]').forEach(link => link.classList.add('active'));
             } else if (viewName === 'contact') {
-                const contactLink = document.querySelector('.nav-links a[onclick*="contact"]');
-                if (contactLink) contactLink.classList.add('active');
+                document.querySelectorAll('a[onclick*="contact"]').forEach(link => link.classList.add('active'));
             }
         }
 
