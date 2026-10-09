@@ -78,7 +78,7 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
 }
 
@@ -88,7 +88,7 @@ body {
     background-color: var(--bg-light);
     line-height: 1.65;
     font-size: 1.02rem;
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
     position: relative;
 }
@@ -520,13 +520,100 @@ a:hover {
 }
 
 /* ===================================================================
+   SCROLL-LINKED SECTION TRANSITION SYSTEM (SCRUBBED CURTAIN & LATERAL SLIDE)
+   Directly bound 1:1 to scroll. If scrolling stops midway,
+   the screen stops midway (half showing one section, half the other)
+   =================================================================== */
+.view-panel > section {
+    position: sticky;
+    top: 72px; /* Docks below fixed header */
+    min-height: calc(100vh - 72px);
+    box-sizing: border-box;
+    box-shadow: 0 -24px 50px rgba(15, 43, 79, 0.16);
+    overflow-x: clip;
+    background-color: #ffffff; /* Solid opaque fallback so underlying sections never bleed through */
+    will-change: transform;
+}
+
+/* Layer Stacking Order & Opaque Solid Backgrounds for Scrubbed Curtain Overlap */
+.view-panel > .hero-section {
+    z-index: 10;
+    background-color: #ffffff;
+}
+
+.view-panel > .metrics-bar-section {
+    z-index: 15;
+    background-color: #0f2b4f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.view-panel > .curriculum-section {
+    position: relative;
+    top: auto;
+    z-index: 20;
+    min-height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 0 -24px 50px rgba(15, 43, 79, 0.16);
+}
+
+.view-panel > .journey-section {
+    z-index: 30;
+    background-color: #edf6ef; /* Organic Brand Green Tint - Solid Opaque */
+    box-shadow: -24px 0 50px rgba(15, 43, 79, 0.22), 0 -24px 50px rgba(15, 43, 79, 0.16);
+}
+
+.view-panel > .mvp-section {
+    z-index: 40;
+    background-color: #edf2f8; /* Organic Academic Slate Tint - Solid Opaque */
+}
+
+.view-panel > .brands-section {
+    z-index: 50;
+    background-color: #ffffff;
+    box-shadow: 24px 0 50px rgba(15, 43, 79, 0.22), 0 -24px 50px rgba(15, 43, 79, 0.16);
+}
+
+.view-panel > .glory-section {
+    z-index: 60;
+    background-color: #edf2f8; /* Solid Opaque */
+}
+
+.view-panel > .interns-section {
+    z-index: 70;
+    background-color: #ffffff;
+}
+
+.view-panel > .faq-section {
+    z-index: 80;
+    background-color: #edf6ef; /* Solid Opaque */
+    box-shadow: -24px 0 50px rgba(15, 43, 79, 0.22), 0 -24px 50px rgba(15, 43, 79, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .view-panel > section {
+        position: relative !important;
+        top: 0 !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ===================================================================
    HERO SECTION (MODERN SPLIT LAYOUT - P1)
    =================================================================== */
 .hero-section {
-    padding: 70px 0 60px;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(50px, 8vh, 85px) 0;
     background: #ffffff;
     position: relative;
     overflow: hidden;
+    scroll-snap-align: start;
+    box-sizing: border-box;
 }
 
 .hero-container {
@@ -750,10 +837,51 @@ a:hover {
    METRICS BAR SECTION (DIFFERENTIABLE FULL-BLEED DEEP NAVY)
    =================================================================== */
 .metrics-bar-section {
-    padding: 40px 0;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(50px, 7vh, 80px) 0;
     background: #0f2b4f; /* Deep Dark Brand Navy anchor */
     position: relative;
+    box-sizing: border-box;
     z-index: 20;
+}
+
+.metrics-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto clamp(40px, 6vh, 56px); /* Generous breathing room between text and cards */
+}
+
+.metrics-header .badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    margin-bottom: 16px;
+}
+
+.metrics-header h2 {
+    color: #ffffff;
+    font-size: clamp(2rem, 3.8vw, 2.6rem);
+    font-weight: 700;
+    margin: 0 0 14px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+}
+
+.metrics-header p {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin: 0;
 }
 
 .metrics-grid {
@@ -859,8 +987,14 @@ a:hover {
    CURRICULUM ROADMAP SECTION (STANFORD-INSPIRED STICKY SPLIT LAYOUT)
    =================================================================== */
 .curriculum-section {
-    padding: 85px 0 75px;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: clamp(60px, 8vh, 90px) 0 75px;
     background: #ffffff;
+    scroll-snap-align: start;
+    box-sizing: border-box;
 }
 
 .curriculum-split-layout {
@@ -893,7 +1027,7 @@ a:hover {
     gap: 6px;
     font-size: 0.76rem;
     font-weight: 600;
-    color: var(--brand-green);
+    color: var(--primary-navy);
     letter-spacing: 0.8px;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -964,8 +1098,9 @@ a:hover {
 }
 
 .phase-track-item.active .track-indicator {
-    background: var(--brand-green);
-    color: #ffffff;
+    background: #ffffff;
+    color: var(--primary-navy);
+    font-weight: 700;
 }
 
 .phase-track-item .track-info {
@@ -1014,15 +1149,43 @@ a:hover {
 
 .schedule-guarantee-mini i {
     font-size: 1.25rem;
-    color: var(--brand-green);
+    color: var(--primary-navy);
     flex-shrink: 0;
 }
 
-/* Right Scrolling Column */
+/* Right Scrolling Column - Connected Pipeline Architecture */
 .curriculum-scroll-column {
     display: flex;
     flex-direction: column;
-    gap: 26px;
+    gap: 28px;
+    position: relative;
+    padding-left: 38px;
+}
+
+/* Continuous Vertical Timeline Spine Rail (Base Grey Rail) */
+.curriculum-scroll-column::before {
+    content: '';
+    position: absolute;
+    top: 42px;
+    bottom: 120px;
+    left: 11px;
+    width: 2px;
+    background: #cbd5e1;
+    z-index: 1;
+}
+
+/* Dynamic Glowing Electric Navy Active Progress Rail */
+.curriculum-pipeline-active-rail {
+    position: absolute;
+    top: 42px;
+    left: 11px;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(180deg, var(--primary-navy) 0%, var(--accent-blue) 100%);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.85), 0 0 20px rgba(30, 60, 114, 0.45);
+    z-index: 2;
+    transition: height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
 }
 
 .curriculum-phase-card {
@@ -1038,10 +1201,86 @@ a:hover {
     border-top: 3px solid var(--primary-navy);
 }
 
+/* Pipeline Milestone Indicator Node */
+.curriculum-phase-card::before {
+    content: '';
+    position: absolute;
+    left: -35px;
+    top: 34px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid #cbd5e1;
+    box-shadow: 0 0 0 3px #f1f5f9;
+    z-index: 3;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Branch Connector joining spine node to the card border */
+.curriculum-phase-card::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 41px;
+    width: 20px;
+    height: 2px;
+    background: #cbd5e1;
+    z-index: 1;
+    transition: all 0.35s ease;
+}
+
+/* When Phase has been reached/passed: Solid Navy Node */
+.curriculum-phase-card.pipeline-passed::before {
+    background: var(--primary-navy);
+    border-color: var(--primary-navy);
+    box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.18);
+}
+
+.curriculum-phase-card.pipeline-passed::after {
+    background: var(--primary-navy);
+}
+
+/* When Phase is ACTIVE: Radiant Electric Blue Glow & Pulsing Ring */
+.curriculum-phase-card.pipeline-active::before {
+    background: var(--primary-navy);
+    border-color: var(--accent-blue);
+    transform: scale(1.3);
+    box-shadow: 0 0 0 5px rgba(13, 110, 253, 0.28),
+                0 0 18px rgba(13, 110, 253, 0.75),
+                0 0 32px rgba(30, 60, 114, 0.45);
+    animation: pipeline-beacon-pulse 2.2s infinite ease-in-out;
+}
+
+.curriculum-phase-card.pipeline-active::after {
+    background: linear-gradient(90deg, var(--accent-blue), var(--primary-navy));
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.65);
+}
+
+.curriculum-phase-card.pipeline-active {
+    border-top-color: var(--accent-blue);
+    box-shadow: 0 14px 34px rgba(30, 60, 114, 0.12);
+}
+
+@keyframes pipeline-beacon-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.24),
+                    0 0 16px rgba(13, 110, 253, 0.7),
+                    0 0 28px rgba(30, 60, 114, 0.35);
+        transform: scale(1.25);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(13, 110, 253, 0.42),
+                    0 0 26px rgba(13, 110, 253, 0.95),
+                    0 0 42px rgba(13, 110, 253, 0.55);
+        transform: scale(1.4);
+    }
+}
+
 .curriculum-phase-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-top-color: var(--brand-green);
+    border-top-color: var(--accent-blue);
 }
 
 .phase-card-header {
@@ -1106,7 +1345,7 @@ a:hover {
     font-size: 0.85rem;
     margin-top: 3px;
     flex-shrink: 0;
-    color: var(--brand-green) !important;
+    color: var(--primary-navy) !important;
 }
 
 .curriculum-milestone {
@@ -1121,7 +1360,7 @@ a:hover {
 }
 
 .curriculum-milestone i {
-    color: var(--brand-green) !important;
+    color: var(--primary-navy) !important;
 }
 
 /* Tech Stack Banner */
@@ -1209,8 +1448,14 @@ a:hover {
    STUDENT JOURNEY ("HOW IT WORKS") SECTION (P2)
    =================================================================== */
 .journey-section {
-    padding: 85px 0;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(60px, 8vh, 90px) 0;
     background: #edf6ef; /* Organic Brand Green Tint - Clean Seamless Surface */
+    scroll-snap-align: start;
+    box-sizing: border-box;
 }
 
 .journey-timeline {
@@ -1302,8 +1547,28 @@ a:hover {
    MVP SHOWCASE SECTION (MASTER-DETAIL HORIZONTAL CAROUSEL)
    =================================================================== */
 .mvp-section {
-    padding: 85px 0;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(20px, 3vh, 32px) 0;
     background-color: #edf2f8; /* Organic Academic Slate Tint - Clean Seamless Surface */
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow smooth internal scroll if on smaller screens */
+}
+
+.mvp-section .section-header {
+    margin-bottom: clamp(10px, 1.8vh, 16px);
+}
+
+.mvp-section .section-title {
+    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    margin-bottom: 4px;
+}
+
+.mvp-section .section-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.45;
 }
 
 /* Master Detail Stage */
@@ -1313,12 +1578,12 @@ a:hover {
     border: 1px solid #e2e8f0;
     border-top: 4px solid var(--primary-navy);
     box-shadow: 0 12px 36px rgba(30, 60, 114, 0.08);
-    padding: 38px 42px;
+    padding: clamp(16px, 2vh, 22px) clamp(20px, 2.5vw, 32px);
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
-    gap: 44px;
+    gap: clamp(20px, 3vw, 36px);
     align-items: center;
-    margin-bottom: 35px;
+    margin-bottom: clamp(12px, 1.8vh, 18px);
     position: relative;
     transition: opacity 0.25s ease, transform 0.25s ease;
 }
@@ -1326,15 +1591,15 @@ a:hover {
 .mvp-master-meta-row {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
+    gap: 8px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
 }
 
 .mvp-badge-category {
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    padding: 4px 12px;
+    padding: 3px 10px;
     border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.4px;
@@ -1344,58 +1609,67 @@ a:hover {
 }
 
 .mvp-tag-intern {
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     color: var(--brand-green);
     font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: 4px;
     background: rgba(40, 167, 69, 0.1);
-    padding: 4px 12px;
+    padding: 3px 10px;
     border-radius: 4px;
     border: 1px solid rgba(40, 167, 69, 0.2);
 }
 
 .mvp-master-title {
-    font-size: 1.95rem;
+    font-size: clamp(1.4rem, 2vw, 1.75rem);
     font-weight: 600;
     color: var(--primary-navy);
     line-height: 1.25;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
 }
 
 .mvp-master-desc {
-    font-size: 0.98rem;
+    font-size: 0.9rem;
     color: var(--text-body);
-    line-height: 1.65;
-    margin-bottom: 22px;
+    line-height: 1.5;
+    margin-bottom: 14px;
     text-align: justify;
     text-justify: inter-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .mvp-tech-stack-row {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
 }
 
 .mvp-tech-tag {
     background: #f1f5f9;
     border: 1px solid #cbd5e1;
     color: var(--primary-navy);
-    padding: 4px 12px;
+    padding: 3px 10px;
     border-radius: 20px;
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 500;
 }
 
 .mvp-master-actions {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
+}
+
+.mvp-master-actions .btn {
+    padding: 7px 18px;
+    font-size: 0.85rem;
 }
 
 /* Master Stage Right Column - Visual Card */
@@ -1403,20 +1677,20 @@ a:hover {
     background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
     border: 1px solid #e2e8f0;
     border-radius: var(--border-radius-md);
-    padding: 30px 24px;
+    padding: 14px 18px;
     text-align: center;
     position: relative;
     box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02);
 }
 
 .mvp-preview-logo-box {
-    width: 140px;
-    height: 80px;
-    border-radius: 12px;
+    width: 110px;
+    height: 52px;
+    border-radius: 10px;
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    padding: 10px;
-    margin: 0 auto 18px;
+    padding: 6px;
+    margin: 0 auto 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1424,7 +1698,7 @@ a:hover {
 }
 
 .mvp-preview-logo-box img {
-    max-height: 58px;
+    max-height: 40px;
     max-width: 90%;
     object-fit: contain;
 }
@@ -1432,9 +1706,9 @@ a:hover {
 .mvp-preview-stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    margin-top: 18px;
-    padding-top: 18px;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
     border-top: 1px solid #e2e8f0;
     text-align: left;
 }
@@ -1445,14 +1719,14 @@ a:hover {
 }
 
 .stat-sublabel {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     text-transform: uppercase;
     color: var(--text-muted);
     letter-spacing: 0.4px;
 }
 
 .stat-mainval {
-    font-size: 0.92rem;
+    font-size: 0.86rem;
     font-weight: 600;
     color: var(--primary-navy);
 }
@@ -1462,12 +1736,12 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
     padding: 0 4px;
 }
 
 .carousel-count-text {
-    font-size: 0.9rem;
+    font-size: 0.86rem;
     font-weight: 600;
     color: var(--primary-navy);
 }
@@ -1475,12 +1749,12 @@ a:hover {
 .carousel-nav-arrows {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .carousel-arrow-btn {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     background: #ffffff;
     border: 1px solid #cbd5e1;
@@ -1490,7 +1764,7 @@ a:hover {
     justify-content: center;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 1.15rem;
+    font-size: 1rem;
 }
 
 .carousel-arrow-btn:hover {
@@ -1502,16 +1776,16 @@ a:hover {
 
 .mvp-carousel-rail {
     display: flex;
-    gap: 18px;
+    gap: 14px;
     overflow-x: auto;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    padding: 8px 4px 18px;
+    padding: 4px 2px 10px;
     -webkit-overflow-scrolling: touch;
 }
 
 .mvp-carousel-rail::-webkit-scrollbar {
-    height: 6px;
+    height: 5px;
 }
 
 .mvp-carousel-rail::-webkit-scrollbar-thumb {
@@ -1520,12 +1794,12 @@ a:hover {
 }
 
 .mvp-carousel-card {
-    flex: 0 0 240px;
+    flex: 0 0 200px;
     scroll-snap-align: start;
     background: #ffffff;
     border: 1.5px solid #e2e8f0;
     border-radius: var(--border-radius-md);
-    padding: 18px 16px;
+    padding: 12px 14px;
     cursor: pointer;
     transition: var(--transition);
     display: flex;
@@ -1535,7 +1809,7 @@ a:hover {
 }
 
 .mvp-carousel-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     border-color: var(--primary-navy);
     box-shadow: var(--shadow-sm);
 }
@@ -1614,8 +1888,14 @@ a:hover {
    COLLABORATIVE BRANDS SECTION
    =================================================================== */
 .brands-section {
-    padding: 85px 0;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(50px, 7vh, 85px) 0;
     background: #ffffff;
+    scroll-snap-align: start;
+    box-sizing: border-box;
 }
 
 .brands-grid {
@@ -1653,8 +1933,14 @@ a:hover {
    WALL OF GLORY (ALUMNI SECTION)
    =================================================================== */
 .glory-section {
-    padding: 85px 0;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(60px, 8vh, 90px) 0;
     background-color: #edf2f8; /* Organic Academic Slate Tint */
+    scroll-snap-align: start;
+    box-sizing: border-box;
 }
 
 .alumni-grid {
@@ -1822,8 +2108,14 @@ a:hover {
    OUR INTERNS SECTION
    =================================================================== */
 .interns-section {
-    padding: 85px 0;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(60px, 8vh, 90px) 0;
     background: #ffffff;
+    scroll-snap-align: start;
+    box-sizing: border-box;
 }
 
 .interns-grid {
@@ -2809,8 +3101,14 @@ a:hover {
    FAQ ACCORDION SECTION (P2) - OPTION C: TABBED CATEGORIES
    =================================================================== */
 .faq-section {
-    padding: 85px 0 95px;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(60px, 8vh, 95px) 0;
     background: #edf6ef; /* Organic Brand Green Tint */
+    scroll-snap-align: start;
+    box-sizing: border-box;
 }
 
 .faq-container {
@@ -3040,6 +3338,15 @@ a:hover {
     .curriculum-split-layout {
         grid-template-columns: 1fr;
         gap: 36px;
+    }
+    .curriculum-scroll-column {
+        padding-left: 0;
+    }
+    .curriculum-scroll-column::before,
+    .curriculum-pipeline-active-rail,
+    .curriculum-phase-card::before,
+    .curriculum-phase-card::after {
+        display: none;
     }
     .curriculum-sticky-aside {
         position: relative;
@@ -3519,5 +3826,106 @@ a:hover {
     .mvp-preview-stats-grid {
         grid-template-columns: 1fr;
         gap: 10px;
+    }
+}
+
+/* ===================================================================
+   7. LARGE DISPLAY & DESKTOP EXPANSION (1440px+ & 1750px+)
+   Balances canvas on supervisor's wide monitor - eliminates empty margins
+   =================================================================== */
+@media (min-width: 1440px) {
+    .container {
+        max-width: clamp(1380px, 86vw, 1540px);
+        padding: 0 clamp(24px, 2.5vw, 44px);
+    }
+
+    .main-navbar .nav-container {
+        max-width: clamp(1420px, 88vw, 1580px);
+        padding: 0 clamp(24px, 2.5vw, 44px);
+    }
+
+    .hero-container {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: clamp(48px, 4vw, 72px);
+    }
+
+    .curriculum-split-layout {
+        grid-template-columns: clamp(380px, 25vw, 440px) 1fr;
+        gap: clamp(48px, 4vw, 70px);
+    }
+
+    .journey-timeline {
+        gap: 26px;
+    }
+
+    .journey-step-card {
+        padding: 32px 24px;
+    }
+
+    .mvp-master-stage {
+        gap: 36px;
+    }
+
+    .brands-grid {
+        gap: 28px;
+    }
+
+    .alumni-grid {
+        gap: 28px;
+    }
+
+    .interns-grid {
+        gap: 28px;
+    }
+}
+
+@media (min-width: 1750px) {
+    .container {
+        max-width: 1680px;
+        padding: 0 48px;
+    }
+
+    .main-navbar .nav-container {
+        max-width: 1720px;
+        padding: 0 48px;
+    }
+
+    .hero-headline {
+        font-size: 3.4rem;
+        line-height: 1.22;
+    }
+
+    .hero-sublead {
+        font-size: 1.18rem;
+        max-width: 680px;
+    }
+
+    .section-title {
+        font-size: 2.45rem;
+    }
+
+    .curriculum-split-layout {
+        grid-template-columns: 460px 1fr;
+        gap: 80px;
+    }
+
+    .curriculum-sticky-content {
+        padding: 36px 32px;
+    }
+
+    .mvp-master-stage {
+        gap: 44px;
+    }
+
+    .journey-timeline {
+        gap: 32px;
+    }
+
+    .alumni-grid {
+        gap: 32px;
+    }
+
+    .interns-grid {
+        gap: 32px;
     }
 }
