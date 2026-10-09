@@ -1774,51 +1774,54 @@ a:hover {
     transform: scale(1.05);
 }
 
-.mvp-carousel-rail {
+/* 3D Perspective Rotary Stage for MVP Showcase */
+.mvp-3d-stage {
+    position: relative;
+    width: 100%;
+    height: 195px;
+    perspective: 1100px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
     display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    padding: 4px 2px 10px;
-    -webkit-overflow-scrolling: touch;
-}
-
-.mvp-carousel-rail::-webkit-scrollbar {
-    height: 5px;
-}
-
-.mvp-carousel-rail::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    user-select: none;
+    margin: 8px 0 4px;
 }
 
 .mvp-carousel-card {
-    flex: 0 0 200px;
-    scroll-snap-align: start;
+    position: absolute;
+    width: 220px;
+    height: 165px;
+    top: 50%;
+    left: 50%;
+    margin-top: -82.5px;
+    margin-left: -110px;
     background: #ffffff;
     border: 1.5px solid #e2e8f0;
     border-radius: var(--border-radius-md);
     padding: 12px 14px;
     cursor: pointer;
-    transition: var(--transition);
+    transform-style: preserve-3d;
+    transition: transform 0.46s cubic-bezier(0.2, 0.85, 0.25, 1),
+                opacity 0.46s ease,
+                box-shadow 0.46s ease,
+                border-color 0.46s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
+    will-change: transform, opacity;
 }
 
 .mvp-carousel-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary-navy);
-    box-shadow: var(--shadow-sm);
+    border-color: var(--accent-blue);
 }
 
 .mvp-carousel-card.active {
     border-color: var(--brand-green);
-    background: #f3f9f4;
-    box-shadow: 0 6px 18px rgba(40, 167, 69, 0.15);
-    transform: translateY(-4px);
+    background: #ffffff;
+    box-shadow: 0 14px 34px rgba(40, 167, 69, 0.2), 0 0 0 1px var(--brand-green);
 }
 
 .mvp-carousel-card.active::before {
@@ -1830,6 +1833,34 @@ a:hover {
     height: 3px;
     background: var(--brand-green);
     border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+}
+
+/* 3D Indicator Dots */
+.mvp-3d-dots,
+.interns-3d-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.carousel-dot:hover {
+    background: #94a3b8;
+}
+
+.carousel-dot.active {
+    width: 28px;
+    background: var(--primary-navy);
 }
 
 .mvp-thumb-top {
@@ -2118,25 +2149,59 @@ a:hover {
     box-sizing: border-box;
 }
 
-.interns-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 26px;
+/* Interns 3D Perspective Rotary Showcase */
+.interns-3d-wrapper {
+    position: relative;
+    margin: 18px auto 0;
+    max-width: 960px;
 }
 
-.intern-card {
+.interns-3d-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 0 4px;
+}
+
+.interns-3d-stage {
+    position: relative;
+    width: 100%;
+    height: 310px;
+    perspective: 1100px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    user-select: none;
+    padding: 10px 0;
+}
+
+.intern-3d-card {
+    position: absolute;
+    width: 235px;
+    height: 275px;
+    top: 50%;
+    left: 50%;
+    margin-top: -137.5px;
+    margin-left: -117.5px;
     background: #ffffff;
     border-radius: var(--border-radius-md);
-    overflow: hidden;
     border: 2px solid #e3f2fd;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    position: relative;
+    padding: 24px 18px 18px;
     text-align: center;
-    padding: 30px 20px 24px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.48s cubic-bezier(0.2, 0.85, 0.25, 1),
+                opacity 0.48s ease,
+                box-shadow 0.48s ease,
+                border-color 0.48s ease;
+    will-change: transform, opacity;
 }
 
-.intern-card::before {
+.intern-3d-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2144,12 +2209,27 @@ a:hover {
     right: 0;
     height: 4px;
     background: var(--gradient-blue);
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
 }
 
-.intern-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(13, 110, 253, 0.15);
+.intern-3d-card:hover {
     border-color: var(--accent-blue);
+}
+
+.intern-3d-card.active {
+    border-color: var(--accent-blue);
+    box-shadow: 0 16px 36px rgba(13, 110, 253, 0.22), 0 0 0 1px var(--accent-blue);
+}
+
+.intern-badge-verified {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--brand-green);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 
 .intern-batch-pill {
@@ -3542,9 +3622,14 @@ a:hover {
         align-items: center;
         justify-content: space-between;
     }
+    .mvp-3d-stage {
+        height: 185px;
+    }
     .mvp-carousel-card {
-        flex: 0 0 215px;
-        padding: 14px 12px;
+        width: 195px;
+        height: 155px;
+        margin-top: -77.5px;
+        margin-left: -97.5px;
     }
 
     /* Wall of Glory & Interns */
@@ -3556,12 +3641,15 @@ a:hover {
     .alumni-card-body {
         padding: 22px 18px;
     }
-    .interns-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+    .interns-3d-stage {
+        height: 290px;
     }
-    .intern-card {
-        padding: 22px 14px 18px;
+    .intern-3d-card {
+        width: 210px;
+        height: 260px;
+        margin-top: -130px;
+        margin-left: -105px;
+        padding: 18px 14px 14px;
     }
 
     /* FAQ */

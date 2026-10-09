@@ -505,23 +505,23 @@
                     </div>
                 </div>
 
-                <!-- Bottom Horizontal Carousel Controls & Rail -->
+                <!-- Bottom 3D Rotary Showcase Controls & Stage -->
                 <div class="mvp-carousel-wrapper">
                     <div class="mvp-carousel-header">
                         <span class="carousel-count-text">
-                            <i class="bi bi-collection-play-fill text-primary-brand"></i> Select an MVP to Explore Details (8 Live Applications)
+                            <i class="bi bi-collection-play-fill text-primary-brand"></i> 3D Perspective Showcase (8 Live Applications • Click Card to Rotate)
                         </span>
                         <div class="carousel-nav-arrows">
-                            <button class="carousel-arrow-btn" onclick="scrollMvpCarousel(-1)" aria-label="Previous MVP">
+                            <button class="carousel-arrow-btn" onclick="rotateMvp3D(-1)" aria-label="Previous MVP">
                                 <i class="bi bi-chevron-left"></i>
                             </button>
-                            <button class="carousel-arrow-btn" onclick="scrollMvpCarousel(1)" aria-label="Next MVP">
+                            <button class="carousel-arrow-btn" onclick="rotateMvp3D(1)" aria-label="Next MVP">
                                 <i class="bi bi-chevron-right"></i>
                             </button>
                         </div>
                     </div>
 
-                    <div class="mvp-carousel-rail" id="mvp-carousel-rail">
+                    <div class="mvp-3d-stage" id="mvp-carousel-rail">
                         <!-- MVP 0: CAREHO -->
                         <div class="mvp-carousel-card active" onclick="selectMvp(0)" data-index="0">
                             <div class="mvp-thumb-top">
@@ -641,6 +641,18 @@
                                 <i class="bi bi-patch-check-fill"></i> Built by Interns
                             </div>
                         </div>
+                    </div>
+
+                    <!-- 3D Pagination Indicators -->
+                    <div class="mvp-3d-dots" id="mvp-3d-dots">
+                        <span class="carousel-dot active" onclick="selectMvp(0)"></span>
+                        <span class="carousel-dot" onclick="selectMvp(1)"></span>
+                        <span class="carousel-dot" onclick="selectMvp(2)"></span>
+                        <span class="carousel-dot" onclick="selectMvp(3)"></span>
+                        <span class="carousel-dot" onclick="selectMvp(4)"></span>
+                        <span class="carousel-dot" onclick="selectMvp(5)"></span>
+                        <span class="carousel-dot" onclick="selectMvp(6)"></span>
+                        <span class="carousel-dot" onclick="selectMvp(7)"></span>
                     </div>
                 </div>
             </div>
@@ -776,61 +788,103 @@
             </div>
         </section>
 
-        <!-- Our Interns Section -->
+        <!-- Our Interns Section (3D Perspective Rotary Showcase) -->
         <section class="interns-section transition-deck-lift" id="interns">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title title-primary">Our Interns</h2>
-                    <p class="section-subtitle">Meet the talented interns who are building their careers at Intelligement</p>
+                    <span class="curriculum-eyebrow"><i class="bi bi-people-fill"></i> TALENT SPOTLIGHT</span>
+                    <h2 class="section-title title-primary">Our Interns in 3D Spotlight</h2>
+                    <p class="section-subtitle">Meet the talented software engineering interns who build and deploy production software at Intelligement. (Click cards to spotlight)</p>
                 </div>
 
-                <div class="interns-grid">
-                    <!-- Intern Card 1 -->
-                    <div class="intern-card">
-                        <span class="intern-batch-pill">2026-A</span>
-                        <div class="intern-avatar-wrapper">
-                            <img src="images/1dd932e7-c2ff-4e0c-843a-6a110083e9f7.jpeg" alt="Danial Ahmed" class="intern-avatar">
+                <div class="interns-3d-wrapper">
+                    <div class="interns-3d-header">
+                        <span class="carousel-count-text">
+                            <i class="bi bi-mortarboard-fill text-primary-brand"></i> Verified Cohort Interns (Batch 2026-A &amp; Alumni)
+                        </span>
+                        <div class="carousel-nav-arrows">
+                            <button class="carousel-arrow-btn" onclick="rotateInterns3D(-1)" aria-label="Previous Intern">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="carousel-arrow-btn" onclick="rotateInterns3D(1)" aria-label="Next Intern">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
                         </div>
-                        <h3 class="intern-name">Danial Ahmed</h3>
-                        <p class="intern-role">Intern @ Intelligement</p>
-                        <span class="course-badge">Web Development</span>
                     </div>
 
-                    <!-- Intern Card 2 -->
-                    <div class="intern-card">
-                        <span class="intern-batch-pill">2026-A</span>
-                        <div class="intern-avatar-wrapper">
-                            <img src="images/e700c62e-678e-4937-b135-961cc3cfcf6f.jpeg" alt="Fatima Zahra" class="intern-avatar">
+                    <div class="interns-3d-stage" id="interns-3d-stage">
+                        <!-- Intern 0 -->
+                        <div class="intern-3d-card active" onclick="selectIntern3D(0)" data-index="0">
+                            <span class="intern-batch-pill">2026-A</span>
+                            <div class="intern-avatar-wrapper">
+                                <img src="images/1dd932e7-c2ff-4e0c-843a-6a110083e9f7.jpeg" alt="Danial Ahmed" class="intern-avatar">
+                            </div>
+                            <h3 class="intern-name">Danial Ahmed</h3>
+                            <p class="intern-role">Fullstack Engineer @ Intelligement</p>
+                            <span class="course-badge">Web Development</span>
+                            <div class="intern-badge-verified"><i class="bi bi-patch-check-fill text-success-brand"></i> Verified Contributor</div>
                         </div>
-                        <h3 class="intern-name">Fatima Zahra</h3>
-                        <p class="intern-role">Intern @ Intelligement</p>
-                        <span class="course-badge">Web Development</span>
+
+                        <!-- Intern 1 -->
+                        <div class="intern-3d-card" onclick="selectIntern3D(1)" data-index="1">
+                            <span class="intern-batch-pill">2026-A</span>
+                            <div class="intern-avatar-wrapper">
+                                <img src="images/e700c62e-678e-4937-b135-961cc3cfcf6f.jpeg" alt="Fatima Zahra" class="intern-avatar">
+                            </div>
+                            <h3 class="intern-name">Fatima Zahra</h3>
+                            <p class="intern-role">Frontend &amp; UI Architecture</p>
+                            <span class="course-badge">Web Development</span>
+                            <div class="intern-badge-verified"><i class="bi bi-patch-check-fill text-success-brand"></i> Verified Contributor</div>
+                        </div>
+
+                        <!-- Intern 2 -->
+                        <div class="intern-3d-card" onclick="selectIntern3D(2)" data-index="2">
+                            <span class="intern-batch-pill">2026-A</span>
+                            <div class="intern-avatar-wrapper">
+                                <img src="images/d586bf83-a489-4285-94dd-3e2f0e0e5df0.jpeg" alt="Bilal Mehmood" class="intern-avatar">
+                            </div>
+                            <h3 class="intern-name">Bilal Mehmood</h3>
+                            <p class="intern-role">Backend &amp; Cloud APIs</p>
+                            <span class="course-badge">Fullstack Dev</span>
+                            <div class="intern-badge-verified"><i class="bi bi-patch-check-fill text-success-brand"></i> Verified Contributor</div>
+                        </div>
+
+                        <!-- Intern 3 -->
+                        <div class="intern-3d-card" onclick="selectIntern3D(3)" data-index="3">
+                            <span class="intern-batch-pill">2026-A</span>
+                            <div class="intern-avatar-wrapper">
+                                <img src="images/eb940ea1-c990-4071-b6f6-ac0078a9bec1.jpeg" alt="Zainab Noor" class="intern-avatar">
+                            </div>
+                            <h3 class="intern-name">Zainab Noor</h3>
+                            <p class="intern-role">Fullstack &amp; AI Integration</p>
+                            <span class="course-badge">AI Automation</span>
+                            <div class="intern-badge-verified"><i class="bi bi-patch-check-fill text-success-brand"></i> Verified Contributor</div>
+                        </div>
+
+                        <!-- Intern 4 -->
+                        <div class="intern-3d-card" onclick="selectIntern3D(4)" data-index="4">
+                            <span class="intern-batch-pill">2025-B</span>
+                            <div class="intern-avatar-wrapper">
+                                <img src="images/8070c27e-2468-4149-9ebd-e3c2f182c9dd.jpeg" alt="Saad Hassan" class="intern-avatar">
+                            </div>
+                            <h3 class="intern-name">Saad Hassan</h3>
+                            <p class="intern-role">Software Engineer @ TechVentures</p>
+                            <span class="course-badge">Cloud Architecture</span>
+                            <div class="intern-badge-verified"><i class="bi bi-patch-check-fill text-success-brand"></i> Verified Alumni</div>
+                        </div>
                     </div>
 
-                    <!-- Intern Card 3 -->
-                    <div class="intern-card">
-                        <span class="intern-batch-pill">2026-A</span>
-                        <div class="intern-avatar-wrapper">
-                            <img src="images/d586bf83-a489-4285-94dd-3e2f0e0e5df0.jpeg" alt="Bilal Mehmood" class="intern-avatar">
-                        </div>
-                        <h3 class="intern-name">Bilal Mehmood</h3>
-                        <p class="intern-role">Intern @ Intelligement</p>
-                        <span class="course-badge">Web Development</span>
-                    </div>
-
-                    <!-- Intern Card 4 -->
-                    <div class="intern-card">
-                        <span class="intern-batch-pill">2026-A</span>
-                        <div class="intern-avatar-wrapper">
-                            <img src="images/eb940ea1-c990-4071-b6f6-ac0078a9bec1.jpeg" alt="Zainab Noor" class="intern-avatar">
-                        </div>
-                        <h3 class="intern-name">Zainab Noor</h3>
-                        <p class="intern-role">Intern @ Intelligement</p>
-                        <span class="course-badge">Web Development</span>
+                    <!-- 3D Pagination Indicators -->
+                    <div class="interns-3d-dots" id="interns-3d-dots">
+                        <span class="carousel-dot active" onclick="selectIntern3D(0)"></span>
+                        <span class="carousel-dot" onclick="selectIntern3D(1)"></span>
+                        <span class="carousel-dot" onclick="selectIntern3D(2)"></span>
+                        <span class="carousel-dot" onclick="selectIntern3D(3)"></span>
+                        <span class="carousel-dot" onclick="selectIntern3D(4)"></span>
                     </div>
                 </div>
 
-                <div style="text-align: center; margin-top: 45px;">
+                <div style="text-align: center; margin-top: 36px;">
                     <button class="btn btn-primary btn-lg" onclick="alert('View All Interns loads the full roster of verified candidates.')">
                         <i class="bi bi-mortarboard-fill me-1"></i> View All Interns
                     </button>
@@ -1785,8 +1839,82 @@
             }
         ];
 
+        // =====================================================================
+        // 3D PERSPECTIVE CAROUSEL CONTROLLER (MVP SHOWCASE & INTERNS)
+        // =====================================================================
+        let currentMvpIndex = 0;
+        let currentInternIndex = 0;
+
+        function update3DStage(stageSelector, activeIndex) {
+            const stage = document.querySelector(stageSelector);
+            if (!stage) return;
+            const cards = Array.from(stage.children);
+            const total = cards.length;
+            if (total === 0) return;
+
+            const isSmall = window.innerWidth < 768;
+            const isMid = window.innerWidth < 1100;
+            const spanX = isSmall ? 140 : (isMid ? 190 : 230);
+            const spanZ = isSmall ? 35 : 55;
+
+            cards.forEach((card, idx) => {
+                let diff = idx - activeIndex;
+                while (diff > total / 2) diff -= total;
+                while (diff < -total / 2) diff += total;
+
+                card.classList.toggle('active', diff === 0);
+
+                if (diff === 0) {
+                    card.style.transform = `translate3d(0, 0, ${spanZ}px) scale(1.06) rotateY(0deg)`;
+                    card.style.opacity = '1';
+                    card.style.zIndex = '10';
+                    card.style.pointerEvents = 'auto';
+                    card.style.filter = 'none';
+                } else if (diff === 1) {
+                    card.style.transform = `translate3d(${spanX}px, 0, -40px) scale(0.88) rotateY(-24deg)`;
+                    card.style.opacity = '0.78';
+                    card.style.zIndex = '7';
+                    card.style.pointerEvents = 'auto';
+                    card.style.filter = 'brightness(0.96)';
+                } else if (diff === -1) {
+                    card.style.transform = `translate3d(-${spanX}px, 0, -40px) scale(0.88) rotateY(24deg)`;
+                    card.style.opacity = '0.78';
+                    card.style.zIndex = '7';
+                    card.style.pointerEvents = 'auto';
+                    card.style.filter = 'brightness(0.96)';
+                } else if (diff === 2) {
+                    card.style.transform = `translate3d(${Math.round(spanX * 1.75)}px, 0, -120px) scale(0.74) rotateY(-36deg)`;
+                    card.style.opacity = '0.42';
+                    card.style.zIndex = '4';
+                    card.style.pointerEvents = 'auto';
+                    card.style.filter = 'blur(0.5px)';
+                } else if (diff === -2) {
+                    card.style.transform = `translate3d(-${Math.round(spanX * 1.75)}px, 0, -120px) scale(0.74) rotateY(36deg)`;
+                    card.style.opacity = '0.42';
+                    card.style.zIndex = '4';
+                    card.style.pointerEvents = 'auto';
+                    card.style.filter = 'blur(0.5px)';
+                } else {
+                    const dir = diff > 0 ? 1 : -1;
+                    card.style.transform = `translate3d(${dir * Math.round(spanX * 2.2)}px, 0, -200px) scale(0.6) rotateY(${-dir * 50}deg)`;
+                    card.style.opacity = '0';
+                    card.style.zIndex = '1';
+                    card.style.pointerEvents = 'none';
+                    card.style.filter = 'none';
+                }
+            });
+        }
+
         function selectMvp(index) {
-            const data = mvpData[index];
+            currentMvpIndex = (index + mvpData.length) % mvpData.length;
+            update3DStage('#mvp-carousel-rail', currentMvpIndex);
+
+            // Update dots
+            const dots = document.querySelectorAll('#mvp-3d-dots .carousel-dot');
+            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentMvpIndex));
+
+            // Update Master Stage
+            const data = mvpData[currentMvpIndex];
             if (!data) return;
 
             const stage = document.getElementById('mvp-master-stage');
@@ -1822,29 +1950,58 @@
                     ).join('');
                 }
 
-                // Update active state in carousel rail
-                document.querySelectorAll('.mvp-carousel-card').forEach((card, idx) => {
-                    if (idx === index) {
-                        card.classList.add('active');
-                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                    } else {
-                        card.classList.remove('active');
-                    }
-                });
-
                 if (stage) {
                     stage.style.opacity = '1';
                     stage.style.transform = 'translateY(0)';
                 }
-            }, 120);
+            }, 100);
+        }
+
+        function rotateMvp3D(dir) {
+            selectMvp(currentMvpIndex + dir);
         }
 
         function scrollMvpCarousel(direction) {
-            const rail = document.getElementById('mvp-carousel-rail');
-            if (rail) {
-                const scrollAmount = 260 * direction;
-                rail.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            }
+            rotateMvp3D(direction);
+        }
+
+        function selectIntern3D(index) {
+            const stage = document.getElementById('interns-3d-stage');
+            const total = stage ? stage.children.length : 5;
+            currentInternIndex = (index + total) % total;
+            update3DStage('#interns-3d-stage', currentInternIndex);
+
+            const dots = document.querySelectorAll('#interns-3d-dots .carousel-dot');
+            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentInternIndex));
+        }
+
+        function rotateInterns3D(dir) {
+            selectIntern3D(currentInternIndex + dir);
+        }
+
+        // Touch & mouse swipe helper
+        function attachSwipe3D(elementId, rotateFunc) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            let startX = 0, isDragging = false;
+
+            el.addEventListener('mousedown', (e) => {
+                startX = e.clientX;
+                isDragging = true;
+            });
+            el.addEventListener('mouseup', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                const delta = e.clientX - startX;
+                if (Math.abs(delta) > 35) rotateFunc(delta > 0 ? -1 : 1);
+            });
+            el.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+            el.addEventListener('touchend', (e) => {
+                const delta = e.changedTouches[0].clientX - startX;
+                if (Math.abs(delta) > 35) rotateFunc(delta > 0 ? -1 : 1);
+            }, { passive: true });
         }
 
         // ===================================================================
@@ -1900,6 +2057,16 @@
                 phaseCards.forEach(card => phaseObserver.observe(card));
                 syncPipelineGlow(0);
             }
+
+            // Initialize 3D Rotary Stages (MVP Showcase & Interns)
+            selectMvp(0);
+            selectIntern3D(0);
+            attachSwipe3D('mvp-carousel-rail', rotateMvp3D);
+            attachSwipe3D('interns-3d-stage', rotateInterns3D);
+            window.addEventListener('resize', () => {
+                update3DStage('#mvp-carousel-rail', currentMvpIndex);
+                update3DStage('#interns-3d-stage', currentInternIndex);
+            }, { passive: true });
 
             // ===================================================================
             // ===================================================================
