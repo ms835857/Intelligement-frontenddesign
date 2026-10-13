@@ -6,7 +6,7 @@
     <title>Intelligement - Tech Training & Career Launchpad (Design Prototype)</title>
     <meta name="description" content="Intelligement provides industry-focused tech training for university students in Pakistan. Fullstack Web Development & AI Automation.">
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=decklift2">
 </head>
 <body>
 
@@ -387,7 +387,7 @@
         <!-- ===============================================================
              P2: 4-STEP STUDENT JOURNEY ("HOW IT WORKS")
              =============================================================== -->
-        <section class="journey-section transition-slide-right" id="journey">
+        <section class="journey-section transition-deck-lift" id="journey">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title title-success">Your 4-Step Journey<br>From Student to Hired Engineer</h2>
@@ -659,7 +659,7 @@
         </section>
 
         <!-- Brands Collaboration Section -->
-        <section class="brands-section transition-slide-left" id="brands">
+        <section class="brands-section transition-deck-lift" id="brands">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title title-primary">Collaborations<br>With Leading Brands</h2>
@@ -895,7 +895,7 @@
         <!-- ===============================================================
              P2: FREQUENTLY ASKED QUESTIONS (ACCORDION)
              =============================================================== -->
-        <section class="faq-section transition-slide-right" id="faq">
+        <section class="faq-section transition-deck-lift" id="faq">
             <div class="container faq-container">
                 <div class="section-header">
                     <h2 class="section-title title-primary">Frequently Asked Questions</h2>
@@ -2068,95 +2068,6 @@
                 update3DStage('#interns-3d-stage', currentInternIndex);
             }, { passive: true });
 
-            // ===================================================================
-            // ===================================================================
-            // SCROLL-LINKED LATERAL SLIDE SCRUBBER (SMOOTH RAF CONTROLLER - ZERO SHAKE)
-            // Caches geometry to eliminate layout thrashing, operates on pure translateX
-            // without translateY compositor fighting, and interpolates in RAF for 60fps/120fps glide.
-            // ===================================================================
-            const lateralSlideRightSections = document.querySelectorAll('.transition-slide-right');
-            const lateralSlideLeftSections = document.querySelectorAll('.transition-slide-left');
-
-            let sectionMetrics = [];
-            function measureSections() {
-                sectionMetrics = [];
-                const vh = window.innerHeight;
-                const dockY = 72;
-
-                lateralSlideRightSections.forEach(sec => {
-                    let docTop = 0, cur = sec;
-                    while (cur) { docTop += cur.offsetTop; cur = cur.offsetParent; }
-                    sectionMetrics.push({
-                        el: sec,
-                        type: 'right',
-                        enterY: docTop - vh,
-                        dockY: docTop - dockY
-                    });
-                });
-
-                lateralSlideLeftSections.forEach(sec => {
-                    let docTop = 0, cur = sec;
-                    while (cur) { docTop += cur.offsetTop; cur = cur.offsetParent; }
-                    sectionMetrics.push({
-                        el: sec,
-                        type: 'left',
-                        enterY: docTop - vh,
-                        dockY: docTop - dockY
-                    });
-                });
-            }
-
-            measureSections();
-            window.addEventListener('resize', measureSections, { passive: true });
-
-            let targetScrollY = window.scrollY;
-            let currentScrollY = window.scrollY;
-            let isTicking = false;
-
-            function updateLateralTransitions() {
-                currentScrollY += (targetScrollY - currentScrollY) * 0.22;
-                if (Math.abs(targetScrollY - currentScrollY) < 0.2) {
-                    currentScrollY = targetScrollY;
-                }
-
-                sectionMetrics.forEach(item => {
-                    const dist = item.dockY - item.enterY;
-                    if (dist <= 0) return;
-
-                    if (currentScrollY >= item.dockY) {
-                        item.el.style.transform = 'translate3d(0%, 0, 0)';
-                    } else if (currentScrollY <= item.enterY) {
-                        item.el.style.transform = item.type === 'right' ? 'translate3d(100%, 0, 0)' : 'translate3d(-100%, 0, 0)';
-                    } else {
-                        const progress = (currentScrollY - item.enterY) / dist;
-                        const clamped = Math.max(0, Math.min(1, progress));
-                        if (item.type === 'right') {
-                            const translateX = (1 - clamped) * 100;
-                            item.el.style.transform = `translate3d(${translateX.toFixed(2)}%, 0, 0)`;
-                        } else {
-                            const translateX = -(1 - clamped) * 100;
-                            item.el.style.transform = `translate3d(${translateX.toFixed(2)}%, 0, 0)`;
-                        }
-                    }
-                });
-
-                if (currentScrollY !== targetScrollY) {
-                    requestAnimationFrame(updateLateralTransitions);
-                } else {
-                    isTicking = false;
-                }
-            }
-
-            function onScroll() {
-                targetScrollY = window.scrollY;
-                if (!isTicking) {
-                    isTicking = true;
-                    requestAnimationFrame(updateLateralTransitions);
-                }
-            }
-
-            window.addEventListener('scroll', onScroll, { passive: true });
-            onScroll();
         });
     </script>
 </body>
