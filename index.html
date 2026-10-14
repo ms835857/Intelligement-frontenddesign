@@ -6,41 +6,59 @@
     <title>Intelligement - Tech Training & Career Launchpad (Design Prototype)</title>
     <meta name="description" content="Intelligement provides industry-focused tech training for university students in Pakistan. Fullstack Web Development & AI Automation.">
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css?v=decklift2">
+    <link rel="stylesheet" href="style.css?v=triisland1">
 </head>
 <body>
 
     <!-- Main Navigation Bar -->
     <header class="main-navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#home" class="brand-logo-link" onclick="switchView('landing')">
-                <img src="logos/Intelligement.png" alt="Intelligement Logo" class="brand-logo-img">
-            </a>
+            <!-- Left Island: Brand Logo (Emblem only when scrolled) -->
+            <div class="nav-island nav-island-brand" id="nav-island-brand">
+                <a href="#home" class="brand-logo-link" onclick="navigateToSection('home', event)" title="Intelligement - Home">
+                    <img src="logos/Intelligement.png" alt="Intelligement Logo" class="brand-logo-full">
+                    <img src="logos/logo.png" alt="Intelligement" class="brand-logo-icon">
+                </a>
+            </div>
 
-            <nav class="desktop-nav">
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active" onclick="switchView('landing')">Home</a></li>
-                    <li><a href="#curriculum" class="nav-link" onclick="switchView('landing')">Curriculum</a></li>
-                    <li><a href="#journey" class="nav-link" onclick="switchView('landing')">Journey</a></li>
-                    <li><a href="#mvps" class="nav-link" onclick="switchView('landing')">MVPs</a></li>
-                    <li><a href="#brands" class="nav-link" onclick="switchView('landing')">Brands</a></li>
-                    <li><a href="#success" class="nav-link" onclick="switchView('landing')">Wall of Glory</a></li>
-                    <li><a href="#interns" class="nav-link" onclick="switchView('landing')">Interns</a></li>
-                    <li><a href="#faq" class="nav-link" onclick="switchView('landing')">FAQ</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('contact')" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
+            <!-- Center Island: Dynamic Navigation Capsule -->
+            <div class="nav-island nav-island-nav" id="nav-island-nav">
+                <!-- Compact Active Section Pill -->
+                <div class="nav-capsule-indicator" id="nav-capsule-indicator" onclick="scrollToCurrentSection()" title="Active Section (Click to center)">
+                    <span class="capsule-pulse-dot"></span>
+                    <span class="capsule-section-title" id="capsule-section-title">Home</span>
+                    <i class="bi bi-chevron-down capsule-expand-hint"></i>
+                </div>
 
-            <div class="nav-cta-group">
-                <button class="btn btn-primary nav-btn-apply" onclick="switchView('apply')">
-                    Apply Now
-                </button>
-                <button class="btn btn-danger nav-btn-signin" onclick="alert('Sign In clicked. In production, this initiates Google OAuth.')">
-                    <i class="bi bi-google"></i> Sign In
-                </button>
-                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu" onclick="toggleMobileNav()">
-                    <i class="bi bi-list"></i>
-                </button>
+                <!-- Full Links Menu (visible at top, or on hover while scrolled) -->
+                <nav class="desktop-nav">
+                    <ul class="nav-links">
+                        <li><a href="#home" class="nav-link active" onclick="navigateToSection('home', event)">Home</a></li>
+                        <li><a href="#curriculum" class="nav-link" onclick="navigateToSection('curriculum', event)">Curriculum</a></li>
+                        <li><a href="#journey" class="nav-link" onclick="navigateToSection('journey', event)">Journey</a></li>
+                        <li><a href="#mvps" class="nav-link" onclick="navigateToSection('mvps', event)">MVPs</a></li>
+                        <li><a href="#brands" class="nav-link" onclick="navigateToSection('brands', event)">Brands</a></li>
+                        <li><a href="#success" class="nav-link" onclick="navigateToSection('success', event)">Wall of Glory</a></li>
+                        <li><a href="#interns" class="nav-link" onclick="navigateToSection('interns', event)">Interns</a></li>
+                        <li><a href="#faq" class="nav-link" onclick="navigateToSection('faq', event)">FAQ</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('contact')" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Right Island: Floating Actions Pin (Apply & Sign In) -->
+            <div class="nav-island nav-island-actions" id="nav-island-actions">
+                <div class="nav-cta-group">
+                    <button class="btn btn-primary nav-btn-apply" onclick="switchView('apply')">
+                        Apply Now
+                    </button>
+                    <button class="btn btn-danger nav-btn-signin" onclick="alert('Sign In clicked. In production, this initiates Google OAuth.')">
+                        <i class="bi bi-google"></i> Sign In
+                    </button>
+                    <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu" onclick="toggleMobileNav()">
+                        <i class="bi bi-list"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -1587,18 +1605,93 @@
             document.body.style.overflow = '';
         }
 
+        const trackedSectionIds = [
+            { id: 'home', name: 'Home' },
+            { id: 'metrics', name: 'Cohort Impact' },
+            { id: 'curriculum', name: 'Curriculum Roadmap' },
+            { id: 'journey', name: '4-Step Journey' },
+            { id: 'mvps', name: 'Commercial MVPs' },
+            { id: 'brands', name: 'Brand Collaborations' },
+            { id: 'success', name: 'Wall of Glory' },
+            { id: 'interns', name: 'Our Interns 3D' },
+            { id: 'faq', name: 'Frequently Asked Questions' }
+        ];
+
+        function navigateToSection(sectionId, e) {
+            if (e) e.preventDefault();
+            closeMobileNav();
+
+            const landingView = document.getElementById('view-landing');
+            const wasHidden = landingView && landingView.style.display === 'none';
+            if (wasHidden) {
+                document.querySelectorAll('.view-panel').forEach(p => p.style.display = 'none');
+                landingView.style.display = 'block';
+            }
+
+            if (sectionId === 'home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                updateActiveNav('home');
+                return;
+            }
+
+            const doScroll = () => {
+                const target = document.getElementById(sectionId);
+                if (!target) return;
+                // In our sticky deck system, each section docks at top: 72px.
+                // Subtracting 72 aligns the section's top edge exactly at the sticky dock line.
+                const navDockOffset = 72;
+                const targetTop = target.getBoundingClientRect().top + window.pageYOffset - navDockOffset;
+                window.scrollTo({
+                    top: Math.max(0, Math.round(targetTop)),
+                    behavior: 'smooth'
+                });
+                updateActiveNav(sectionId);
+            };
+
+            if (wasHidden) {
+                setTimeout(doScroll, 40);
+            } else {
+                doScroll();
+            }
+        }
+
+        function scrollToCurrentSection() {
+            const capsuleTitle = document.getElementById('capsule-section-title');
+            const currentName = capsuleTitle?.textContent;
+            const match = trackedSectionIds.find(item => item.name === currentName);
+            if (match) {
+                navigateToSection(match.id);
+            }
+        }
+
+        function updateActiveNav(activeId) {
+            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === '#' + activeId) {
+                    link.classList.add('active');
+                } else if (href && href.startsWith('#')) {
+                    link.classList.remove('active');
+                }
+            });
+
+            const capsuleTitle = document.getElementById('capsule-section-title');
+            const match = trackedSectionIds.find(item => item.id === activeId);
+            if (capsuleTitle && match) {
+                capsuleTitle.textContent = match.name;
+            }
+        }
+
         function handleMobileNavClick(viewName, hash) {
             closeMobileNav();
-            switchView(viewName);
-            if (hash && viewName === 'landing') {
-                setTimeout(() => {
-                    const el = document.querySelector(hash);
-                    if (el) {
-                        const navHeight = document.getElementById('navbar')?.offsetHeight || 70;
-                        const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                        window.scrollTo({ top, behavior: 'smooth' });
-                    }
-                }, 100);
+            if (viewName === 'contact' || viewName === 'apply') {
+                switchView(viewName);
+                return;
+            }
+            if (hash) {
+                const secId = hash.replace('#', '');
+                navigateToSection(secId);
+            } else {
+                switchView(viewName);
             }
         }
 
@@ -1622,10 +1715,15 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
+            const capsuleTitle = document.getElementById('capsule-section-title');
             if (viewName === 'landing') {
                 document.querySelectorAll('a[href="#home"]').forEach(link => link.classList.add('active'));
+                if (capsuleTitle) capsuleTitle.textContent = 'Home';
             } else if (viewName === 'contact') {
                 document.querySelectorAll('a[onclick*="contact"]').forEach(link => link.classList.add('active'));
+                if (capsuleTitle) capsuleTitle.textContent = 'Contact Us';
+            } else if (viewName === 'apply') {
+                if (capsuleTitle) capsuleTitle.textContent = 'Apply Now';
             }
         }
 
@@ -2067,6 +2165,49 @@
                 update3DStage('#mvp-carousel-rail', currentMvpIndex);
                 update3DStage('#interns-3d-stage', currentInternIndex);
             }, { passive: true });
+
+            // Floating Dynamic Island Navbar scroll tracking
+            let navScrollTicking = false;
+            function onWindowScroll() {
+                if (!navScrollTicking) {
+                    requestAnimationFrame(() => {
+                        const scrollY = window.scrollY;
+                        const navbar = document.getElementById('navbar');
+
+                        if (navbar) {
+                            if (scrollY > 75) {
+                                navbar.classList.add('scrolled-mode');
+                            } else {
+                                navbar.classList.remove('scrolled-mode');
+                            }
+                        }
+
+                        // Track active section on landing view
+                        const landingView = document.getElementById('view-landing');
+                        if (landingView && landingView.style.display !== 'none') {
+                            let currentActive = 'home';
+                            // 100px provides threshold directly below the 72px dock line
+                            const navThreshold = 100;
+                            for (const item of trackedSectionIds) {
+                                const el = document.getElementById(item.id);
+                                if (el) {
+                                    const rect = el.getBoundingClientRect();
+                                    if (rect.top <= navThreshold) {
+                                        currentActive = item.id;
+                                    }
+                                }
+                            }
+                            updateActiveNav(currentActive);
+                        }
+
+                        navScrollTicking = false;
+                    });
+                    navScrollTicking = true;
+                }
+            }
+
+            window.addEventListener('scroll', onWindowScroll, { passive: true });
+            onWindowScroll();
 
         });
     </script>

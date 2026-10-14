@@ -91,6 +91,7 @@ body {
     overflow-x: clip;
     width: 100%;
     position: relative;
+    padding-top: 68px;
 }
 
 img {
@@ -114,16 +115,270 @@ a:hover {
     color: #0056b3;
 }
 
-/* Primary Sticky Header */
+/* Primary Sticky Header & Tri-Island Floating Navigation System */
 .main-navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    background: #ffffff;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+    box-shadow: 0 1px 8px rgba(15, 43, 79, 0.04);
     padding: 12px 0;
-    transition: var(--transition);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
+}
+
+.main-navbar .nav-container {
+    max-width: 1360px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 3vw, 28px);
+}
+
+/* Three Island Groups */
+.nav-island {
+    display: flex;
+    align-items: center;
+    transition: all 0.35s cubic-bezier(0.2, 0.85, 0.25, 1);
+}
+
+.nav-island-brand {
+    flex-shrink: 0;
+}
+
+.brand-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.brand-logo-full {
+    height: 34px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.brand-logo-icon {
+    display: none;
+    height: 28px;
+    width: 28px;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+/* Center Navigation Island */
+.nav-island-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.nav-capsule-indicator {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: transparent;
+    border-radius: 9999px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.nav-capsule-indicator:hover {
+    color: var(--accent-blue);
+}
+
+.capsule-pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--brand-green);
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.6);
+    animation: capsulePulse 2.2s infinite cubic-bezier(0.66, 0, 0, 1);
+    flex-shrink: 0;
+}
+
+@keyframes capsulePulse {
+    0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.6); }
+    70% { box-shadow: 0 0 0 6px rgba(40, 167, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
+
+.capsule-section-title {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    letter-spacing: 0.15px;
+}
+
+.capsule-expand-hint {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    transition: transform 0.25s ease;
+    margin-left: 2px;
+}
+
+/* Right Island: Actions */
+.nav-island-actions {
+    flex-shrink: 0;
+}
+
+.nav-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-cta-group .btn {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    border-radius: var(--border-radius-sm);
+    transition: all 0.25s ease;
+}
+
+/* --- SCROLLED / TRI-ISLAND FLOATING MODE (DESKTOP) --- */
+@media (min-width: 992px) {
+    /* Main navbar container becomes transparent background when scrolled */
+    .main-navbar.scrolled-mode {
+        background: transparent;
+        border-bottom-color: transparent;
+        box-shadow: none;
+        pointer-events: none; /* Allows clicks to pass through empty regions between islands */
+        padding: 0;
+    }
+
+    /* All 3 islands float as gentle frosted glass pins */
+    .main-navbar.scrolled-mode .nav-island {
+        pointer-events: auto;
+        position: fixed;
+        top: 14px;
+        background: rgba(255, 255, 255, 0.84);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(226, 232, 240, 0.85);
+        box-shadow: 0 4px 18px rgba(15, 43, 79, 0.07), 0 1px 3px rgba(0, 0, 0, 0.02);
+        border-radius: 9999px;
+        z-index: 1001;
+    }
+
+    /* 1. Left Floating Logo Pin */
+    .main-navbar.scrolled-mode .nav-island-brand {
+        left: clamp(20px, 3.5vw, 42px);
+        padding: 7px 11px;
+    }
+
+    /* Full name disappears, only colorful lines emblem remains */
+    .main-navbar.scrolled-mode .brand-logo-full {
+        display: none;
+    }
+
+    .main-navbar.scrolled-mode .brand-logo-icon {
+        display: block;
+        height: 26px;
+        width: 26px;
+    }
+
+    .main-navbar.scrolled-mode .nav-island-brand:hover {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 6px 20px rgba(15, 43, 79, 0.12);
+        transform: translateY(-1px);
+    }
+
+    /* 2. Center Floating Navigation Capsule */
+    .main-navbar.scrolled-mode .nav-island-nav {
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 14px;
+        min-width: 200px;
+        max-width: 380px;
+        transition: max-width 0.38s cubic-bezier(0.2, 0.85, 0.25, 1),
+                    padding 0.3s ease,
+                    background 0.3s ease,
+                    box-shadow 0.3s ease;
+    }
+
+    .main-navbar.scrolled-mode .nav-island-nav .nav-capsule-indicator {
+        display: inline-flex;
+    }
+
+    .main-navbar.scrolled-mode .nav-island-nav .desktop-nav {
+        display: none;
+    }
+
+    /* Center Capsule: Hover Expansion to full menu */
+    .main-navbar.scrolled-mode .nav-island-nav:hover {
+        max-width: 960px;
+        width: max-content;
+        padding: 6px 20px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 8px 28px rgba(15, 43, 79, 0.14);
+    }
+
+    .main-navbar.scrolled-mode .nav-island-nav:hover .nav-capsule-indicator {
+        display: none;
+    }
+
+    .main-navbar.scrolled-mode .nav-island-nav:hover .desktop-nav {
+        display: flex;
+        animation: navFadeIn 0.22s ease forwards;
+    }
+
+    /* 3. Right Floating Actions Pin (Apply & Sign In) */
+    .main-navbar.scrolled-mode .nav-island-actions {
+        right: clamp(20px, 3.5vw, 42px);
+        padding: 5px 7px;
+    }
+
+    .main-navbar.scrolled-mode .nav-island-actions .btn {
+        padding: 6px 14px;
+        font-size: 0.81rem;
+        border-radius: 9999px;
+    }
+}
+
+@media (max-width: 991px) {
+    .main-navbar.scrolled-mode {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(14px);
+        padding: 8px 0;
+        box-shadow: 0 4px 18px rgba(15, 43, 79, 0.08);
+    }
+    .main-navbar.scrolled-mode .brand-logo-full {
+        display: none;
+    }
+    .main-navbar.scrolled-mode .brand-logo-icon {
+        display: block;
+        height: 28px;
+        width: 28px;
+    }
+}
+
+@keyframes navFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container {
